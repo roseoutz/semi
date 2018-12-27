@@ -11,13 +11,18 @@
 		<result property="review_post_no" column="review_post_no"/>
 	</resultMap>
 	
+	<!-- 리뷰 SELECT -->
+	<select id="selectReview" parameterClass="review">
+		SELECT * FROM KH_REVIEW;
+	</select>
 	
-	<!-- 리뷰 insert -->
+	<!-- 리뷰 작성 -->
 	<insert id="insertReview" parameterClass="review">
 		INSERT INTO KH_REVIEW(REVIEW_NO,REVIEW_WRITER,REVIEW_CONTENT,REVIEW_DATE,REVIEW_POST_NO)
 		VALUES (KH_REVIEW_SEQ.NEXTVAL,#review_writer#,#review_content#,#review_date#,#review_post_no#)
 	</insert>
 	
+	<!-- 리부 삭제 -->
 	<delete id="deleteReview" parameterClass="review">
 		DELETE FROM KH_REVIEW
 		WHERE REVIEW_NO = #review_no#
