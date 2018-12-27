@@ -8,20 +8,20 @@
 		<h1 class="skip">고객센터 메뉴</h1>
 			<section class="secLnb">
 				<h1>
-					<span class="skip">고객센터 메뉴 - </span><a class="lnbTit" href="/help/">고객센터</a>
+					<span class="skip">고객센터 메뉴 - </span><a class="lnbTit">고객센터</a>
 				</h1>
 				<div class="lnbGroup">
 					<ul>
 						<li><a href="#">FAQ</a>
 							<ul class="lnbTwoDep">
-								<li><a href="http://127.0.0.1:8080/testwebb/qna.tiles" class="">1:1 문의하기</a></li>
-								<li><a href="http://127.0.0.1:8080/testwebb/simpleqna.tiles" class="">자주 묻는 질문</a></li>
+								<li><a href="qna.tiles" class="">1:1 문의하기</a></li>
+								<li><a href="simpleqna.tiles" class="">자주 묻는 질문</a></li>
 							</ul></li>
 					</ul>
 				</div>
 				<div class="lnbGroup">
 					<ul>
-						<li><a href="#" class="">공지사항</a></li>
+						<li><a href="notice.tiles" class="">공지사항</a></li>
 					</ul>
 				</div>
 				<div class="lnbGroup">

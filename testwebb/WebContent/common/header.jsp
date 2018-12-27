@@ -43,10 +43,10 @@
 						<nav>
 						<ul>
 							<!-- 채용정보 -->
-							<li><a href="http://127.0.0.1:8080/testwebb/hireinfo.tiles" style="font:bold 20px Dotum;">채용정보</a></li>
-							<li><a href="" style="font:bold 20px Dotum;">TOP100</a></li>
-							<li><a href="http://127.0.0.1:8080/testwebb/simpleqna.tiles" style="font:bold 20px Dotum;">고객센터</a></li>
-							<li><a href="http://127.0.0.1:8080/testwebb/mypage.tiles" style="font:bold 20px Dotum;">마이페이지</a></li>
+							<li><a href="hireinfo.tiles" style="font:bold 20px Dotum;">채용정보</a></li>
+							<li><a href="top100.tiles" style="font:bold 20px Dotum;">TOP100</a></li>
+							<li><a href="simpleqna.tiles" style="font:bold 20px Dotum;">고객센터</a></li>
+							<li><a href="mypage.tiles" style="font:bold 20px Dotum;">마이페이지</a></li>
 						</ul>
 						<!-- my 홈일경우 클래스 myPage -->
 						</nav>

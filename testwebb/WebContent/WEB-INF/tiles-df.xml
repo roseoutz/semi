@@ -13,12 +13,44 @@
 		<put-attribute name="body" value="/simpleqna/simpleqna.jsp"/>
 	</definition>
 	
+	<definition name="corpsimpleqna" template="/layout.jsp">
+		<put-attribute name="repo" value="/simpleqna/simpleqna_repo.jsp"/>
+		<put-attribute name="headerrepo" value="/common/header_repo.jsp"/>
+		<put-attribute name="header" value="/common/header_corp.jsp"/>
+		<put-attribute name="footer" value="/common/footer.jsp"/>
+		<put-attribute name="body" value="/simpleqna/simpleqna.jsp"/>
+	</definition>
+	
 	<definition name="notice" template="/layout.jsp">
 		<put-attribute name="repo" value="/notice/notice_repo.jsp"/>
 		<put-attribute name="headerrepo" value="/common/header_repo.jsp"/>
 		<put-attribute name="header" value="/common/header.jsp"/>
 		<put-attribute name="footer" value="/common/footer.jsp"/>
 		<put-attribute name="body" value="/notice/notice.jsp"/>
+	</definition>
+
+	<definition name="corpnotice" template="/layout.jsp">
+		<put-attribute name="repo" value="/notice/notice_repo.jsp"/>
+		<put-attribute name="headerrepo" value="/common/header_repo.jsp"/>
+		<put-attribute name="header" value="/common/header_corp.jsp"/>
+		<put-attribute name="footer" value="/common/footer.jsp"/>
+		<put-attribute name="body" value="/notice/notice.jsp"/>
+	</definition>
+
+	<definition name="qna" template="/layout.jsp">
+		<put-attribute name="repo" value="/qna/qna_repo.jsp"/>
+		<put-attribute name="headerrepo" value="/common/header_repo.jsp"/>
+		<put-attribute name="header" value="/common/header.jsp"/>
+		<put-attribute name="footer" value="/common/footer.jsp"/>
+		<put-attribute name="body" value="/qna/qna.jsp"/>
+	</definition>
+
+	<definition name="corpqna" template="/layout.jsp">
+		<put-attribute name="repo" value="/qna/qna_repo.jsp"/>
+		<put-attribute name="headerrepo" value="/common/header_repo.jsp"/>
+		<put-attribute name="header" value="/common/header_corp.jsp"/>
+		<put-attribute name="footer" value="/common/footer.jsp"/>
+		<put-attribute name="body" value="/qna/qna.jsp"/>
 	</definition>
 	
 	<definition name="mypage" template="/layout.jsp">
@@ -45,14 +77,6 @@
 		<put-attribute name="body" value="/mypage/portfoliolist.jsp"/>
 	</definition>
 	
-	<definition name="qna" template="/layout.jsp">
-		<put-attribute name="repo" value="/qna/qna_repo.jsp"/>
-		<put-attribute name="headerrepo" value="/common/header_repo.jsp"/>
-		<put-attribute name="header" value="/common/header.jsp"/>
-		<put-attribute name="footer" value="/common/footer.jsp"/>
-		<put-attribute name="body" value="/qna/qna.jsp"/>
-	</definition>
-	
 	<definition name="hireinfo" template="/layout.jsp"> 
 		<put-attribute name="repo" value="/postinfo/hireinfo_repo.jsp"/>
 		<put-attribute name="headerrepo" value="/common/header_repo.jsp"/>
@@ -61,11 +85,8 @@
  		<put-attribute name="body" value="/postinfo/hireinfo.jsp"/> 
  	</definition> 
  	
- 	<definition name="rswrite" template="/layout.jsp"> 
+ 	<definition name="rswrite" template="/join_layout.jsp"> 
 		<put-attribute name="repo" value="/resumewrite/resumewrite_repo.jsp"/>
-		<put-attribute name="headerrepo" value="/common/header_repo.jsp"/>
-		<put-attribute name="header" value="/common/header.jsp"/>
-		<put-attribute name="footer" value="/common/footer.jsp"/> 
  		<put-attribute name="body" value="/resumewrite/resumewrite.jsp"/> 
  	</definition>
  	
@@ -83,6 +104,14 @@
 		<put-attribute name="header" value="/common/header.jsp"/>
 		<put-attribute name="footer" value="/common/footer.jsp"/> 
  		<put-attribute name="body" value="/main/post.jsp"/> 
+ 	</definition>
+ 	
+ 	<definition name="top100" template="/layout.jsp"> 
+		<put-attribute name="repo" value="/top/top100_repo.jsp"/>
+		<put-attribute name="headerrepo" value="/common/header_repo.jsp"/>
+		<put-attribute name="header" value="/common/header.jsp"/>
+		<put-attribute name="footer" value="/common/footer.jsp"/> 
+ 		<put-attribute name="body" value="/top/top100.jsp"/> 
  	</definition>
  	
  	<definition name="joingen" template="/join_layout.jsp"> 
