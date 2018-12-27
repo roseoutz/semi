@@ -1,0 +1,16 @@
+@charset "UTF-8";
+select {
+    width: 200px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    color: #006fff;
+    border: 1px solid #006fff;
+    border-radius: 3px;
+    -webkit-appearance: none; /* 화살표 없애기 for chrome*/
+   -moz-appearance: none;    /* 화살표 없애기 for firefox*/
+   appearance: none;         /* 화살표 없애기 공통*/
+}
+select::-ms-expand {
+   display: none;            /* 화살표 없애기 for IE10, 11*/
+}

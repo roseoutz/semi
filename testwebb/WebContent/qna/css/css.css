@@ -1,0 +1,126 @@
+@charset "UTF-8";
+.formWrapPortfolio { z-index: 20; }
+.formWrapPortfolio .buttons { font-size: 0; }
+.formWrapPortfolio .buttons.system { position: absolute; right: 0; top: 0; }
+.formWrapPortfolio .buttons.system .input { width: 82px; height: 30px; margin-left: 5px; background-color: #fff; }
+.formWrapPortfolio .buttons.system .input span { padding: 5px 0 0; color: #888; text-align: center; font-size: 12px; }
+.formWrapPortfolio .buttons.add .input { width: 444px; height: 62px; margin-left: 10px; background-color: #f9fcff; }
+.formWrapPortfolio .buttons.add .input span { padding-top: 17px; text-align: center; color: #999; font-size: 16px; }
+.formWrapPortfolio .buttons.add .input span:after { content: ''; position: relative; top: 3px; display: inline-block; zoom: 1; *display: inline; width: 16px; height: 16px; margin-left: 4px; background: url("/content/images/text_user/resume/write/sprite-icon.png") no-repeat 0 -367px; }
+.formWrapPortfolio .buttons .input { display: inline-block; zoom: 1; *display: inline; border: 1px solid #ddd; }
+.formWrapPortfolio .buttons .input:first-child { margin-left: 0; }
+.formWrapPortfolio .buttons div.button { vertical-align: top; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.formWrapPortfolio .buttons .buttonFileUrl { position: relative; }
+.formWrapPortfolio .buttons .buttonFileUrl .text { display: block; padding-top: 16px; text-align: center; color: #999; font-size: 16px; }
+.formWrapPortfolio .buttons .buttonFileUrl .text:after { content: ''; position: relative; top: 3px; display: inline-block; zoom: 1; *display: inline; width: 16px; height: 16px; margin-left: 4px; background: url("/content/images/text_user/resume/write/sprite-icon.png") no-repeat 0 -367px; }
+.formWrapPortfolio .buttons .buttonFileUrl input { z-index: 10; position: absolute; opacity: 0; filter: alpha(opacity=0); top: 0; left: 0; width: 100%; height: 100%; cursor: pointer; }
+
+.fileBox .btn_file {display:inline-block;border:1px solid #000;width:100px;height:30px;font-size:0.8em;line-height:30px;text-align:center;vertical-align:middle}
+.fileBox .fileName {display:inline-block;width:190px;height:30px;padding-left:10px;margin-right:5px;line-height:30px;border:1px solid #aaa;background-color:#fff;vertical-align:middle}
+.fileBox input[type="file"] {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+.abtn{
+  height:40px;
+  line-height:40px;  
+  border-radius:3px;
+  border:1px solid;
+  border-color: rgba(249, 250, 252, 0.5);
+  background-color: transparent;
+  font-size:13px;    
+  color:rgba(249, 250, 252, 0.5);
+}
+
+.abtn ul {
+  border:1px solid;  
+  border-color: rgba(249, 250, 252, 0.5);
+  border-top-left-radius: 3px;  
+  border-top-right-radius:3px;
+  border-bottom:0;  
+  
+  bottom:40px;  
+  padding-left:0px;
+  padding-top:5px;
+}
+
+.abtn,
+.abtn ul li {
+  width:105px;
+  padding-left:20px;
+  padding-right:16px;
+}
+
+.abtn:focus {
+  border-top-left-radius: 0px;  
+  border-top-right-radius:0px;
+  border-top:0px;
+  margin-top:1px;
+  cursor:default;  
+}
+
+.abtn ul li:hover{
+   background-color:rgba(249, 250, 252, 0.2);
+}
+
+
+
+
+
+
+/*common */
+.opt-sel {
+  position:relative;  
+  outline: none;
+  cursor:pointer;
+}
+
+.opt-sel ul{
+  position:absolute;  
+  left:-1px; 
+  list-style:none;
+  margin:0;    
+}
+
+.sel-icon {
+  float:right;  
+  font-size:10px;
+}
+
+.sel-icon:after {    
+  content:'▼';
+}
+
+.opt-sel:focus .sel-icon:after{
+  content:'▲';
+}
+
+.opt-sel ul li{    
+  cursor:pointer;
+}
+
+.opt-sel:focus ul {
+  display:block;  
+}
+
+.opt-sel:not(:focus) ul {  
+  display:none;  
+}
+
+select {
+    width: 80px;
+    height: 30px;
+    background-color: white;
+    padding-left: 10px;
+    font-size: 15px;
+    font-color: black;
+    border: 0px solid #006fff;
+    border-radius: 3px;
+    -webkit-appearance: none; /* 화살표 없애기 for chrome*/
+   -moz-appearance: none;    /* 화살표 없애기 for firefox*/
+   appearance: none;         /* 화살표 없애기 공통*/
+}
+select::-ms-expand {
+   display: none;            /* 화살표 없애기 for IE10, 11*/
+}
+option {
+	font-size: 10px;
+	text-align: center;
+}
