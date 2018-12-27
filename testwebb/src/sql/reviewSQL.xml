@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+	<typeAlias alias="review" type="VO.khReviewVO"/>
+	<resultMap id="reviewRes" class="review">
+		<result property="review_no" column="review_no"/>
+		<result property="review_writer" column="review_writer"/>
+		<result property="review_content" column="review_content"/>
+		<result property="review_date" column="review_date"/>
+		<result property="review_post_no" column="review_post_no"/>
+	</resultMap>
+	
+	
+	<!-- 리뷰 insert -->
+	<insert id="insertReview" parameterClass="review">
+		INSERT INTO KH_REVIEW(REVIEW_NO,REVIEW_WRITER,REVIEW_CONTENT,REVIEW_DATE,REVIEW_POST_NO)
+		VALUES (KH_REVIEW_SEQ.NEXTVAL,#review_writer#,#review_content#,#review_date#,#review_post_no#)
+	</insert>
+	
+	<delete id="deleteReview" parameterClass="review">
+		DELETE FROM KH_REVIEW
+		WHERE REVIEW_NO = #review_no#
+	</delete>
+</sqlMap>
