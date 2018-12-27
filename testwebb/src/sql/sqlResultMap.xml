@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 
+'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+	<!-- 일반회원 resultMap -->
+	<typeAlias alias="member" type="VO.khMemberVO"/>
+
+	<resultMap class="member" id="memberRes">
+		<result property="member_id" column="member_id"/>
+		<result property="member_pass" column="member_pass"/>
+		<result property="member_phone" column="member_phone"/>
+		<result property="member_name" column="member_name"/>
+	</resultMap>
+	
+	<!-- 기업회원 resultMap -->
+	<typeAlias alias="cmember" type="VO.khCMemberVO"/>
+	
+	<resultMap class="cmember" id="cmemberRes">
+		<result property="cmember_no" column="cmember_no"/>
+		<result property="cmember_id" column="cmember_id"/>
+		<result property="cmember_pass" column="cmember_pass"/>
+		<result property="cmember_name" column="cmember_name"/>
+		<result property="cmember_phone" column="cmember_phone"/>
+		<result property="cmember_email" column="cmember_email"/>
+		<result property="cmember_type" column="cmember_type"/>
+		<result property="cmember_cname" column="cmember_cname"/>
+		<result property="cmember_addr" column="cmember_addr"/>
+	</resultMap>	
+	
+	
+	<!-- 기업회원 상세정보 resultMap -->
+	<typeAlias alias="cmember_detail" type="VO.khCMemberDetailVO"/>
+	
+	<resultMap class="cmember_detail" id="cmemberDetailRes">
+		<result property="detail_cmember_id" column="detail_cmember_id"/>
+		<result property="detail_em_num" column="detail_em_num"/>
+		<result property="detail_capital" column="detail_capital"/>
+		<result property="detail_sales" column="detail_sales"/>
+		<result property="detail_pay" column="detail_pay"/>
+		<result property="detail_url" column="detail_url"/>
+	</resultMap>
+	
+	<!-- 이력서 resultMap -->
+	<typeAlias alias="resume" type="VO.khResumeVO"/>
+	
+	<resultMap class="resume" id="resumeRes">
+		<result property="resume_no" column="resume_no"/>
+		<result property="resume_m_id" column="resume_m_id"/>
+		<result property="resume_addr" column="resume_addr"/>
+		<result property="resume_subject" column="resume_subject"/>
+	</resultMap>
+	
+	<!-- 학력(이력서) resultMap -->
+	<typeAlias alias="edu" type="VO.khEduVO"/>
+	
+	<resultMap class="edu" id="eduRes">
+		<result property="edu_no" column="edu_no"/>
+		<result property="edu_re_no" column="edu_re_no"/>
+		<result property="edu_school_type" column="edu_school_type"/>
+		<result property="edu_school" column="edu_school"/>
+		<result property="edu_major" column="edu_major"/>
+		<result property="edu_enter_date" column="edu_enter_date"/>
+		<result property="edu_graduate_date" column="edu_graduate_date"/>
+		<result property="edu_grade" column="edu_grade"/>
+		<result property="edu_graduate_status" column="edu_graduate_status"/>
+	</resultMap>
+	
+</sqlMap>
