@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name = "join" extends = "struts-default, tiles-default">
+		<action name = "inputGen" class = "join.inputGenAction">
+			<result type = "tiles">main</result>
+		</action>
+		<action name = "inputCorp" class = "join.inputCorpAction">
+			<result type = "tiles">main</result>
+		</action>
+		<action name = "joingen">
+			<result type="tiles">joingen</result>
+		</action>
+		<action name = "joincorp">
+			<result type="tiles">joincorp</result> 
+		</action>
+	</package>
+</struts>

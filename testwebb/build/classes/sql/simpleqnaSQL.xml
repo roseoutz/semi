@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap>
+	<typeAlias alias="qa" type="VO.khQAVO"/>
+	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
+		<resultMap class="qa" id="qaRes">
+			<result property="qa_no" column="qa_no"/>
+			<result property="qa_subject" column="qa_subject"/>
+			<result property="qa_content" column="qa_content"/>
+			
+		</resultMap>
+		
+		<insert id="insertqa" parameterClass="qa">
+			insert into kh_qa(qa_no, qa_subject, qa_content)
+			values (qa_no_seq.NEXTVAL,#qa_subject#, #qa_content#)
+		</insert>
+
+</sqlMap>

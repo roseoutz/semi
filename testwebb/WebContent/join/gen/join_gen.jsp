@@ -17,8 +17,8 @@
 
     <h3 class="skip">회원 형태별 가입</h3>
     <ul class="snb f_clear">
-        <li class="person on"><a href="http://127.0.0.1:8080/testwebb/joingen.tiles">개인회원</a></li>
-        <li class="corp "><a href="http://127.0.0.1:8080/testwebb/joincorp.tiles">기업회원</a></li>
+        <li class="person on"><a href="joingen.action">개인회원</a></li>
+        <li class="corp "><a href="joincorp.action">기업회원</a></li>
     </ul>
 </div>
 
@@ -29,7 +29,7 @@
     <h3 class="skip">개인회원 가입 정보</h3>
     <fieldset>
         <legend>개인회원 가입</legend>
-<form action="/Join/M_Regist" id="frm" method="post" name="frm" onsubmit="return checkForm();">            <!-- 약관 동의 -->
+<form action="inputGen.action" id="frm" method="post" name="frm" onsubmit="return checkForm();">            <!-- 약관 동의 -->
 <input data-val="true" data-val-required="&lt;p class=&quot;failure&quot;>필수 정보입니다.&lt;/p>" id="M_Id" name="M_Id" type="hidden" value="" /><input id="OEM_No" name="OEM_No" type="hidden" value="1" /><input id="DI_Code" name="DI_Code" type="hidden" value="" /><input id="getCertifynum" name="getCertifynum" type="hidden" value="" /><input id="CertifyReCall" name="CertifyReCall" type="hidden" value="" /><input id="ReSubmit" name="ReSubmit" type="hidden" value="" /><input id="CertifyCode" name="CertifyCode" type="hidden" value="" /><input id="Aptitute_Stat" name="Aptitute_Stat" type="hidden" value="" />            <!-- 소셜 로그인 -->
 
             <div class="row_group mbr_info">
@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="col_2">
-                        <input type="text" id="M_Name" name="m_name" class="mbr_name devReadOnly dev-name" maxlength="12">
+                        <input type="text" id="M_Name" name="member_name" class="mbr_name devReadOnly dev-name" maxlength="12">
                         <div class="notice_msg" id="notice_msg_name"></div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="col_2">
-                        <input type="text" id="idcheck" name="m_id" maxlength="16" class="dev-id" value="" style="ime-mode:disabled;">
+                        <input type="text" id="idcheck" name="member_id" maxlength="16" class="dev-id" value="" style="ime-mode:disabled;">
                         <div class="notice_msg" id="notice_msg_id"></div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="col_2">
-                        <input type="password" id="M_Pwd" name="m_pass" class="dev-password" maxlength="16" style="ime-mode:disabled;">
+                        <input type="password" id="M_Pwd" name="member_pass" class="dev-password" maxlength="16" style="ime-mode:disabled;">
                         <button type="button" class="btnHelp" title="안전한 비밀번호 작성법">?</button>
                         <div class="lyHelp">
                             <dl>
@@ -90,7 +90,7 @@
                     </div>
 
                     <div class="col_2">
-                        <input type="text" id="M_Email" name="m_email" class="mbr_email_id dev-mail" size="8" maxlength="30" >
+                        <input type="text" id="M_Email" name="member_email" class="mbr_email_id dev-mail" size="8" maxlength="30" >
                         <div class="notice_msg" id="notice_msg_mail"></div>
                         <input type="hidden" id="Email_ID" name="Email_ID" />
                         <input type="hidden" id="Email_Addr" name="Email_Addr" />
@@ -103,7 +103,7 @@
                     </div>
 
                     <div class="col_2">
-                        <input type="text" id="M_Phone" name="m_phone" size="4" maxlength="13" class="dev-phone">
+                        <input type="text" id="M_Phone" name="member_phone" size="4" maxlength="13" class="dev-phone">
                     </div>
                 </div>
 

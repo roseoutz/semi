@@ -1,124 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <link rel="stylesheet" type="text/css" href="http://i.jobkorea.kr/content/css/ver_2/common.css?201812101600" />
-<link rel="stylesheet" type="text/css" href="http://i.jobkorea.kr/content/css/ver_2/gnb/gnb.css?201812101600" />
-<link rel="stylesheet" type="text/css" href="http://i.jobkorea.kr/content/css/ver_2/mtu/mtu_common.css?201812101600" />
-<link rel="stylesheet" type="text/css" href="http://i.jobkorea.kr/content/css/ver_2/mtu/mtu_tpl.css?201812101600" />
-<link rel="stylesheet" type="text/css" href="http://i.jobkorea.kr/content/css/ver_2/mtu/mtu_style.css?201812101600" />
-<link rel="stylesheet" type="text/css" href="http://i.jobkorea.kr/content/css/ver_2/event/banner.promotion.css?201812101600">
-<link rel="SHORTCUT ICON" href="http://www.jobkorea.co.kr/favicon.ico">
-<link rel="canonical" href="http://www.jobkorea.co.kr">
+<%@ taglib prefix = "s" uri = "/struts-tags" %>
 
-<!-- Css  -->
-<style type="text/css">
-.lyTplLogin .btnClose {
-	position: absolute;
-	right: 5px;
-	top: 10px;
-	width: 21px;
-	height: 21px;
-	background:
-		url('http://i.jobkorea.kr/content/images/list_gi/all_q_apply.png')
-		no-repeat 0 -100px;
-	text-align: center;
-}
-
-.lyTplLogin .btnClose span {
-	display: inline-block;
-	text-indent: -9999px;
-}
-
-.lyTplLogin .btnClose_s1 {
-	top: 3px;
-}
-
-.onairPopup {
-	display: none;
-	position: absolute;
-	top: 62px;
-	left: 50%;
-	z-index: 999;
-	width: 618px;
-	margin-left: -309px;
-}
-
-.onairPopup .btnClose {
-	display: block;
-	position: absolute;
-	top: 16px;
-	right: 20px;
-	font-size: 0;
-	width: 27px;
-	height: 27px;
-	opacity: 0;
-	background: #fff;
-}
-</style>
-
-<style> 
-input[type="text"] {
-    border: 1px solid #ddd;
-}
-.mtcIpt4 {
-    width: 350px;
-    height: 20px;
-/*     line-height: 36px; */
-    padding: 0 5px;
-    border: 1px solid #ddd;
-     box-sizing: border-box;
-}
-.mtcIpt3 {
-    width: 150px;
-    height: 20px;
-/*     line-height: 36px; */
-    padding: 0 5px;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-}
-
-.mtcIpt2 {
-	width: 350px;
-	height: 36px;
-	line-height: 36px;
-	padding: 0 5px;
-	border: 1px solid #ddd;
-	box-sizing: border-box;
-}
-div.table-basic-infomation-primary .field-value .value {
-    width: 100%;
-    padding: 7px 18px 0;
-    font-size: 14px;
-    color: #333;
-    letter-spacing: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.value2 {
-    width: 100%;
-    padding: 7px 18px 0;
-    font-size: 14px;
-    color: #333;
-    letter-spacing: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-.mtcSltBx label {
-    position: absolute;
-    color: #999;
-    top: 0;
-    left: 10px;
-    height: 100%;
-    /* line-height: 1.8; */
-    z-index: -1;  
-}
-.cbb {
-    height: 20px;
-}
-
-</style>	
 <!DOCTYPE html>
 <body id="secMtu">
 
@@ -245,11 +128,11 @@ div.table-basic-infomation-primary .field-value .value {
 						<div class="lnbGroup">
 							<h2 class="lnbTit">공고 및 지원자 관리</h2>
 							<ul>
-								<li><a href="corppost.tiles"
+								<li><a href="corppost.action"
 									target="_blank">공고 등록</a></li>
-								<li><a href="corppostlist.tiles">등록 공고
+								<li><a href="corppostlist.action">등록 공고
 										관리</a></li>
-								<li><a href="corphr.tiles">지원자
+								<li><a href="corpresumelist.action">지원자
 										관리</a></li>
 							</ul>
 						</div>
@@ -257,7 +140,7 @@ div.table-basic-infomation-primary .field-value .value {
 						<div class="lnbGroup">
 							<h2 class="lnbTit">인재관리</h2>
 							<ul>
-								<li><a href="corphrsearch.tiles"
+								<li><a href="corphrsearch.action"
 									target="_blank">인재 검색</a></li>
 							</ul>
 						</div>
@@ -265,7 +148,7 @@ div.table-basic-infomation-primary .field-value .value {
 						<div class="lnbGroup">
 							<h2 class="lnbTit">회원정보 관리</h2>
 							<ul>
-								<li><a href="corpinfo.tiles">기업정보 수정</a></li>
+								<li><a href="corpinfo.action">기업정보 수정</a></li>
 								<li><a href="#">회원정보 수정</a></li>
 								<li><a href="#">회원탈퇴</a></li>
 							</ul>

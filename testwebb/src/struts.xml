@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+	<constant name="struts.multipart.maxSize" value="104857600"/>
+	<package name="postWrite" extends="struts-default, tiles-default">
+		
+		<action name="postWriteAction" class="post.postWriteAction">
+			<result type="tiles">corppostlist</result>
+		</action>
+
+		<action name="corppost">
+			<result type="tiles">corppost</result>
+		</action>
+	</package>
+	
+	<package name="corpresumelist" extends="struts-default, tiles-default">
+		<action name="corpresumelist">
+			<result type="tiles">corpresumelist</result>
+		</action>	
+	</package>
+	
+	<package name="coprinfo" extends="struts-default, tiles-default">
+		<action name="corpinfo">
+			<result type="tiles">corpinfo</result>
+		</action>	
+	</package>
+	
+	<package name="coprhrsearch" extends="struts-default, tiles-default">
+		<action name="corphrsearch">
+			<result type="tiles">corphrsearch</result>
+		</action>	
+	</package>
+	
+	<package name="corppostlist" extends="struts-default, tiles-default">
+		<!-- ListAction 
+		<action name="postWriteAction" class="post.postWriteAction">
+			<result type="tiles">corppostlist</result>
+		</action>
+		-->
+		<action name="corppostlist">
+			<result type="tiles">corppostlist</result>
+		</action>	
+	</package>
+	<package name = "main" extends = "struts-default, tiles-default">
+		<action name = "main">
+			<result type="tiles">main</result>
+		</action>
+	</package>
+	<!-- 							고객센터						 -->
+	<package name="simpleqna" extends="struts-default, tiles-default">
+		<action name="simpleqna">
+			<result type="tiles">simpleqna</result>
+		</action>	
+	</package>
+	
+	<package name="qna" extends="struts-default, tiles-default">
+		<action name="qnaWrite" class="qna.mtmWriteAction">
+			<result type="tiles">qna</result>
+		</action>
+		<action name="qna">
+			<result type="tiles">qna</result>
+		</action>	
+	</package>
+	
+	<package name="notice" extends="struts-default, tiles-default">
+		<action name="notice">
+			<result type="tiles">notice</result>
+		</action>	
+	</package>
+	
+	<package name="mypage" extends="struts-default, tiles-default">
+		<action name="mypage">
+			<result type="tiles">mypage</result>
+		</action>	
+	</package>
+	<include file="join.xml"/>
+	<include file="login.xml"/>
+	
+</struts>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap>
+	<typeAlias alias="mtm" type="VO.khMtmVO"/>
+	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
+		<resultMap class="mtm" id="mtmRes">
+			<result property="mtm_no" column="mtm_no"/>
+			<result property="mtm_writer" column="mtm_writer"/>
+			<result property="mtm_writer_c" column="mtm_writer_c"/>
+			<result property="mtm_content" column="mtm_content"/>
+			<result property="mtm_email" column="mtm_email"/>
+			
+		</resultMap>
+		
+		<insert id="insertmtm" parameterClass="mtm">
+			insert into kh_mtm(mtm_no, mtm_writer_c, mtm_writer, mtm_content, mtm_email)
+			values (mtm_no_seq.NEXTVAL,#mtm_writer_c#, #mtm_writer#, #mtm_content#, #mtm_email#)
+		</insert>
+		
+		<select id="selectAllmtm" resultMap="mtmRes">
+			select * from kh_mtm order by no desc
+		</select>
+		
+		<select id="selectOnemtm" resultMap="mtmRes" parameterClass="int">
+			select * from kh_mtm where no = #no#
+		</select>
+			
+		<select id="selectLastNo" resultClass="mtm">
+			select max(no) as no from kh_mtm
+		</select>
+		
+		<select id="selectCount">
+			select count(*) from kh_mtm
+		</select>
+</sqlMap>

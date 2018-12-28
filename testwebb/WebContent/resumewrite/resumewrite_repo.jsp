@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix = "s" uri = "/struts-tags" %>
+
+<s:if test="#session.session_id==null">
+<script>
+alert("로그인이 필요한 서비스입니다.");
+location.replace("main.action");
+</script>
+</s:if>
 <!DOCTYPE html>
 <link rel="stylesheet" type="text/css"
 	href="https://i.jobkorea.kr/content/css/ver_2/text_user/resume/header.css" />
