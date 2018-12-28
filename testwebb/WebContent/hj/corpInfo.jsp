@@ -1,45 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib prefix = "s" uri = "/struts-tags" %>
 
 <!DOCTYPE html>
 <body id="secMtu">
 	<div id="wrap">
 		<section id="container">
-			<h1 class="skip">±â¾÷È¸¿ø ¼­ºñ½º</h1>
+			<h1 class="skip">ê¸°ì—…íšŒì› ì„œë¹„ìŠ¤</h1>
 			<section class="content">
 				<div class="modal modal-spinner" role="dialog" aria-hidden="true"
 					style="display: none;"></div>
 				<div class="contWrap ResumeMngCont">
 					<div class="innerHd">
 						<ul>
-							<li class="hdTab">°ø°í ÀÔ·ÂÇÏ±â</li>
+							<li class="hdTab">ê³µê³  ìž…ë ¥í•˜ê¸°</li>
 							
 						</ul>
 					</div>
 					<form method="post" action="postWriteAction.action">
-					<input type="hidden" value="test" name="post_writer"/>
-					<h2 class="skip">°ø°íÀÔ·Â</h2>
+					<input type="hidden" value="${session_id}" name="post_writer"/>
+					<h2 class="skip">ê³µê³ ìž…ë ¥</h2>
 					<div class="hopeWorking">
-						<h3 class="header">°ø°í Á¦¸ñ</h3>
+						<h3 class="header">ê³µê³  ì œëª©</h3>
 						<div class="summary">
-							<input type="text" name="post_subject" placeholder="°ø°í Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä." id="lb_inq2" class="mtcIpt3" style="height:25px;"></div>
+							<input type="text" name="post_subject" placeholder="ê³µê³  ì œëª©ì„ ìž…ë ¥í•˜ì„¸ìš”." id="lb_inq2" class="mtcIpt3" style="height:25px;"></div>
 						</div>
 					</div>
 					<div class="tableList  ">
 						<div class="">
 							<div class="listSortArea">
-								<div class="col col01"><h3>°ø°í ³»¿ë</h3></div>
+								<div class="col col01"><h3>ê³µê³  ë‚´ìš©</h3></div>
 								
 							</div>
 							<div class="mtuList">
 								<ul>
-									<!-- [°³¹ß] ÀÌ·Â¼­ ÀÛ¼ºÁß yet Å¬·¡½º Ãß°¡ -->
+									<!-- [ê°œë°œ] ì´ë ¥ì„œ ìž‘ì„±ì¤‘ yet í´ëž˜ìŠ¤ ì¶”ê°€ -->
 									<li class="ing">
 										<div class="col col01">
 												<div class="tbRow">
 												<div class="tbCell tbTh">
-													<label for="lb_inq_2">°æ·Â <em>(ÇÊ¼ö)</em></label>
+													<label for="lb_inq_2">ê²½ë ¥ <em>(í•„ìˆ˜)</em></label>
 												</div>
 											</div>
 										</div>
@@ -47,15 +47,15 @@
 										<div class="tbCell">
 													<div class="mtcSltBx listLenSel">
 														 <select
-															name="post_career" id="lb_view_1" title="¹®ÀÇ Á¾·ù ¼±ÅÃ" style="width:100px;">
-															<option value="-1">°æ·Â ¼±ÅÃ</option>
-															<option value="0">¹«°ü</option>
-															<option value="1">½ÅÀÔ</option>
-															<option value="3">1~3³â</option>
-															<option value="6">4~6³â</option>
-															<option value="9">7~9³â</option>
-															<option value="15">10~15³â</option>
-															<option value="16">16³â ÀÌ»ó</option>
+															name="post_career" id="lb_view_1" title="ë¬¸ì˜ ì¢…ë¥˜ ì„ íƒ" style="width:100px;">
+															<option value="-1">ê²½ë ¥ ì„ íƒ</option>
+															<option value="0">ë¬´ê´€</option>
+															<option value="1">ì‹ ìž…</option>
+															<option value="3">1~3ë…„</option>
+															<option value="6">4~6ë…„</option>
+															<option value="9">7~9ë…„</option>
+															<option value="15">10~15ë…„</option>
+															<option value="16">16ë…„ ì´ìƒ</option>
 														</select>
 													</div>
 												</div>
@@ -64,21 +64,21 @@
 										<div class="col col03">
 												<div class="tbRow">
 												<div class="tbCell tbTh">
-													<label for="lb_inq_2">ÇÐ·Â <em>(ÇÊ¼ö)</em></label>
+													<label for="lb_inq_2">í•™ë ¥ <em>(í•„ìˆ˜)</em></label>
 												</div>
 											</div>
 										</div>
 										<div class="col col04">
 												<div class="tbCell">
 													<div class="mtcSltBx listLenSel">
-														<select name="post_edu" id="lb_view_1" title="¹®ÀÇ Á¾·ù ¼±ÅÃ" style="width:100px;">
-															<option value="-1" selected="selected">ÇÐ·Â ¼±ÅÃ</option>
-															<option value="¹«°ü">¹«°ü</option>
-															<option value="°íÁ¹">°íÁ¹</option>
-															<option value="ÃÊ´ëÁ¹">ÃÊ´ëÁ¹</option>
-															<option value="´ëÁ¹">´ëÁ¹</option>
-															<option value="¼®»ç">¼®»ç</option>
-															<option value="¹Ú»ç">¹Ú»ç</option>
+														<select name="post_edu" id="lb_view_1" title="ë¬¸ì˜ ì¢…ë¥˜ ì„ íƒ" style="width:100px;">
+															<option value="-1" selected="selected">í•™ë ¥ ì„ íƒ</option>
+															<option value="ë¬´ê´€">ë¬´ê´€</option>
+															<option value="ê³ ì¡¸">ê³ ì¡¸</option>
+															<option value="ì´ˆëŒ€ì¡¸">ì´ˆëŒ€ì¡¸</option>
+															<option value="ëŒ€ì¡¸">ëŒ€ì¡¸</option>
+															<option value="ì„ì‚¬">ì„ì‚¬</option>
+															<option value="ë°•ì‚¬">ë°•ì‚¬</option>
 														</select>
 													</div>
 												</div>
@@ -90,7 +90,7 @@
 										<div class="col col01">
 												<div class="tbRow">
 												<div class="tbCell tbTh">
-													<label for="lb_inq_2">¿ì´ëÁ¶°Ç</label>
+													<label for="lb_inq_2">ìš°ëŒ€ì¡°ê±´</label>
 												</div>
 											</div>
 										</div>
@@ -103,20 +103,20 @@
 										<div class="col col03">
 												<div class="tbRow">
 												<div class="tbCell tbTh">
-													<label for="lb_inq_2">°í¿ëÇüÅÂ <em>(ÇÊ¼ö)</em></label>
+													<label for="lb_inq_2">ê³ ìš©í˜•íƒœ <em>(í•„ìˆ˜)</em></label>
 												</div>
 											</div>
 										</div>
 										<div class="col col04">
 												<div class="tbCell">
 													<div class="mtcSltBx listLenSel">
-														<select name="post_em_type" id="lb_view_1" title="¹®ÀÇ Á¾·ù ¼±ÅÃ" style="width:100px;">
-															<option value="-1">°í¿ëÇüÅÂ</option>
-															<option value="Á¤±ÔÁ÷">Á¤±ÔÁ÷</option>
-															<option value="°è¾àÁ÷">°è¾àÁ÷</option>
-															<option value="ÀÎÅÏ">ÀÎÅÏ</option>
-															<option value="ÆÄ°ßÁ÷">ÆÄ°ßÁ÷</option>
-															<option value="ÇÁ¸®·£¼­">ÇÁ¸®·£¼­</option>
+														<select name="post_em_type" id="lb_view_1" title="ë¬¸ì˜ ì¢…ë¥˜ ì„ íƒ" style="width:100px;">
+															<option value="-1">ê³ ìš©í˜•íƒœ</option>
+															<option value="ì •ê·œì§">ì •ê·œì§</option>
+															<option value="ê³„ì•½ì§">ê³„ì•½ì§</option>
+															<option value="ì¸í„´">ì¸í„´</option>
+															<option value="íŒŒê²¬ì§">íŒŒê²¬ì§</option>
+															<option value="í”„ë¦¬ëžœì„œ">í”„ë¦¬ëžœì„œ</option>
 														</select>
 													</div>
 												</div>
@@ -128,30 +128,30 @@
 										
 										<div class="col col1">
 											<div class="tbCell tbTh">
-												<label for="lb_inq_4">Áö¿ª <em>(ÇÊ¼ö)</em></label>
+												<label for="lb_inq_4">ì§€ì—­ <em>(í•„ìˆ˜)</em></label>
 											</div>
 										</div>
 										<div class="col col2">
 											<div class="mtcSltBx listLenSel">
-													<select name="post_loc"id="lb_view_2" title="Áö¿ª ½Ã/µµ ¼±ÅÃ" style="width:100px;">
-														<option value="-1">½Ã/µµ</option>
-														<option value="¼­¿ï">¼­¿ï</option>
-														<option value="°æ±â">°æ±â</option>
-														<option value="ÀÎÃµ">ÀÎÃµ</option>
-														<option value="´ëÀü">´ëÀü</option>
-														<option value="¼¼Á¾">¼¼Á¾</option>
-														<option value="Ãæ³²">Ãæ³²</option>
-														<option value="ÃæºÏ">ÃæºÏ</option>
-														<option value="±¤ÁÖ">±¤ÁÖ</option>
-														<option value="Àü³²">Àü³²</option>
-														<option value="ÀüºÏ">ÀüºÏ</option>
-														<option value="´ë±¸">´ë±¸</option>
-														<option value="°æºÏ">°æºÏ</option>
-														<option value="°æ³²">°æ³²</option>
-														<option value="ºÎ»ê">ºÎ»ê</option>
-														<option value="¿ï»ê">¿ï»ê</option>
-														<option value="Á¦ÁÖ">Á¦ÁÖ</option>
-														<option value="Àü±¹">Àü±¹</option>
+													<select name="post_loc"id="lb_view_2" title="ì§€ì—­ ì‹œ/ë„ ì„ íƒ" style="width:100px;">
+														<option value="-1">ì‹œ/ë„</option>
+														<option value="ì„œìš¸">ì„œìš¸</option>
+														<option value="ê²½ê¸°">ê²½ê¸°</option>
+														<option value="ì¸ì²œ">ì¸ì²œ</option>
+														<option value="ëŒ€ì „">ëŒ€ì „</option>
+														<option value="ì„¸ì¢…">ì„¸ì¢…</option>
+														<option value="ì¶©ë‚¨">ì¶©ë‚¨</option>
+														<option value="ì¶©ë¶">ì¶©ë¶</option>
+														<option value="ê´‘ì£¼">ê´‘ì£¼</option>
+														<option value="ì „ë‚¨">ì „ë‚¨</option>
+														<option value="ì „ë¶">ì „ë¶</option>
+														<option value="ëŒ€êµ¬">ëŒ€êµ¬</option>
+														<option value="ê²½ë¶">ê²½ë¶</option>
+														<option value="ê²½ë‚¨">ê²½ë‚¨</option>
+														<option value="ë¶€ì‚°">ë¶€ì‚°</option>
+														<option value="ìš¸ì‚°">ìš¸ì‚°</option>
+														<option value="ì œì£¼">ì œì£¼</option>
+														<option value="ì „êµ­">ì „êµ­</option>
 													</select>
 											</div>
 										
@@ -160,7 +160,7 @@
 									<li class="ing">
 										<div class="col col01">
 											<div class="tbCell tbTh">
-												<label for="lb_inq_2">±Þ¿© <em>(ÇÊ¼ö)</em></label>
+												<label for="lb_inq_2">ê¸‰ì—¬ <em>(í•„ìˆ˜)</em></label>
 											</div>
 										</div>
 										<div class="col col02">
@@ -170,7 +170,7 @@
 										</div>
 										<div class="col col3">
 											<div class="tbCell tbTh">
-												<label for="lb_inq_2">±Ù¹« ½Ã°£</label>
+												<label for="lb_inq_2">ê·¼ë¬´ ì‹œê°„</label>
 											</div>
 										</div>
 										<div class="col col4">
@@ -182,14 +182,14 @@
 									<li class="ing">
 										<div class="col col01">
 											<div class="tbCell tbTh">
-												<label for="lb_inq_2">»ó¼¼ ³»¿ë <em>(ÇÊ¼ö)</em></label>
+												<label for="lb_inq_2">ìƒì„¸ ë‚´ìš© <em>(í•„ìˆ˜)</em></label>
 											</div>
 										</div>
 									</li>
 									<li class="ing">
 										<div class="col col01">
 											<div class="tbCell">
-												<textarea name="post_content" id="lb_inq_2" placeholder="³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä." class="txArea"
+												<textarea name="post_content" id="lb_inq_2" placeholder="ë‚´ìš©ì„ ìž…ë ¥í•˜ì„¸ìš”." class="txArea"
 												style="width:800px; height:50px;"
 												></textarea>
 											</div>
@@ -198,9 +198,9 @@
 									<li class="ing">
 										<div class="col col01">
 											<div class="button">
-												<button type="submit" class="btn" style="border:1px solid #000;">°ø°í ÀÛ¼º</button>
+												<button type="submit" class="btn" style="border:1px solid #000;">ê³µê³  ìž‘ì„±</button>
 												&nbsp;&nbsp;&nbsp;&nbsp;
-												<button type="button" class="btn" style="border:1px solid #000;">´ÙÀ½¿¡ ÀÛ¼º</button>											
+												<button type="button" class="btn" style="border:1px solid #000;">ë‹¤ìŒì— ìž‘ì„±</button>											
 											</div>
 										</div>
 									</li>
@@ -221,33 +221,33 @@
 			</section>
 			<hr />
 			<section class="secLnb">
-						<h1 class="skip">°³ÀÎÈ¸¿ø ¼­ºñ½º ¸Þ´º</h1>
+						<h1 class="skip">ê°œì¸íšŒì› ì„œë¹„ìŠ¤ ë©”ë‰´</h1>
 						<div class="lnbGroup">
-							<h2 class="lnbTit">°ø°í ¹× Áö¿øÀÚ °ü¸®</h2>
+							<h2 class="lnbTit">ê³µê³  ë° ì§€ì›ìž ê´€ë¦¬</h2>
 							<ul>
 								<li><a href="corppost.action"
-									target="_blank">°ø°í µî·Ï</a></li>
-								<li><a href="corppostlist.action">µî·Ï °ø°í
-										°ü¸®</a></li>
-								<li><a href="corpresumelist.action">Áö¿øÀÚ
-										°ü¸®</a></li>
+									target="_blank">ê³µê³  ë“±ë¡</a></li>
+								<li><a href="corppostlist.action">ë“±ë¡ ê³µê³ 
+										ê´€ë¦¬</a></li>
+								<li><a href="corpresumelist.action">ì§€ì›ìž
+										ê´€ë¦¬</a></li>
 							</ul>
 						</div>
 						<hr/>
 						<div class="lnbGroup">
-							<h2 class="lnbTit">ÀÎÀç°ü¸®</h2>
+							<h2 class="lnbTit">ì¸ìž¬ê´€ë¦¬</h2>
 							<ul>
 								<li><a href="corphrsearch.action"
-									target="_blank">ÀÎÀç °Ë»ö</a></li>
+									target="_blank">ì¸ìž¬ ê²€ìƒ‰</a></li>
 							</ul>
 						</div>
 						<hr/>
 						<div class="lnbGroup">
-							<h2 class="lnbTit">È¸¿øÁ¤º¸ °ü¸®</h2>
+							<h2 class="lnbTit">íšŒì›ì •ë³´ ê´€ë¦¬</h2>
 							<ul>
-								<li><a href="corpinfo.action">±â¾÷Á¤º¸ ¼öÁ¤</a></li>
-								<li><a href="#">È¸¿øÁ¤º¸ ¼öÁ¤</a></li>
-								<li><a href="#">È¸¿øÅ»Åð</a></li>
+								<li><a href="corpinfo.action">ê¸°ì—…ì •ë³´ ìˆ˜ì •</a></li>
+								<li><a href="#">íšŒì›ì •ë³´ ìˆ˜ì •</a></li>
+								<li><a href="#">íšŒì›íƒˆí‡´</a></li>
 							</ul>
 						</div>
 					</section>

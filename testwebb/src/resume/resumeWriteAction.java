@@ -95,12 +95,4 @@ public class resumeWriteAction extends ActionSupport {
 		this.resume_subject = resume_subject;
 	}
 
-	public Date getResume_date() {
-		return resume_date;
-	}
-
-	public void setResume_date(Date resume_date) {
-		this.resume_date = resume_date;
-	}
-
 }
