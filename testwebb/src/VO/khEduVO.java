@@ -9,7 +9,7 @@ public class khEduVO {
 	private String edu_school_type;		//학교구분(4년제/전문대/고졸 등)
 	private String edu_school;			//학교명
 	private String edu_major;			//전공
-	private int edu_grade;				//학점
+	private int grade;					//학점
 	private Date edu_enter_date;		//입학일
 	private Date edu_graduate_date;		//졸업일
 	private String edu_graduate_status;//졸업상태(졸업/유예 등)
@@ -54,12 +54,12 @@ public class khEduVO {
 		this.edu_major = edu_major;
 	}
 
-	public int getEdu_grade() {
-		return edu_grade;
+	public int getGrade() {
+		return grade;
 	}
 
-	public void setEdu_grade(int edu_grade) {
-		this.edu_grade = edu_grade;
+	public void setGrade(int grade) {
+		this.grade = grade;
 	}
 
 	public Date getEdu_enter_date() {

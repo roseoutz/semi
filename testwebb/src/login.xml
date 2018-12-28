@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name = "login" extends = "struts-default, tiles-default">
+		<action name = "login" class = "login.loginAction">
+			<result name = "success">/login/loginSuccess.jsp</result>
+			<result name = "error">/login/loginFail.jsp</result>
+		</action>
+		
+		<action name = "logout" class = "login.logoutAction">
+			<result type="tiles">main</result>
+		</action>
+	</package>
+</struts>

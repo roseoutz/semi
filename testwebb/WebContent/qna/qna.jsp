@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix = "s" uri = "/struts-tags" %>
 <body id="secHelp" class="helpMain">
 <div id="wrap">
 	<div id="container" class="sideTure">
@@ -9,17 +10,16 @@
 					<h1><span class="skip">고객센터 메뉴 - </span><a class="lnbTit" href="/help/">고객센터</a></h1>
 					<div class="lnbGroup">
 						<ul>
-							<li><a href="#">FAQ</a>
-								<ul class="lnbTwoDep">
-									<li><a href="#" class="">1:1 문의하기</a></li>
-									<li><a href="#" class="">자주 묻는 질문</a></li>
-								</ul>
-							</li>
-						</ul>
-					</div>
+						<li><a href="#">FAQ</a>
+							<ul class="lnbTwoDep">
+								<li><a href="qna.action" class="">1:1 문의하기</a></li>
+								<li><a href="simpleqna.action" class="">자주 묻는 질문</a></li>
+							</ul></li>
+					</ul>
+				</div>
 				<div class="lnbGroup">
 					<ul>
-						<li><a href="#" class="">공지사항</a></li>
+						<li><a href="notice.action" class="">공지사항</a></li>
 					</ul>
 				</div>
 				<div class="lnbGroup">
@@ -38,32 +38,22 @@
 		</div>
 	<!-- tap menu //-->
 		<div class="inquiryForm">
-			<form id="form" action="#" method="post">
+			<form id="form" action="qnaWrite.action" method="post">
+			<s:if test="#session.session_type=='기업'">
+				<s:hidden name="mtm_writer_c" value="#session.session_id"/>
+			</s:if>
+			<s:else>
+				<s:hidden name="mtm_writer" value="#session.session_id"/>
+			</s:else>
 				<fieldset>
 					<legend>문의하기 입력</legend>
 					<div class="tbInquiryBx">
 						<div class="tbRow">
 							<div class="tbCell tbTh">
-								문의종류 <em>(필수)</em>
-							</div>
-							<div class="tbCell">
-								<div class="mtcSltBx listLenSel">
-									<label for="lb_view_1" id="lb_type">선택</label> 
-										<select name="qa_type" id="lb_view_1" title="문의 종류 선택">
-											<option value="-1">선택</option>
-											<option value="1">서비스 이용문의</option>
-											<option value="2">불량정보·오류 신고</option>
-											<option value="3">서비스 제안·칭찬</option>
-										</select>
-								</div>
-							</div>	
-						</div>
-						<div class="tbRow">
-							<div class="tbCell tbTh">
 								<label for="lb_inq_2">내용 <em>(필수)</em></label>
 							</div>
 						<div class="tbCell">
-							<textarea name="qa_contents" id="lb_inq_2" title="내용을 입력하세요." class="txArea"></textarea>
+							<textarea name="mtm_contents" id="lb_inq_2" title="내용을 입력하세요." class="txArea"></textarea>
 						</div>
 						</div>
 						<div class="tbRow tbMail">
@@ -71,11 +61,11 @@
 								<label for="lb_inq_4">답변받을 e-메일 <em>(필수)</em></label>
 							</div>
 							<div class="tbCell">
-								<input type="text" id="lb_inq_4" name="qa_email" class="mtcIpt" title="이메일 주소 앞부분" value="">
-								 @ <input type="text" id="lb_inq_5" name="qa_emaildomain" class="mtcIpt" title="이메일 주소 뒷부분" value="">
+								<input type="text" id="lb_inq_4" name="email1" class="mtcIpt" title="이메일 주소 앞부분" value="">
+								 @ <input type="text" id="lb_inq_5" name="email2" class="mtcIpt" title="이메일 주소 뒷부분" value="">
 								<div class="mtcSltBx listLenSel">
 									<label id="" for="lb_view_2">직접입력</label> 
-									<select name="" id="lb_view_2" title="이메일 사업자 입력">
+									<select name="email2" id="lb_view_2" title="이메일 사업자 입력">
 										<option value="">직접입력</option>
 										<option value="naver.com">naver.com</option>
 										<option value="hanmail.net">hanmail.net</option>

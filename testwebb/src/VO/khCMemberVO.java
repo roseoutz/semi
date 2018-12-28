@@ -1,21 +1,22 @@
 package VO;
 
 public class khCMemberVO {
-	private int cmember_cno; // 사업자등록번호
-	private String cmember_id; // 기업회원 id
-	private String cmember_pass; // 기업회원 비밀번호
-	private String cmember_name; // 기업회원 가입자 이름(인사담당자 이름)
-	private String cmember_phone; // 기업회원 전화번호
-	private String cmember_email; // 기업회원 이메일
-	private String cmember_type; // 기업구분(중소/중견/대)
-	private String cmember_cname; // 기업명
-	private String cmember_addr; // 기업주소
+	private String cmember_cno; 
+	private String cmember_id;
+	private String cmember_pass; 
+	private String cmember_name; 
+	private String cmember_phone; 
+	private String cmember_email;
+	private String cmember_type; 
+	private String cmember_cname; 
+	private String cmember_addr;
+	private String cmember_ceo;
 
-	public int getCmember_cno() {
+	public String getCmember_cno() {
 		return cmember_cno;
 	}
 
-	public void setCmember_cno(int cmember_cno) {
+	public void setCmember_cno(String cmember_cno) {
 		this.cmember_cno = cmember_cno;
 	}
 
@@ -81,6 +82,14 @@ public class khCMemberVO {
 
 	public void setCmember_addr(String cmember_addr) {
 		this.cmember_addr = cmember_addr;
+	}
+
+	public String getCmember_ceo() {
+		return cmember_ceo;
+	}
+
+	public void setCmember_ceo(String cmember_ceo) {
+		this.cmember_ceo = cmember_ceo;
 	}
 
 }

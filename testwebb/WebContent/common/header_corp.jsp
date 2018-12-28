@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix = "s" uri = "/struts-tags" %>
+	
 <body class="byWd byNm" style="">
 	<a name="top"></a>
 	<p id="accessibility">
@@ -45,8 +47,24 @@
 							<!-- 채용정보 -->
 							<li><a href="corppost.tiles" style="font:bold 20px Dotum;">공고 등록</a></li>
 							<li><a href="corphr.tiles" style="font:bold 20px Dotum;">공고 인재 관리</a></li>
-							<li><a href="simpleqna.tiles" style="font:bold 20px Dotum;">고객센터</a></li>
+							<li><a href="corpsimpleqna.tiles" style="font:bold 20px Dotum;">고객센터</a></li>
 							<li><a href="corppostlist.tiles" style="font:bold 20px Dotum;">마이페이지</a></li>
+							<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+							<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+							<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+							<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+							<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+							<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+							<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+							<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+							<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+							<s:if test = "#session.session_id == null">
+							</s:if>
+							<s:else>
+							<li><a style="font:bold 15px Dotum;"><s:property value = "#session.session_id"/>님</a></li>
+							<li><em><s:property value = "#session.session_type"/>회원</em></li>
+							<li><button type="button" onclick="#">로그아웃</button></li>
+							</s:else>
 						</ul>
 						<!-- my 홈일경우 클래스 myPage -->
 						</nav>

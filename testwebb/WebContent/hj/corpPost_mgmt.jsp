@@ -1,30 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix = "s" uri = "/struts-tags" %>
+
 <!DOCTYPE html>
 <body id="secMtu">
 
 	<div id="wrap">
 		<section id="container">
 			<h1 class="skip">개인회원 서비스</h1>
-			<section class="myContent" style="float:left; widht:190px;">
-				<div class="profile info">
-					<div class="photo mtuSpImgAfter devPhotoBtns btns">
-						<p class="img">
-							<img src="./mypage_files/M_Photo_View.asp" alt="이력서 사진"
-								style="width: 100%">
-						</p>
-						<button class="btn mtuSpImg btnModify" type="button">
-							<span class="skip">사진편집</span>
-						</button>
-						<button class="btn btnPhotoDel mtuSpImg btnDelete" type="button">
-							<span class="skip">사진삭제</span>
-						</button>
-					</div>
-					<div class="name">
-						<strong>김동규</strong>님
-					</div>
-				</div>
-			</section>
 			<section class="content">
 				<div class="modal modal-spinner" role="dialog" aria-hidden="true"
 					style="display: none;"></div>
@@ -32,9 +15,9 @@
 					<div class="innerHd">
 						<ul>
 							<li class="hdTab"><a
-								href="corppostlist.tiles">공고 관리</a></li>
+								href="corppostlist.action">공고 관리</a></li>
 							<li class="on"><a
-								href="corphr.tiles">지원자 관리</a></li>
+								href="corphr.action">지원자 관리</a></li>
 						</ul>
 					</div>
 
@@ -91,11 +74,11 @@
 						<div class="lnbGroup">
 							<h2 class="lnbTit">공고 및 지원자 관리</h2>
 							<ul>
-								<li><a href="corppost.tiles"
+								<li><a href="corppost.action"
 									target="_blank">공고 등록</a></li>
-								<li><a href="corppostlist.tiles">등록 공고
+								<li><a href="corppostlist.action">등록 공고
 										관리</a></li>
-								<li><a href="corphr.tiles">지원자
+								<li><a href="corpresumelist.action">지원자
 										관리</a></li>
 							</ul>
 						</div>
@@ -103,7 +86,7 @@
 						<div class="lnbGroup">
 							<h2 class="lnbTit">인재관리</h2>
 							<ul>
-								<li><a href="corphrsearch.tiles"
+								<li><a href="corphrsearch.action"
 									target="_blank">인재 검색</a></li>
 							</ul>
 						</div>
@@ -111,7 +94,7 @@
 						<div class="lnbGroup">
 							<h2 class="lnbTit">회원정보 관리</h2>
 							<ul>
-								<li><a href="corpinfo.tiles">기업정보 수정</a></li>
+								<li><a href="corpinfo.action">기업정보 수정</a></li>
 								<li><a href="#">회원정보 수정</a></li>
 								<li><a href="#">회원탈퇴</a></li>
 							</ul>

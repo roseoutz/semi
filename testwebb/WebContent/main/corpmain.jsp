@@ -319,16 +319,4 @@
 	</div>
 
 	<hr>
-
-	<!-- Qna 용 스와이프 js -->
-	<script src="/scripts/ui.main.min.js?20181101"></script>
-	<script type="text/javascript" src="/scripts/resume-target.js?v=9"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			if (resume_target !== undefined) {
-				resume_target.init(1);
-			}
-		});
-	</script>
-
 </body>

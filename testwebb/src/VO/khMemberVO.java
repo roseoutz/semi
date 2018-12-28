@@ -1,11 +1,11 @@
 package VO;
 
 public class khMemberVO {
-	private String member_id; 		// 일반회원 ID
-	private String member_pass;		// 일반회원 비밀번호
-	private String member_phone;	// 일반회원 전화번호
-	private String member_email;	// 일반회원 이메일
-	private String member_name;		// 일반회원 이름
+	private String member_id; 		
+	private String member_pass;		
+	private String member_phone;	
+	private String member_email;	
+	private String member_name;		
 
 	public String getMember_id() {
 		return member_id;

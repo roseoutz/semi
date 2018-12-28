@@ -11,18 +11,18 @@
 			</h1>
 			<div class="lnbGroup">
 				<ul>
-					<li><a href="#">FAQ</a>
-						<ul class="lnbTwoDep">
-							<li><a href="#" class="">1:1 문의하기</a></li>
-							<li><a href="#" class="">자주 묻는 질문</a></li>
-						</ul></li>
-				</ul>
-			</div>
-			<div class="lnbGroup">
-				<ul>
-					<li><a href="#" class="">공지사항</a></li>
-				</ul>
-			</div>
+						<li><a href="#">FAQ</a>
+							<ul class="lnbTwoDep">
+								<li><a href="qna.action" class="">1:1 문의하기</a></li>
+								<li><a href="simpleqna.action" class="">자주 묻는 질문</a></li>
+							</ul></li>
+					</ul>
+				</div>
+				<div class="lnbGroup">
+					<ul>
+						<li><a href="notice.action" class="">공지사항</a></li>
+					</ul>
+				</div>
 			<div class="lnbGroup">
 				<ul>
 					<li><a href="#" target="_blank">아이디∙비밀번호 찾기<span
@@ -86,7 +86,7 @@
 			</div>
 			<div class="questBtnArea">
 				<p class="txtQuest">원하시는 답변을 찾지 못하셨다면, 고객센터에 문의해주세요.</p>
-				<a class="btnQuest" href="#"
+				<a class="btnQuest" href="qna.action"
 					target="_self">문의하기</a>
 			</div>
 		</div>
@@ -95,4 +95,3 @@
 	
 	</div>
 	</div>
-</body>
