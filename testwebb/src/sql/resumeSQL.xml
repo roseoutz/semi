@@ -1,1 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap>
+	<typeAlias alias="resume" type="VO.khResumeVO"/>
+	
+	<resultMap class="resume" id="resumeRes">
+		<result property="resume_no" column="resume_no"/>
+		<result property="resume_m_id" column="resume_m_id"/>
+		<result property="resume_subject" column="resume_subject"/>
+		<result property="resume_date" column="resume_date"/>
+		<result property="resume_addr" column="resume_addr"/>
+	</resultMap>
+	
+	<!-- 이력서 insert -->
+	<insert id="insertResume" parameterClass="resume">
+		INSERT INTO KH_RESUME(RESUME_NO,RESUME_M_ID,RESUME_ADDR,RESUME_SUBJECT,RESUME_DATE)
+		VALUES (KH_RESUME_SEQ.NEXTVAL,##,#resume_addr#,#resume_subject#,#resume_date#)
+	</insert>
+	
+	<!-- 이력서 delete -->
+	<delete id="deleteResume" parameterClass="resume">
+		DELETE FROM KH_RESUME
+		WHERE RESUME_NO = #resume_no#	
+	</delete>
+</sqlMap>

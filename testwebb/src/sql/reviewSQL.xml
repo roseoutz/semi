@@ -2,24 +2,45 @@
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
 	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap>
-	<typeAlias alias="review" type="VO.khReviewVO"/>
+	<typeAlias alias="review" type="VO.khReviewVO" />
+
 	<resultMap id="reviewRes" class="review">
-		<result property="review_no" column="review_no"/>
-		<result property="review_writer" column="review_writer"/>
-		<result property="review_content" column="review_content"/>
-		<result property="review_date" column="review_date"/>
-		<result property="review_post_no" column="review_post_no"/>
+		<result property="review_no" column="review_no" />
+		<result property="review_writer" column="review_writer" />
+		<result property="review_content" column="review_content" />
+		<result property="review_date" column="review_date" />
+		<result property="review_post_no" column="review_post_no" />
 	</resultMap>
-	
-	
-	<!-- 리뷰 insert -->
+
+	<!-- 공통 where-no 절 -->
+	<sql id="where-no">
+		WHERE REVIEW_NO = #review_no#
+	</sql>
+
+	<!-- 리뷰 SELECT -->
+	<select id="selectReview" parameterClass="review">
+		SELECT * FROM
+		KH_REVIEW;
+	</select>
+
+	<!-- 리뷰 작성 -->
 	<insert id="insertReview" parameterClass="review">
-		INSERT INTO KH_REVIEW(REVIEW_NO,REVIEW_WRITER,REVIEW_CONTENT,REVIEW_DATE,REVIEW_POST_NO)
-		VALUES (KH_REVIEW_SEQ.NEXTVAL,#review_writer#,#review_content#,#review_date#,#review_post_no#)
+		INSERT INTO KH_REVIEW
+		(REVIEW_NO,REVIEW_WRITER,REVIEW_CONTENT,REVIEW_DATE,REVIEW_POST_NO)
+		VALUES
+		(KH_REVIEW_SEQ.NEXTVAL,#review_writer#,#review_content#,#review_date#,#review_post_no#)
 	</insert>
-	
+
+	<!-- 리뷰 수정 -->
+	<update id="updateReview" parameterClass="review">
+		UPDATE KH_REVIEW
+		SET REVIEW_CONTENT=#review_content#,REVIEW_DATE=#review_date#
+		<include refid="where-no" />
+	</update>
+
+	<!-- 리뷰 삭제 -->
 	<delete id="deleteReview" parameterClass="review">
 		DELETE FROM KH_REVIEW
-		WHERE REVIEW_NO = #review_no#
+		<include refid="where-no" />
 	</delete>
 </sqlMap>
