@@ -3,18 +3,18 @@ package VO;
 import java.util.Date;
 
 public class khPostVO {
-	private int post_no;				// 식별자
-	private String post_subject;	// 공고 제목
-	private String post_writer;		// 공고 작성자
-	private String post_content;	// 공고 내용
-	private Date post_date;			// 등록 일자
-	private String post_prefer; 	// 우대 사항
-	private String post_loc;			// 근무 지역
-	private String post_pay;			// 연봉
-	private String post_em_type;	// 근무 형태
-	private String post_edu;			// 지원 자격(학력)
-	private String post_career;		// 지원 자격(경력)
-	private String post_time;		// 근무 시간
+	private int post_no;				
+	private String post_subject;	
+	private String post_writer;		
+	private String post_content;	
+	private Date post_date;			
+	private String post_prefer; 	
+	private String post_loc;			
+	private String post_pay;			
+	private String post_em_type;	
+	private String post_edu;			
+	private String post_career;		
+	private String post_time;		
 	
 	
 	public String getPost_prefer() {

@@ -25,5 +25,4 @@
 	<sqlMap resource="/sql/joinSQL.xml"/>
 	<sqlMap resource="/sql/mtmSQL.xml"/>
 	<sqlMap resource="/sql/simpleqnaSQL.xml"/>
-	<sqlMap resource="/sql/postSQL.xml"/>
 </sqlMapConfig>

@@ -44,6 +44,7 @@
 			post_prefer=#post_prefer#,post_time=#post_time#
 			<include refid="where-no"/>
 		</update>
+		
 		<!-- 채용공고 삭제 -->
 		<delete id="deletePost" parameterClass="post">
 			DELETE FROM KH_POST
