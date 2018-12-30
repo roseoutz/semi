@@ -55,3 +55,6 @@ local.properties
 .tern-project
 .springBeans
 .recommenders/
+.classpath*
+.classpath
+
