@@ -3,7 +3,9 @@ package post;
 import java.io.Reader;
 import java.util.Calendar;
 
+import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
+import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
 import VO.khPostVO;
@@ -11,10 +13,10 @@ import VO.khPostVO;
 public class postViewAction extends ActionSupport {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
-	
+
 	public khPostVO paramClass;
 	public khPostVO resultClass;
-	
+
 	private int post_no;
 	private String post_subject;
 	private String post_writer;
@@ -27,4 +29,15 @@ public class postViewAction extends ActionSupport {
 	private String post_prefer;
 	private String post_time;
 	Calendar post_date = Calendar.getInstance();
+
+	public postViewAction() throws Exception {
+		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
+		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
+		reader.close();
+	}
+	
+	public String execute() throws Exception{
+		
+		return SUCCESS;
+	}
 }

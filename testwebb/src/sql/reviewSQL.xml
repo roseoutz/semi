@@ -20,7 +20,8 @@
 	<!-- 리뷰 SELECT -->
 	<select id="selectReview" parameterClass="review">
 		SELECT * FROM
-		KH_REVIEW;
+		KH_REVIEW
+		<include refid="where-no"/>
 	</select>
 
 	<!-- 리뷰 작성 -->

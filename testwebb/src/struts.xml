@@ -76,6 +76,14 @@
 			<result type="tiles">mypage</result>
 		</action>	
 	</package>
+	
+	<!-- 채용공고 상세보기 -->
+	<package name="post" extends="struts-default, tiles-default">
+		<action name="post">
+			<result type="tiles">post</result>
+		</action>
+	</package>
+	
 	<include file="join.xml"/>
 	<include file="login.xml"/>
 	

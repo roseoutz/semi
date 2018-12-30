@@ -63,11 +63,6 @@
 											target="_blank" title="새창"
 											onclick="javascript:go_Area_List('M120',1); return false;">전북
 											전주시 덕진구</a>
-										<button type="button" class="girBtn girBtn_3 girBtnMap"
-											onclick="$('html, body').stop().animate({ scrollTop: $('#secReadWork').offset().top - 70 }, 500);">
-											<span>지도</span>
-										</button>
-
 									</dd>
 
 									<dt>시간</dt>
