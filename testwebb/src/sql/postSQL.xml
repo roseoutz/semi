@@ -19,15 +19,10 @@
 			<result property="post_time" column="post_time"/>
 		</resultMap>
 		
-		<!-- 공통 where no -->
-		<sql id="where-no">
-			WHERE POST_NO=#POST_NO#
-		</sql>
-		
 		<!-- 채용공고 select -->		
 		<select id="selectPost" parameterClass="post">
 			select * from kh_post
-			<include refid="where-no"/>
+			where post_no = #post_no#
 		</select>
 		
 		<!-- 채용공고 작성 insert query -->
@@ -38,16 +33,23 @@
 		
 		<!-- 채용공고 수정 -->
 		<update id="updatePost" parameterClass="post">
+			<!--  
 			UPDATE KH_POST
 			SET POST_SUBJECT=#post_subject#,POST_DATE=#post_date#,POST_CONTENT=#post_content#,POST_CAREER=#post_career#,
 			post_edu=#post_edu#,post_em_type=#post_em_type#,post_pay=#post_pay#,post_loc=#post_loc#,
 			post_prefer=#post_prefer#,post_time=#post_time#
 			<include refid="where-no"/>
+			-->
+			update kh_post set
+			post_subject=#post_subject#,post_date=#post_date#,post_content=#post_content#,post_career=#post_career#,
+			post_edu=#post_edu#,post_em_type=#post_em_type#,post_pay=#post_pay#,post_loc=#post_loc#,
+			post_prefer=#post_prefer#,post_time=#post_time#
+			where post_no = #post_no#
 		</update>
 		
 		<!-- 채용공고 삭제 -->
 		<delete id="deletePost" parameterClass="post">
-			DELETE FROM KH_POST
-			<include refid="where-no"/>
+			delete from kh_post
+			where post_no = #post_no#
 		</delete>
 </sqlMap>

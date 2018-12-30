@@ -33,8 +33,10 @@
 									<li class="ing">
 										<div class="col col01">
 											<div class="tit">
-												<em class="badge">2018.12.19</em><a
-													href="/User/Resume/Write" target="_blank">傍绊 力格</a>
+												<em class="badge">2018.12.19</em>
+												<a href="./postbody/post.jsp" target="_blank">
+													傍绊 力格
+												</a>
 											</div>
 											<div class="date"></div>
 										</div>

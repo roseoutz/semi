@@ -77,6 +77,9 @@
 		</action>	
 	</package>
 	
+	<include file="join.xml"/>
+	<include file="login.xml"/>
+	
 	<!-- 채용공고 상세보기 -->
 	<package name="post" extends="struts-default, tiles-default">
 		<action name="post">
@@ -84,7 +87,6 @@
 		</action>
 	</package>
 	
-	<include file="join.xml"/>
-	<include file="login.xml"/>
+	
 	
 </struts>
