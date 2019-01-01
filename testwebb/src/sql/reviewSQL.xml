@@ -14,34 +14,34 @@
 
 	<!-- 공통 where-no 절 -->
 	<sql id="where-no">
-		WHERE REVIEW_NO = #review_no#
+		where review_no = #review_no#
 	</sql>
 
 	<!-- 리뷰 SELECT -->
 	<select id="selectReview" parameterClass="review">
-		SELECT * FROM
-		KH_REVIEW
-		<include refid="where-no"/>
+		select * from kh_review
+		where review_post_no = #review_post_no#
+		order by review_date desc
 	</select>
 
 	<!-- 리뷰 작성 -->
 	<insert id="insertReview" parameterClass="review">
-		INSERT INTO KH_REVIEW
-		(REVIEW_NO,REVIEW_WRITER,REVIEW_CONTENT,REVIEW_DATE,REVIEW_POST_NO)
-		VALUES
+		insert into kh_review
+		(review_no,review_writer,review_content,review_date,review_post_no)
+		values
 		(KH_REVIEW_SEQ.NEXTVAL,#review_writer#,#review_content#,#review_date#,#review_post_no#)
 	</insert>
 
 	<!-- 리뷰 수정 -->
 	<update id="updateReview" parameterClass="review">
-		UPDATE KH_REVIEW
-		SET REVIEW_CONTENT=#review_content#,REVIEW_DATE=#review_date#
+		update kh_review
+		set review_content=#review_content#,review_date=#review_date#
 		<include refid="where-no" />
 	</update>
 
 	<!-- 리뷰 삭제 -->
 	<delete id="deleteReview" parameterClass="review">
-		DELETE FROM KH_REVIEW
+		delete from kh_review
 		<include refid="where-no" />
 	</delete>
 </sqlMap>

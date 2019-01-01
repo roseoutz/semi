@@ -85,8 +85,16 @@
 		<action name="post">
 			<result type="tiles">post</result>
 		</action>
+		
+		<action name="reviewWriteAction" class="review.reviewWriteAction">
+			<result type="chain">
+				postViewAction
+			</result>
+		</action>
 	</package>
 	
 	
+	
+
 	
 </struts>

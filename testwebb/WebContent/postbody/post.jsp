@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <body id="secStar" class="lgiSubRead   " style="">
 	<div id="wrap">
 		<section id="container" >
@@ -191,7 +192,65 @@
 					</div>
 				</div>
 			</div>
-
+			<!-- 
+			<table width="600" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td colspan="2" height="1"></td>
+				</tr>
+				<s:iterator value="reviewList" status="stat">
+					<tr>
+						<td height="10" width="130" align="center">
+							<s:property value="review_writer" /><br>
+							<s:property value="review_date" /><br><br>
+						</td>
+						<td>
+							<s:property value="review_content" /> 
+						</td>
+					</tr>
+					<tr bgcolor="#777777">
+						<td colspan="2" height="1"></td>
+					</tr>
+				</s:iterator>
+				<tr>
+					<td colspan="2" height="10">
+						<s:if test="reviewList.size() <= 0">
+							댓글없음
+					</td>
+				</tr>
+						</s:if>	
+	
+				<tr bgcolor="#777777">
+					<td colspan="2" height="1"></td>
+				</tr>
+				<tr>
+					<td colspan="2" height="10"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="right">
+						<input name="list" type="button" value="기업리뷰달기" class="inputb">
+					</td>
+				</tr>
+			</table>
+			 -->
 		</section>
+		
+			 <div id="review_table" style="display:table; width:100%">
+			 	<s:iterator value="reviewList" status="stat">
+					<div id="col1" style="display:table-cell; padding:3px; border-bottom:1px solid black;">
+						<s:property value="review_writer" /><br><h1>abc</h1>
+						<s:property value="review_date" /><br><br>abc
+					</div>
+					<div id="col2" style="display:table-cell; padding:3px; border-bottom:1px solid black;">
+						<s:property value="review_content" /> abc
+					</div>
+				</s:iterator>
+				<h1>
+					<s:if test="reviewList.size() <= 0">
+						댓글없음
+				</h1>
+					</s:if>
+					<input name="list" type="button" value="기업리뷰달기" class="inputb">
+			 </div>
+		
 	</div>
 </body>
