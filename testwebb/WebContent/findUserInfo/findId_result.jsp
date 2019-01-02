@@ -62,9 +62,16 @@
 					<p class="info"><strong>입력된 정보로 등록된 아이디는 총<em>${searchCount }개</em> 있습니다.</strong></p>
 					<div class="mbrTplBoxList">
 						<ul>
-						<s:iterator value = "findId" status = "stat">
-							<li><s:property value = "member_id"/> 가입날짜 : (<s:property value = "member_date"/>)</li>
-						</s:iterator>
+						<s:if test = "category == '기업'">
+							<s:iterator value = "findId" status = "stat">
+								<li><s:property value = "cmember_id"/> 가입날짜 : (<s:property value = "cmember_date"/>)</li>
+							</s:iterator>
+						</s:if>
+						<s:else>
+						 	<s:iterator value = "findId" status = "stat">
+								<li><s:property value = "member_id"/> 가입날짜 : (<s:property value = "member_date"/>)</li>
+							</s:iterator>
+						</s:else>
 						</ul>
 					</div>
 				</div>

@@ -26,6 +26,7 @@ public class findIdAction extends ActionSupport{
 	private List findId;
 	private String r_findId;
 	private int searchCount;
+	private String category;
 	
 	
 	
@@ -48,6 +49,7 @@ public class findIdAction extends ActionSupport{
 			if(findId.isEmpty()) {
 				return ERROR;
 			}else {
+				category = "일반";
 				return SUCCESS;
 			}
 		}else{
@@ -58,6 +60,7 @@ public class findIdAction extends ActionSupport{
 			if(findId.isEmpty()) {
 				return ERROR;
 			}else {
+				category = "기업";
 				return SUCCESS;
 			}
 		}
@@ -133,5 +136,13 @@ public class findIdAction extends ActionSupport{
 
 	public int getSearchCount() {
 		return searchCount;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 }
