@@ -22,7 +22,7 @@
 					<input type="hidden" value="${session_id}" name="post_writer"/>
 					<h2 class="skip">공고입력</h2>
 =======
-					<h2 class="skip">�����Է�</h2>
+					<h2 class="skip">�����Է�</h2>
 >>>>>>> 20181228_김동규
 					<div class="hopeWorking">
 						<h3 class="header">공고 제목</h3>

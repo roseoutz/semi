@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap>
+	<typeAlias alias="qa" type="VO.khQAVO"/>
+	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
+		<resultMap class="qa" id="qaRes">
+			<result property="qa_no" column="qa_no"/>
+			<result property="qa_subject" column="qa_subject"/>
+			<result property="qa_content" column="qa_content"/>
+			
+		</resultMap>
+		
+		<insert id="insertqa" parameterClass="qa">
+			insert into kh_qa(qa_no, qa_subject, qa_content)
+			values (kh_qa_seq.NEXTVAL,#qa_subject#, #qa_content#)
+		</insert>
+
+		<select id="selectAllqa" resultMap="qaRes">
+			select * from kh_qa order by qa_no desc
+		</select>
+		
+		<select id="selectSearchAllqa" resultMap="qaRes" parameterClass="String">
+			select * from kh_qa where qa_subject like '%' || #keyword# || '%' order by qa_no desc
+		</select>
+		
+		<select id="selectOneqa" resultMap="qaRes" parameterClass="int">
+			select * from kh_qa where qa_no = #qa_no#
+		</select>
+			
+		<select id="selectLastNoqa" resultClass="qa">
+			select max(qa_no) as no from kh_qa
+		</select>
+		
+		<select id="selectCountqa">
+			select count(*) from kh_qa
+		</select>
+</sqlMap>

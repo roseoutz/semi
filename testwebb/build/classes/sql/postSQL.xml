@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+
+<sqlMap>
+	<typeAlias alias="post" type="VO.khPostVO"/>
+	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
+		<resultMap class="post" id="postRes">
+			<result property="post_no" column="post_no"/>
+			<result property="post_subject" column="post_subject"/>
+			<result property="post_writer" column="post_writer"/>
+			<result property="post_content" column="post_content"/>
+			<result property="post_date" column="post_date"/>
+			<result property="post_career" column="post_career"/>
+			<result property="post_edu" column="post_edu"/>
+			<result property="post_em_type" column="post_em_type"/>
+			<result property="post_pay" column="post_pay"/>
+			<result property="post_loc" column="post_loc"/>
+			<result property="post_prefer" column="post_prefer"/>
+			<result property="post_time" column="post_time"/>
+		</resultMap>
+		
+		<insert id="insertPost" parameterClass="post">
+			insert into kh_post(post_no, post_subject, post_writer, post_content, post_date, post_career, post_edu, post_em_type, post_pay, post_loc, post_prefer, post_time)
+			values (kh_post_seq.NEXTVAL,#post_subject#, #post_writer#, #post_content#, #post_date#, #post_career#, #post_edu#, #post_em_type#, #post_pay#, #post_loc#, #post_prefer#, #post_time#)
+		</insert>
+
+</sqlMap>
