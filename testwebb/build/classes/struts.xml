@@ -121,7 +121,7 @@
 		
 		<action name="reviewWriteAction" class="review.reviewWriteAction">
 			<result type="chain">
-				postViewAction
+				postView
 			</result>
 		</action>
 	</package>

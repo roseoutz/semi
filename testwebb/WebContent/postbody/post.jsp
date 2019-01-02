@@ -283,7 +283,7 @@
 				<tr>
 					<td colspan="2" height="10">
 						<!-- 댓글 쓰기 -->
-						<form action="reviewWrite.action?review_no=<s:property value="review_no" />&review_no=<s:property value="review_no" />&currentPage=<s:property value="currentPage" />" method="post" name="write" onsubmit="return validation();">
+						<form action="reviewWrite.action?review_post_no=<s:property value="review_post_no" />&review_no=<s:property value="review_no" />&currentPage=<s:property value="currentPage" />" method="post" name="write" onsubmit="return validation();">
 							<table>
 								<tr>
 									<td align="center" width="100">작성자<br>${session.session_name}</td>
@@ -294,7 +294,7 @@
 								</tr>
 								<tr>
 									<td colspan="2" align="right">
-										<input name="submit" type="submit" value="댓글 작성" class="inputb">
+										<input name="submit" type="submit" value="리뷰 작성" class="inputb">
 									</td>
 								</tr>
 							</table>

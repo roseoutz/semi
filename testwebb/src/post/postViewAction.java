@@ -17,8 +17,14 @@ public class postViewAction extends ActionSupport {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 
-	public khPostVO paramClass;
-	public khPostVO resultClass;
+	private khPostVO paramClass;
+	private khPostVO resultClass;
+	private List<khReviewVO> reviewList = new ArrayList<khReviewVO>();
+	
+	private khReviewVO reParamClass;
+	private khReviewVO reResultClass;
+	
+	private int currentPage;
 
 	private int post_no;
 	private String post_subject;
@@ -33,7 +39,6 @@ public class postViewAction extends ActionSupport {
 	private String post_time;
 	Calendar post_date = Calendar.getInstance();
 	
-	private List<khReviewVO> reviewList = new ArrayList<khReviewVO>();
 	
 	public postViewAction() throws Exception {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -43,7 +48,8 @@ public class postViewAction extends ActionSupport {
 	
 	public String execute() throws Exception{
 		paramClass.setPost_no(getPost_no());
-		
+
+		resultClass = (khPostVO)sqlMapper.queryForObject("",getPost_no());
 		reviewList = sqlMapper.queryForList("selectReview",getPost_no());
 		
 		return SUCCESS;
@@ -167,6 +173,30 @@ public class postViewAction extends ActionSupport {
 
 	public void setReviewList(List<khReviewVO> reviewList) {
 		this.reviewList = reviewList;
+	}
+
+	public khReviewVO getReParamClass() {
+		return reParamClass;
+	}
+
+	public void setReParamClass(khReviewVO reParamClass) {
+		this.reParamClass = reParamClass;
+	}
+
+	public khReviewVO getReResultClass() {
+		return reResultClass;
+	}
+
+	public void setReResultClass(khReviewVO reResultClass) {
+		this.reResultClass = reResultClass;
+	}
+
+	public int getCurrentPage() {
+		return currentPage;
+	}
+
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
 	}
 	
 	
