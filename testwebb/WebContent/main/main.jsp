@@ -25,7 +25,7 @@
          		height:22px;">
             </li>
             <li style="width:90px;">
-            	<button type="submit" class="btn btn1" value="로그인"></button>
+            	<button type="submit" class="btn btn1">로그인</button>
             </li>
         </ul>
         </form>
