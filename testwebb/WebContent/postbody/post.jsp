@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body id="secStar" class="lgiSubRead   " style="">
 	<div id="wrap">
 		<section id="container" >
@@ -63,11 +65,6 @@
 											target="_blank" title="새창"
 											onclick="javascript:go_Area_List('M120',1); return false;">전북
 											전주시 덕진구</a>
-										<button type="button" class="girBtn girBtn_3 girBtnMap"
-											onclick="$('html, body').stop().animate({ scrollTop: $('#secReadWork').offset().top - 70 }, 500);">
-											<span>지도</span>
-										</button>
-
 									</dd>
 
 									<dt>시간</dt>
@@ -196,7 +193,132 @@
 					</div>
 				</div>
 			</div>
-
+			<!--  
+			<table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
+				<tr>
+					<td colspan="2" height="1"></td>
+				</tr>
+				<s:iterator value="reviewList" status="stat">
+					<tr>
+						<s:hidden name="review_no" value="%{resultClass.review_no}"/>
+						<td height="10" width="130" align="center">
+							<s:property value="review_writer" /><br>
+						</td>
+						<td>
+							<font size="2"><s:property value="review_content" /></font> 
+						</td>
+						<td>
+							<s:property value="review_date" /><br><br>
+						</td>
+					</tr>
+					<tr bgcolor="#777777">
+						<td colspan="2" height="1"></td>
+					</tr>
+				</s:iterator>
+				<tr>
+					<td colspan="2" height="10">
+						<s:if test="reviewList.size() <= 0">
+							댓글없음
+					</td>
+				</tr>
+						</s:if>	
+	
+				<tr bgcolor="#777777">
+					<td colspan="2" height="1"></td>
+				</tr>
+				<tr>
+					<td colspan="2" height="10"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="right">
+						<input name="list" type="button" value="기업리뷰달기" class="inputb">
+					</td>
+				</tr>
+			</table>
+			-->
+			<br>
+			<table align="center" width="834" border="0" cellspacing="0" cellpadding="0">
+				<tr height="20">
+					<td bgcolor="#d2d2d2" align="center" colspan="3" align="left"
+						height="30"><font size="3">기 업 리 뷰</font></td>
+				</tr>
+				<s:iterator value="reviewList" status="stat">
+					<tr>
+						<s:hidden name="review_no" value="%{resultClass.review_no}" />
+						<td height="30" width="100" align="center" bgcolor="#e9e9e9">
+							<font size="2"><s:property value="review_writer" /> </font>
+						</td>
+						<td height="30" width="634" align="left" bgcolor="#ffffff"><font
+							size="2">&nbsp;&nbsp;<s:property value="review_content" /></font>
+						</td>
+						<td height="30" width="100" align="center" bgcolor="#ffffff">
+							<font size="2"><s:property value="review_date" /></font>
+						</td>
+						<s:set name="review_writer"
+							value='<s:property value="review_writer"/>' />
+						<s:if test="#session.session_sid == review_writer">
+							<td>
+								<!-- 코멘트 삭제 --> <!-- 
+							<a href="javascript:open_win_noresizable('fcDeleteCheck.action?fc_no=<s:property value="fc_no" />&fc_orgno=<s:property value="fc_orgno"/>&currentPage=<s:property value="currentPage" />','fcDeleteCheck')">x</a>
+							 -->
+							</td>
+						</s:if>
+					</tr>
+					<tr bgcolor="#9aafc9">
+						<td height="1" colspan="3"></td>
+					</tr>
+				</s:iterator>
+				<s:if test="reviewList.size() <= 0">
+					<tr>
+						<td align="center" colspan="3" height="30">댓글 없음</td>
+					</tr>
+					<tr bgcolor="#9aafc9">
+						<td height="1" colspan="3"></td>
+					</tr>
+				</s:if>
+			</table>
+			<br>
+			<div style="text-align:center; align:center; ">
+			<table align="center" width="834" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td colspan="2" height="10">
+						<!-- 댓글 쓰기 -->
+						<form action="reviewWrite.action?review_no=<s:property value="review_no" />&review_no=<s:property value="review_no" />&currentPage=<s:property value="currentPage" />" method="post" name="write" onsubmit="return validation();">
+							<table>
+								<tr>
+									<td align="center" width="100">작성자<br>${session.session_name}</td>
+									<s:hidden name="review_post_no" value="%{resultClass.review_post_no}" />
+									<s:hidden name="review_no" value="%{resultClass.review_no}" />
+									<s:hidden name="currentPage" value="%{currentPage}" />
+									<td align="center"><s:textarea wrap="hard" name="review_content" theme="simple" value="" cols="90" rows="5" /></td>
+								</tr>
+								<tr>
+									<td colspan="2" align="right">
+										<input name="submit" type="submit" value="댓글 작성" class="inputb">
+									</td>
+								</tr>
+							</table>
+						</form>
+					</td>
+				</tr>
+				<tr bgcolor="#9aafc9">
+					<td height="1" colspan="2"></td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2" height="30"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="right">
+						<s:if test="#session.session_id == resultClass.review_writer">
+							<input name="list" type="button" value="수정" class="inputb" onClick="javascript:location.href='fModifyForm.action?f_no=<s:property value="fresultClass.f_no" />&currentPage=<s:property value="currentPage" />'">
+						</s:if> 
+						<s:if test="#session.session_id == resultClass.review_writer">
+							<input name="list" type="button" value="삭제" class="inputb" onClick="javascript:deleteForm('fDeleteCheck.action?f_no=<s:property value="f_no" />&currentPage=<s:property value="currentPage" />')">
+						</s:if> 
+						<input name="list" type="button" value="목록" class="inputb" onClick="javascript:location.href='postList.action?currentPage=<s:property value="currentPage" />'"></td>
+				</tr>
+			</table>
+			</div>
 		</section>
 	</div>
 </body>

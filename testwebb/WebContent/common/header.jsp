@@ -12,7 +12,7 @@
 			<!-- // headInner -->
 			<div class="headInner">
 				<h1 class="404Logo">
-					<a href="http://127.0.0.1:8080/testwebb/main.tiles"><img src="./image/404JOB.png" height="39" width="160" style="float: left;">
+					<a href="http://127.0.0.1:8080/testwebb/main.action"><img src="./image/404JOB.png" height="39" width="160" style="float: left;">
 					</a>
 				</h1>
 				<!-- // search -->

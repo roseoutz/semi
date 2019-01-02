@@ -25,6 +25,7 @@ hs_err_pid*
 
 /build/
 .classpath/
+.classpath
 logs/
 .DS_Store
 .DS_Store?
