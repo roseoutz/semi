@@ -3,10 +3,12 @@ package review;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.Calendar;
+import java.util.Map;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import VO.khReviewVO;
@@ -23,6 +25,8 @@ public class reviewWriteAction extends ActionSupport{
 	private String content;
 	private int post_no;
 	
+	private Map<String,Object> session;
+	
 	Calendar today = Calendar.getInstance();
 	
 	public reviewWriteAction() throws IOException{
@@ -31,13 +35,19 @@ public class reviewWriteAction extends ActionSupport{
 		reader.close();
 	}
 	
+	public String form() throws Exception{
+		return SUCCESS;
+	}
+	
 	public String execute() throws Exception{
 		paramClass = new khReviewVO();
 		resultClass = new khReviewVO();
+		ActionContext context = ActionContext.getContext();
+		session = context.getSession();
 		
 		paramClass.setReview_post_no(getPost_no());
 		paramClass.setReview_content(getContent());
-		paramClass.setReview_writer(getWriter());
+		paramClass.setReview_writer((String)session.get("session_id"));
 		paramClass.setReview_date(today.getTime());
 		
 		sqlMapper.insert("insertReview",paramClass);
