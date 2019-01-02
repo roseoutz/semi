@@ -31,7 +31,9 @@
         </form>
         <div class="mbrLinks clear">
             <span class="mbr dotum">
-                <a href="joingen.action" class="devHref devClick" data-click-value="55"><strong>회원가입</strong></a><span class="idBx"><a href="http://127.0.0.1:8080/testwebb//Login/Search/Search_Id.asp" class="devHref devClick" data-click-value="56">ID</a></span><span class="pwBx"><a href="http://127.0.0.1:8080/testwebb//Login/Search/Search_Pwd.asp" class="devHref devClick" data-click-value="56">PW 찾기</a></span>
+                <a href="joingen.action" class="devHref devClick" data-click-value="55"><strong>회원가입</strong></a>
+                <span class="idBx"><a href="./findUserInfo/findId.jsp" class="devHref devClick" data-click-value="56">ID</a></span>
+           	  <span class="pwBx"><a href="./findUserInfo/findPwd.jsp" class="devHref devClick" data-click-value="56">PW 찾기</a></span>
             </span>
             
         </div>
