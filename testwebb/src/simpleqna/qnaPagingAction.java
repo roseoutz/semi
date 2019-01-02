@@ -1,7 +1,7 @@
-package qna;
+package simpleqna;
 
 
-public class mtmPagingAction {
+public class qnaPagingAction {
 
 	private int currentPage;
 	private int totalCount;
@@ -16,7 +16,7 @@ public class mtmPagingAction {
 	
 	public StringBuffer pagingHtml; 
 	
-	public mtmPagingAction(int currentPage, int totalCount, int blockCount, int blockPage, String keyword) {
+	public qnaPagingAction(int currentPage, int totalCount, int blockCount, int blockPage, String keyword) {
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
 		this.currentPage = currentPage;
@@ -43,7 +43,7 @@ public class mtmPagingAction {
 		}
 		pagingHtml = new StringBuffer();
 		if(currentPage > blockPage) {
-			pagingHtml.append("<li><span class=\"now\"><a href=qalist.action?currentPage="+(startPage-1));
+			pagingHtml.append("<li><span class=\"now\"><a href=simpleqna.action?currentPage="+(startPage-1));
 			if(keyword!=null) {
 			pagingHtml.append("&keyword="+keyword);
 			}
@@ -61,13 +61,25 @@ public class mtmPagingAction {
 				pagingHtml.append(i);
 				pagingHtml.append("</b></span></li>");
 			} else {
-				pagingHtml.append("&nbsp;<li><span class=\"now\"><a href='qalist.action?currentPage=");
+				pagingHtml.append("&nbsp;<li><span class=\"now\"><a href='simpleqna.action?currentPage=");
 				pagingHtml.append(i);
 				if(keyword!=null) {
 					pagingHtml.append("&keyword="+keyword);
 					}
-				
+				pagingHtml.append("'>");
+				pagingHtml.append(i);
+				pagingHtml.append("</a></span></li>");
 			}
+		}
+		pagingHtml.append("&nbsp;&nbsp;");
+		
+		if(totalPage-startPage > blockPage) {
+			pagingHtml.append("<li><span class=\"now\"><a href=simpleqna.action?currentPage="+(endPage+1));
+			if(keyword!=null) {
+			pagingHtml.append("&keyword="+keyword);
+			}
+			pagingHtml.append("> 다음");
+			pagingHtml.append("</a></span></li>");
 		}
 	}
 

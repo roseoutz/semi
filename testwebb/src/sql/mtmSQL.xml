@@ -18,19 +18,5 @@
 			values (mtm_no_seq.NEXTVAL,#mtm_writer_c#, #mtm_writer#, #mtm_content#, #mtm_email#)
 		</insert>
 		
-		<select id="selectAllmtm" resultMap="mtmRes">
-			select * from kh_mtm order by no desc
-		</select>
 		
-		<select id="selectOnemtm" resultMap="mtmRes" parameterClass="int">
-			select * from kh_mtm where no = #no#
-		</select>
-			
-		<select id="selectLastNo" resultClass="mtm">
-			select max(no) as no from kh_mtm
-		</select>
-		
-		<select id="selectCount">
-			select count(*) from kh_mtm
-		</select>
 </sqlMap>

@@ -57,4 +57,11 @@
 	<select id = "loginCheckGen" resultClass = "int" parameterClass = "member">
 		SELECT COUNT(*) FROM KH_MEMBER WHERE MEMBER_ID = #member_id# and MEMBER_PASS = #member_pass#
 	</select>
+	
+	<delete id = "deleteMember" parameterClass="member">
+		DELETE FROM KH_MEMBER WHERE MEMBER_ID = #member_id# and MEMBER_PASS = #member_pass#
+	</delete>
+	<delete id = "deleteCMember" parameterClass="Cmember">
+		DELETE FROM KH_CMEMBER WHERE CMEMBER_ID = #cmember_id# and CMEMBER_PASS = #cmember_pass#
+	</delete>
 </sqlMap>

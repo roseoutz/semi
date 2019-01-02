@@ -1,163 +1,149 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <body id="secMtu">
-<div id="wrap">
-	<div id="container">
-		<h1 class="skip">°³ÀÎÈ¸¿ø ¼­ºñ½º</h1>
-		<section class="myContent" style="float:left; widht:190;">
-				<h1 class="skip">ÇÁ·ÎÇÊ</h1>
-				<div class="profile info">
-					<h2 class="skip">ÇÁ·ÎÇÊ</h2>
-					<div class="photo mtuSpImgAfter devPhotoBtns btns">
-						<p class="img">
-							<img src="./mypage_files/M_Photo_View.asp" alt="ÀÌ·Â¼­ »çÁø"
-								style="width: 100%">
-						</p>
-						<button class="btn mtuSpImg btnModify" type="button">
-							<span class="skip">»çÁøÆíÁý</span>
-						</button>
-						<button class="btn btnPhotoDel mtuSpImg btnDelete" type="button">
-							<span class="skip">»çÁø»èÁ¦</span>
-						</button>
-					</div>
-					<div class="name">
-						<strong>±èµ¿±Ô</strong>´Ô
-					</div>
-				</div>
-			</section>
-		<section class="content">
-			<div class="contWrap ResumeMngCont ResumeFileCont">
-				<div class="innerHd">
-					<ul>
-						<li class="hdTab"><a href="http://127.0.0.1:8080/testwebb/rslist.tiles">ÀÌ·Â¼­ °ü¸®</a></li>
-						<li class="on"><a href="http://127.0.0.1:8080/testwebb/pflist.tiles">Ã·ºÎÆÄÀÏ °ü¸®</a></li>
-					</ul>
-				</div>
-				<h2 class="skip">Ã·ºÎÆÄÀÏ °ü¸®</h2>
-				<div class="btnBx">
-				</div>
-				<div class="tableList">
-
-					<div class="listSortArea">
-						<div class="col col01">±¸ºÐ</div>
-						<div class="col col02">ÆÄÀÏ Á¦¸ñ</div>
-						<div class="col col03">¿ë·®</div>
-						<div class="col col04">µî·ÏÀÏ</div>
-						<div class="col col05">»èÁ¦</div>
-						<!-- [°³¹ß] ¸®½ºÆ® ·¹ÀÌºí : »èÁ¦·Î º¯°æ -->
-					</div>
-
-					<div class="mtuList">
+	<div id="wrap">
+		<div id="container">
+			<h1 class="skip">ê°œì¸íšŒì› ì„œë¹„ìŠ¤</h1>
+			<section class="content">
+				<div class="contWrap ResumeMngCont ResumeFileCont">
+					<div class="innerHd">
 						<ul>
-							<li>
-								<div class="col col01">Æ÷Æ®Æú¸®¿À</div>
-								<div class="col col02">
-									<a
-										href="http://file2.jobkorea.co.kr/User/JK_File_View_utf8.asp?md=rocketdivez&amp;mn=rocketdivez_%ed%8f%ac%ed%86%a0%ed%8f%b4%eb%a6%ac%ec%98%a4.pdf&amp;idx=3073290">Æ÷ÅäÆú¸®¿À.pdf</a>
-								</div>
-								<div class="col col03">4.65M</div>
-								<div class="col col04">2015.05.30</div>
-								<div class="col col05">
-									<div class="btnCell">
-										<button type="button" class="btn dev-btn-del"
-											data-re-url="http://www.jobkorea.co.kr/User/ResumeMng/File"
-											data-idx="3073290">
-											<span>»èÁ¦</span>
-										</button>
-									</div>
-								</div>
-							</li>
+							<li class="on"><a href="rslist.action">ì´ë ¥ì„œ ê´€ë¦¬</a></li>
+							<li class="hdTab"><a href="pflist.action">ì²¨ë¶€íŒŒì¼ ê´€ë¦¬</a></li>
 						</ul>
 					</div>
+					<h2 class="skip">ì²¨ë¶€íŒŒì¼ ê´€ë¦¬</h2>
+					<div class="btnBx"></div>
+					<div class="tableList">
 
-					<div id="devAddFileView" name="devAddFileView"
-						style="position: absolute; top: 70px; left: 220px; z-index: 5000; display: none;">
-						<iframe id="devAddFileViewIfrm" name="devAddFileViewIfrm"
-							width="470" height="511" marginwidth="0" marginheight="0"
-							frameborder="no" scrolling="no" title="Ã·ºÎÆÄÀÏ µî·Ï¼öÁ¤ ·¹ÀÌ¾î"></iframe>
-					</div>
-
-					<div class="listBtmArea">
-						<div class="fileSize">
-							<strong>95.35MB</strong> »ç¿ë°¡´É (<em>4.65MB</em> / 100MB)
+						<div class="listSortArea">
+							<div class="col col01">êµ¬ë¶„</div>
+							<div class="col col02">íŒŒì¼ ì œëª©</div>
+							<div class="col col03">ìš©ëŸ‰</div>
+							<div class="col col04">ë“±ë¡ì¼</div>
+							<div class="col col05">ì‚­ì œ</div>
+							<!-- [ê°œë°œ] ë¦¬ìŠ¤íŠ¸ ë ˆì´ë¸” : ì‚­ì œë¡œ ë³€ê²½ -->
 						</div>
-						<div class="noti">
-							<button type="button" class="btnMore">
-								<span class="mtuSpImgBefore">µî·Ï °¡´ÉÇÑ ÆÄÀÏÇü½Ä</span>
-							</button>
-							<div class="mtuLyWrap lyMoreMenu devMtuLyWrap">
-								<div class="lyCnt">
-									<ul>
-										<li>¹®¼­ÆÄÀÏ : hwp, doc, docx, ppt, pptx, xls, xlsx, pdf,
-											txt, rtf, gul</li>
-										<li>ÀÌ¹ÌÁöÆÄÀÏ : jpg, jpeg, gif, png, psd, ai, swf</li>
-										<li>¾ÐÃàÆÄÀÏ: zip, alz</li>
 
-									</ul>
+						<div class="mtuList">
+							<ul>
+								<li>
+									<div class="col col01">í¬íŠ¸í´ë¦¬ì˜¤</div>
+									<div class="col col02">
+										<a
+											href="http://file2.jobkorea.co.kr/User/JK_File_View_utf8.asp?md=rocketdivez&amp;mn=rocketdivez_%ed%8f%ac%ed%86%a0%ed%8f%b4%eb%a6%ac%ec%98%a4.pdf&amp;idx=3073290">í¬í† í´ë¦¬ì˜¤.pdf</a>
+									</div>
+									<div class="col col03">4.65M</div>
+									<div class="col col04">2015.05.30</div>
+									<div class="col col05">
+										<div class="btnCell">
+											<button type="button" class="btn dev-btn-del"
+												data-re-url="http://www.jobkorea.co.kr/User/ResumeMng/File"
+												data-idx="3073290">
+												<span>ì‚­ì œ</span>
+											</button>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+						<div id="devAddFileView" name="devAddFileView"
+							style="position: absolute; top: 70px; left: 220px; z-index: 5000; display: none;">
+							<iframe id="devAddFileViewIfrm" name="devAddFileViewIfrm"
+								width="470" height="511" marginwidth="0" marginheight="0"
+								frameborder="no" scrolling="no" title="ì²¨ë¶€íŒŒì¼ ë“±ë¡ìˆ˜ì • ë ˆì´ì–´"></iframe>
+						</div>
+
+						<div class="listBtmArea">
+							<div class="fileSize">
+								<strong>95.35MB</strong> ì‚¬ìš©ê°€ëŠ¥ (<em>4.65MB</em> / 100MB)
+							</div>
+							<div class="noti">
+								<button type="button" class="btnMore">
+									<span class="mtuSpImgBefore">ë“±ë¡ ê°€ëŠ¥í•œ íŒŒì¼í˜•ì‹</span>
+								</button>
+								<div class="mtuLyWrap lyMoreMenu devMtuLyWrap">
+									<div class="lyCnt">
+										<ul>
+											<li>ë¬¸ì„œíŒŒì¼ : hwp, doc, docx, ppt, pptx, xls, xlsx, pdf,
+												txt, rtf, gul</li>
+											<li>ì´ë¯¸ì§€íŒŒì¼ : jpg, jpeg, gif, png, psd, ai, swf</li>
+											<li>ì••ì¶•íŒŒì¼: zip, alz</li>
+
+										</ul>
+									</div>
+									<p class="lyBtn">
+										<button type="button"
+											class="tplBtnTy tplLyBtnClose devLyBtnClose">
+											<span class="blind">ì„œë¹„ìŠ¤ ë”ë³´ê¸° ë‹«ê¸°</span>
+										</button>
+									</p>
 								</div>
-								<p class="lyBtn">
-									<button type="button"
-										class="tplBtnTy tplLyBtnClose devLyBtnClose">
-										<span class="blind">¼­ºñ½º ´õº¸±â ´Ý±â</span>
-									</button>
-								</p>
 							</div>
 						</div>
+						<div class="tplPagination">
+
+
+							<ul>
+
+								<li><span class="now">1</span></li>
+
+							</ul>
+
+						</div>
 					</div>
-					<div class="tplPagination">
 
-
-						<ul>
-
-							<li><span class="now">1</span></li>
-
+					<!-- TIP -->
+					<div class="mtuTip">
+						<strong class="skip">ì´ìš© TIP</strong>
+						<ul class="tipList">
+							<li>ë“±ë¡í•œ ì²¨ë¶€íŒŒì¼ì€ ì˜¨ë¼ì¸ ìž…ì‚¬ì§€ì› ì‹œ ì²¨ë¶€í•˜ì—¬ ì§€ì›í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.</li>
+							<li>í¬íŠ¸í´ë¦¬ì˜¤ëž€? ì´ë ¥ì„œì— ë‹´ê¸° íž˜ë“  ë‚˜ë§Œì˜ ìž¬ëŠ¥ì„ ëª¨ì€ í¬íŠ¸í´ë¦¬ì˜¤, ê¸°íšì„œ íŒŒì¼ì„ ë“±ë¡í•˜ì—¬
+								ì¸ì‚¬ë‹´ë‹¹ìžì—ê²Œ ê³µê°œí•˜ê±°ë‚˜ ìž…ì‚¬ì§€ì›ì‹œ í™œìš©í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.</li>
+							<li>ê¸°íƒ€ë¬¸ì„œëž€? ê²½ë ¥ê¸°ìˆ ì„œ, ê¸°íšì„œ, ì¦ëª…ì„œ ë“± ë³„ë„ì²¨ë¶€ìš© íŒŒì¼ì„ ë“±ë¡í•˜ì—¬ ìž…ì‚¬ì§€ì› ì‹œ í™œìš©í•˜ì‹¤ ìˆ˜
+								ìžˆìŠµë‹ˆë‹¤.</li>
+							<li>ì²¨ë¶€íŒŒì¼ì€ ìµœëŒ€ <em>100MB</em>ì—ì„œ ìžìœ ë¡­ê²Œ ë“±ë¡ ê°€ëŠ¥í•˜ë‚˜, <em>ê°œì¸ì •ë³´ê°€
+									ìœ ì¶œë  ìˆ˜ ìžˆëŠ” ìžë£ŒëŠ” ë“±ë¡í•˜ì§€ ì•Šìœ¼ì‹¤ ê²ƒì„ ê¶Œìž¥í•©ë‹ˆë‹¤.</em></li>
+							<li>ê°œì¸ì •ë³´ë³´í˜¸ë¥¼ ìœ„í•´ ê°œì¸ì •ë³´ í¬í•¨ ì´ë¯¸ì§€ëŠ” ì‚¬ì „ë™ì˜ ì—†ì´ ì‚­ì œ ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.</li>
+							<li>ìœ„ì¡°ëœ ë¬¸ì„œë¥¼ ë“±ë¡í•˜ì—¬ ì·¨ì—…í™œë™ì— ì´ìš© ì‹œ ë²•ì  ì±…ìž„ì„ ì§€ê²Œ ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.</li>
+							<li>ìž¡ì½”ë¦¬ì•„(ìœ )ëŠ” êµ¬ì§ìžê°€ ë“±ë¡ í•œ ë¬¸ì„œì— ëŒ€í•´ ë³´ì¦í•˜ê±°ë‚˜ ë³„ë„ì˜ ì±…ìž„ì„ ì§€ì§€ ì•Šìœ¼ë©° ì²¨ë¶€ëœ ë¬¸ì„œë¥¼
+								ì‹ ë¢°í•˜ì—¬ ë°œìƒí•œ ë²•ì  ë¶„ìŸì— ì±…ìž„ì„ ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤.</li>
 						</ul>
-
 					</div>
+
 				</div>
 
-				<!-- TIP -->
-				<div class="mtuTip">
-					<strong class="skip">ÀÌ¿ë TIP</strong>
-					<ul class="tipList">
-						<li>µî·ÏÇÑ Ã·ºÎÆÄÀÏÀº ¿Â¶óÀÎ ÀÔ»çÁö¿ø ½Ã Ã·ºÎÇÏ¿© Áö¿øÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù.</li>
-						<li>Æ÷Æ®Æú¸®¿À¶õ? ÀÌ·Â¼­¿¡ ´ã±â Èûµç ³ª¸¸ÀÇ Àç´ÉÀ» ¸ðÀº Æ÷Æ®Æú¸®¿À, ±âÈ¹¼­ ÆÄÀÏÀ» µî·ÏÇÏ¿© ÀÎ»ç´ã´çÀÚ¿¡°Ô
-							°ø°³ÇÏ°Å³ª ÀÔ»çÁö¿ø½Ã È°¿ëÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù.</li>
-						<li>±âÅ¸¹®¼­¶õ? °æ·Â±â¼ú¼­, ±âÈ¹¼­, Áõ¸í¼­ µî º°µµÃ·ºÎ¿ë ÆÄÀÏÀ» µî·ÏÇÏ¿© ÀÔ»çÁö¿ø ½Ã È°¿ëÇÏ½Ç ¼ö
-							ÀÖ½À´Ï´Ù.</li>
-						<li>Ã·ºÎÆÄÀÏÀº ÃÖ´ë <em>100MB</em>¿¡¼­ ÀÚÀ¯·Ó°Ô µî·Ï °¡´ÉÇÏ³ª, <em>°³ÀÎÁ¤º¸°¡
-								À¯ÃâµÉ ¼ö ÀÖ´Â ÀÚ·á´Â µî·ÏÇÏÁö ¾ÊÀ¸½Ç °ÍÀ» ±ÇÀåÇÕ´Ï´Ù.</em></li>
-						<li>°³ÀÎÁ¤º¸º¸È£¸¦ À§ÇØ °³ÀÎÁ¤º¸ Æ÷ÇÔ ÀÌ¹ÌÁö´Â »çÀüµ¿ÀÇ ¾øÀÌ »èÁ¦ µÉ ¼ö ÀÖ½À´Ï´Ù.</li>
-						<li>À§Á¶µÈ ¹®¼­¸¦ µî·ÏÇÏ¿© Ãë¾÷È°µ¿¿¡ ÀÌ¿ë ½Ã ¹ýÀû Ã¥ÀÓÀ» Áö°Ô µÉ ¼ö ÀÖ½À´Ï´Ù.</li>
-						<li>ÀâÄÚ¸®¾Æ(À¯)´Â ±¸Á÷ÀÚ°¡ µî·Ï ÇÑ ¹®¼­¿¡ ´ëÇØ º¸ÁõÇÏ°Å³ª º°µµÀÇ Ã¥ÀÓÀ» ÁöÁö ¾ÊÀ¸¸ç Ã·ºÎµÈ ¹®¼­¸¦
-							½Å·ÚÇÏ¿© ¹ß»ýÇÑ ¹ýÀû ºÐÀï¿¡ Ã¥ÀÓÀ» ÁöÁö ¾Ê½À´Ï´Ù.</li>
+			</section>
+			<section class="secLnb">
+				<h1 class="skip">ê°œì¸íšŒì› ì„œë¹„ìŠ¤ ë©”ë‰´</h1>
+				<div class="lnbGroup">
+					<h2 class="lnbTit">ì´ë ¥ì„œ ê´€ë¦¬</h2>
+					<ul>
+						<li><a href="rswrite.action" target="_blank">ì´ë ¥ì„œ ë“±ë¡</a></li>
+						<li><a href="rslist.action">ì´ë ¥ì„œ ê´€ë¦¬</a></li>
 					</ul>
 				</div>
-
-			</div>
-
-		</section>
-		<section class="secLnb">
-		<h1 class="skip">°³ÀÎÈ¸¿ø ¼­ºñ½º ¸Þ´º</h1>
-		<div class="lnbGroup">
-			<h2 class="lnbTit">ÀÌ·Â¼­ °ü¸®</h2>
-			<ul>
-				<li><a href="http://127.0.0.1:8080/testwebb/rswrite.tiles"
-					target="_blank">ÀÌ·Â¼­ µî·Ï</a></li>
-				<li><a href="#">ÀÌ·Â¼­ °ü¸®</a></li>
-			</ul>
+				<div class="lnbGroup">
+					<h2 class="lnbTit">íšŒì›ì •ë³´ ê´€ë¦¬</h2>
+					<ul>
+						<li><a href="#">íšŒì›ì •ë³´ ìˆ˜ì •</a></li>
+						<s:if test="#session.session_type=='ê¸°ì—…'">
+							<li><a
+								href="javascript:open_win_noresizable('checkForm.action?cmember_id=<s:property value="#session.session_id"/>&member_type=corp')"
+								class="">íšŒì›íƒˆí‡´</a></li>
+						</s:if>
+						<s:else>
+							<li><a
+								href="javascript:open_win_noresizable('checkForm.action?member_id=<s:property value="#session.session_id"/>&member_type=gen')"
+								class="">íšŒì›íƒˆí‡´</a></li>
+						</s:else>
+					</ul>
+				</div>
+			</section>
 		</div>
-		<div class="lnbGroup">
-			<h2 class="lnbTit">È¸¿øÁ¤º¸ °ü¸®</h2>
-			<ul>
-				<li><a href="#">È¸¿øÁ¤º¸ ¼öÁ¤</a></li>
-				<li><a href="#">ºñ¹Ð¹øÈ£ º¯°æ</a></li>
-				<li><a href="#">È¸¿øÅ»Åð</a></li>
-			</ul>
-		</div>
-	</section>
+
 	</div>
-	
-</div>
 </body>

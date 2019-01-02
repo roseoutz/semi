@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
 <!DOCTYPE html>
 <body id="secHelp" class="helpMain">
 <div id="wrap">
@@ -26,9 +28,13 @@
 				</div>
 				<div class="lnbGroup">
 					<ul>
-						<li><a href="#" target="_blank">아이디∙비밀번호 찾기<span
-								class="lnbFile"></span></a></li>
-						<li><a href="#" class="">회원탈퇴</a></li>
+						<li><a href="#" target="_blank">아이디∙비밀번호 찾기<span class="lnbFile"></span></a></li>
+						<s:if test="#session.session_type=='기업'">
+						<li><a href="javascript:open_win_noresizable('checkForm.action?cmember_id=<s:property value="#session.session_id"/>&member_type=corp')" class="">회원탈퇴</a></li>
+						</s:if>
+						<s:else>
+						<li><a href="javascript:open_win_noresizable('checkForm.action?member_id=<s:property value="#session.session_id"/>&member_type=gen')" class="">회원탈퇴</a></li>
+						</s:else>
 					</ul>
 				</div>
 			</section>
@@ -58,26 +64,32 @@
 							</colgroup>
 							<thead>
 								<tr>
-									<th scope="col">
-										<div class="lyTplArea schItems">
-											<span class="tHd"><button type="button"
-													class="btnListSort mtcBtnA">전체</button></span>
-											<ul class="lyItems">
-												<li><a href="#">전체</a></li>
-											</ul>
-										</div>
-									</th>
+									<th scope="col">글번호</th>
 									<th scope="col">제목</th>
 									<th scope="col">날짜</th>
 								</tr>
 							</thead>
 							<tbody>
 							<!-- 공지사항  -->
+							<s:iterator value="list" status="stat">
+								<s:url id="viewURL" action="noticeView"> <!-- id는 생성된 URL을 사용하기 위한 이름, action의 viewAction은 클릭시 발생할 이벤트 -->
+									<s:param name="no">
+										<s:property value="notice_no"/>
+									</s:param>
+								</s:url>
 								<tr>
-									<td class="sort">공지</td>
-									<td class="alLeft"><span class="tit"><a href="#">잡코리아2018 웹·스마트앱어워드 3관왕 달성</a></span></td>
-									<td class="date">2018.12.06</td>
+									<td class="sort" style="text-align:center;"><s:property value="notice_no"/></td>
+									<td class="alLeft" style="text-align:center;"><span class="tit"><s:a href="%{viewURL}"><s:property value="notice_subject"/></s:a></span></td>
+									<td class="date"><s:property value="notice_regdate"/></td>
 								</tr>
+							</s:iterator>
+							<s:if test="list.size()==0">
+								<tr>
+									<td class="sort"></td>
+									<td class="alLeft"><span class="tit"><a href="#">게시글이 존재하지 않습니다.</a></span></td>
+									<td class="date"></td>
+								</tr>
+							</s:if>
 							</tbody>
 						</table>
 	
@@ -87,13 +99,9 @@
 	
 								<ul>
 	
-									<li><span class="now">#List#</span></li>
+									<s:property value="pagingHtml" escape="false"/>
 								</ul>
-	
-								<p>
-									<a href="http://www.jobkorea.co.kr/help/notice?tab=1&amp;Page=11" class="tplBtn btnPgnNext"><span>다음페이지</span></a>
-								</p>
-							</div>
+								</div>
 						</div>
 					</div>
 				</div>
