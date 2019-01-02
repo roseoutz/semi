@@ -110,6 +110,8 @@
 	
 	<include file="join.xml"/>
 	<include file="login.xml"/>
+	<include file="pageMove.xml"/>
+	<include file="findUserInfo.xml"/>
 	
 	<!-- 채용공고 상세보기 -->
 	<package name="post" extends="struts-default, tiles-default">

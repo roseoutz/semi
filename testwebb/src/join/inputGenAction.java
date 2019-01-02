@@ -1,10 +1,14 @@
 package join;
-import com.opensymphony.xwork2.*;
-import com.ibatis.common.resources.*;
+import java.io.IOException;
+import java.io.Reader;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
-import java.util.*;
-import java.io.*;
+import com.opensymphony.xwork2.ActionSupport;
+
 import VO.khMemberVO;
 public class inputGenAction extends ActionSupport {
 	public static Reader reader;
@@ -18,6 +22,7 @@ public class inputGenAction extends ActionSupport {
 	private String member_email;
 	private String member_pass;
 	private String member_phone;
+	private Calendar today = Calendar.getInstance();
 	
 	public inputGenAction() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -33,6 +38,7 @@ public class inputGenAction extends ActionSupport {
 		paramClass.setMember_pass(getMember_pass());
 		paramClass.setMember_email(getMember_email());
 		paramClass.setMember_phone(getMember_phone());
+		paramClass.setMember_date(today.getTime());
 		
 		sqlMapper.insert("insertGenMember", paramClass);
 		

@@ -1,5 +1,7 @@
 package VO;
 
+import java.util.Date;
+
 public class khCMemberVO {
 	private String cmember_cno; 
 	private String cmember_id;
@@ -11,6 +13,7 @@ public class khCMemberVO {
 	private String cmember_cname; 
 	private String cmember_addr;
 	private String cmember_ceo;
+	private Date cmember_date;
 
 	public String getCmember_cno() {
 		return cmember_cno;
@@ -91,5 +94,15 @@ public class khCMemberVO {
 	public void setCmember_ceo(String cmember_ceo) {
 		this.cmember_ceo = cmember_ceo;
 	}
+
+	public Date getCmember_date() {
+		return cmember_date;
+	}
+
+	public void setCmember_date(Date cmember_date) {
+		this.cmember_date = cmember_date;
+	}
+
+	
 
 }

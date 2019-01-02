@@ -4,6 +4,8 @@ import com.ibatis.common.resources.*;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import java.io.*;
+import java.util.Calendar;
+
 import VO.khCMemberVO;
 
 public class inputCorpAction extends ActionSupport{
@@ -23,6 +25,7 @@ public class inputCorpAction extends ActionSupport{
 	private String cmember_cname; 
 	private String cmember_addr;
 	private String cmember_ceo;
+	private Calendar today = Calendar.getInstance();
 	
 	public inputCorpAction() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -43,6 +46,7 @@ public class inputCorpAction extends ActionSupport{
 		paramClass.setCmember_ceo(getCmember_ceo());
 		paramClass.setCmember_type(getCmember_type());
 		paramClass.setCmember_addr(getCmember_addr());
+		paramClass.setCmember_date(today.getTime());
 		
 		sqlMapper.insert("insertCorpMember", paramClass);
 		

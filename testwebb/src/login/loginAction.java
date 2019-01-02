@@ -19,6 +19,7 @@ public class loginAction extends ActionSupport implements SessionAware{
 	private khMemberVO paramClass;
 	private khCMemberVO CparamClass;
 	private khMemberVO resultClass;
+	private khCMemberVO CresultClass;
 	private int checkCount;
 	private String headerType;
 	private Map session;
@@ -40,27 +41,31 @@ public class loginAction extends ActionSupport implements SessionAware{
 	public String execute() throws Exception{
 		paramClass = new khMemberVO();
 		CparamClass = new khCMemberVO();
+		resultClass = new khMemberVO();
+		CresultClass = new khCMemberVO();
 		paramClass.setMember_id(getId());
 		paramClass.setMember_pass(getPwd());
 		CparamClass.setCmember_id(getId());
 		CparamClass.setCmember_pass(getPwd());
 		
 		
-		checkCount = (Integer)sqlMapper.queryForObject("loginCheckGen", paramClass);
-		if(checkCount == 0) {
-			checkCount = (Integer)sqlMapper.queryForObject("loginCheckCorp", CparamClass);
-			if(checkCount==0) {
+		resultClass = (khMemberVO)sqlMapper.queryForObject("loginCheckGen", paramClass);
+		if(resultClass == null) {
+			CresultClass = (khCMemberVO)sqlMapper.queryForObject("loginCheckCorp", CparamClass);
+			if(CresultClass == null) {
 			return ERROR;
 			}else {
-				session.put("session_id", getId());
+				session.put("session_id", CresultClass.getCmember_id());
 				session.put("session_type", "기업");
+				session.put("session_name", CresultClass.getCmember_name());
 				setHeaderType("corpmain");
 				return SUCCESS;
 			}
 			
 		}else {
-			session.put("session_id", getId());
+			session.put("session_id", resultClass.getMember_id());
 			session.put("session_type", "일반");
+			session.put("session_name", resultClass.getMember_name());
 			setHeaderType("main");
 			return SUCCESS;
 		}
@@ -145,6 +150,14 @@ public class loginAction extends ActionSupport implements SessionAware{
 
 	public void setHeaderType(String headerType) {
 		this.headerType = headerType;
+	}
+
+	public khCMemberVO getCresultClass() {
+		return CresultClass;
+	}
+
+	public void setCresultClass(khCMemberVO cresultClass) {
+		CresultClass = cresultClass;
 	}
 
 }

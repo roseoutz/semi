@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+	<typeAlias alias = "member" type = "VO.khMemberVO"/>
+	<typeAlias alias = "Cmember" type = "VO.khCMemberVO"/>
+	
+	<resultMap id = "memberRes" class = "member">
+		<result property = "member_id" column = "member_id"/>
+		<result property = "member_name" column = "member_name"/>
+		<result property = "member_email" column = "member_email"/>
+		<result property = "member_pass" column = "member_pass"/>
+		<result property = "member_phone" column = "member_phone"/>
+		<result property = "member_date" column = "member_date"/>
+	</resultMap>
+	
+	<resultMap id = "CmemberRes" class = "Cmember">
+		<result property = "cmember_cno" column = "cmember_cno"/>
+		<result property = "cmember_id" column = "cmember_id"/>
+		<result property = "cmember_pass" column = "cmember_pass"/>
+		<result property = "cmember_name" column = "cmember_name"/>
+		<result property = "cmember_phone" column = "cmember_phone"/>
+		<result property = "cmember_email" column = "cmember_email"/>
+		<result property = "cmember_type" column = "cmember_type"/>
+		<result property = "cmember_cname" column = "cmember_cname"/>
+		<result property = "cmember_addr" column = "cmember_addr"/>
+		<result property = "cmember_ceo" column = "cmember_ceo"/>
+		<result property = "cmember_date" column = "cmember_date"/>
+	</resultMap>
+	
+	<!-- 일반회원 아이디찾기 -->
+	<select id = "findIdGen" remapResults="true" parameterClass = "member" resultMap = "memberRes">
+		SELECT * FROM KH_MEMBER WHERE MEMBER_NAME = #member_name# AND MEMBER_EMAIL = #member_email#
+	
+	</select> 
+	<!-- 기업회원 아이디찾기 -->
+	<select id = "findIdCorp" remapResults="true" parameterClass = "Cmember" resultMap = "CmemberRes" >
+		SELECT * FROM KH_CMEMBER WHERE CMEMBER_NAME = #cmember_name# AND CMEMBER_CNO = #cmember_cno#
+	</select>
+	
+	<!-- 일반회원 비밀번호찾기  -->
+	<select id = "findPwdGen" parameterClass = "member" resultClass = "String">
+		SELECT MEMBER_PASS FROM KH_MEMBER WHERE MEMBER_ID = #member_id# AND MEMBER_NAME = #member_name# AND MEMBER_EMAIL = #member_email#
+	</select>
+	
+	<!-- 기업회원 비밀번호찾기 -->
+	<select id = "findPwdCorp" parameterClass = "Cmember" resultClass = "String">
+		SELECT CMEMBER_PASS FROM KH_CMEMBER WHERE CMEMBER_ID = #cmember_id# AND CMEMBER_NAME = #cmember_name# AND CMEMBER_CNO = #cmember_cno#
+	</select>
+	
+	<!-- 일반회원 아이디 갯수 -->
+	<select id = "findIdGenCount" parameterClass = "member" resultClass = "int">
+		SELECT COUNT(*) FROM KH_MEMBER WHERE MEMBER_NAME = #member_name# AND MEMBER_EMAIL = #member_email#
+	</select>
+	
+	<!-- 기업회원 아이디 갯수 -->
+	<select id = "findIdCorpCount" parameterClass = "Cmember" resultClass = "int">
+		SELECT COUNT(*) FROM KH_CMEMBER WHERE CMEMBER_NAME = #cmember_name# AND CMEMBER_CNO = #cmember_cno#
+	</select>
+		
+</sqlMap>

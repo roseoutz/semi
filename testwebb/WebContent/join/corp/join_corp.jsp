@@ -14,8 +14,8 @@
 
     <h3 class="skip">회원 형태별 가입</h3>
     <ul class="snb f_clear">
-        <li class="person on"><a href="http://127.0.0.1:8080/testwebb/joingen.tiles">개인회원</a></li>
-        <li class="corp "><a href="http://127.0.0.1:8080/testwebb/joincorp.tiles">기업회원</a></li>
+        <li class="person "><a href="joingen.action">개인회원</a></li>
+        <li class="corp on"><a href="joincorp.action">기업회원</a></li>
     </ul>
 </div>
 
@@ -26,7 +26,7 @@
     <h3 class="skip">기업 회원가입 정보</h3>
     <fieldset>
         <legend>기업 회원가입</legend>
-        <form action="/Join/GI_Regist" method="POST" id="form" name="form">
+        <form action="inputCorp.action" method="POST" id="form" name="corpForm" onsubmit = "return checkForm();">
             <input type="hidden" id="Mem_Type" value="GI" />
 <input data-val="true" data-val-required="CertifyType 필드가 필요합니다." id="CertifyType" name="CertifyType" type="hidden" value="phone" /><input id="CertifyCode" name="CertifyCode" type="hidden" value="" /><input id="CertifyReCall" name="CertifyReCall" type="hidden" value="" /><input id="DI_Code" name="DI_Code" type="hidden" value="" /><input id="getCertifynum" name="getCertifynum" type="hidden" value="" /><input id="ReSubmit" name="ReSubmit" type="hidden" value="" /><input id="Mobile_Encrypt" name="Mobile_Encrypt" type="hidden" value="" /><input data-val="true" data-val-number="OEM_No 필드는 숫자여야 합니다." data-val-required="OEM_No 필드가 필요합니다." id="OEM_No" name="OEM_No" type="hidden" value="1" /><input id="CorpAuthStat" name="CorpAuthStat" type="hidden" value="" /><input id="Mem_HPhone" name="Mem_HPhone" type="hidden" value="" /><input data-val="true" data-val-maxlength="필드 Mem_Ident은(는) 최대 길이가 &#39;8&#39;인 문자열 또는 배열 형식이어야 합니다." data-val-maxlength-max="8" id="Mem_Ident" name="Mem_Ident" type="hidden" value="" />            <!-- 기업 정보 -->
             <div class="row row_group">
@@ -41,50 +41,17 @@
                     </div>
                     <div class="col_2">
                         <div class="select_wrap dev-corp-type">
-                            <select id="Corp_Type" name="Corp_Type">
+                            <select id="Corp_Type" name="cmember_type">
                                 <option value=""></option>
-                                <option value="3">대기업</option>
-                                <option value="1">중소기업(300명이하)</option>
-                                <option value="2">중견기업(300명이상)</option>
+                                <option value="대기업">대기업</option>
+                                <option value="중소기업">중소기업(300명이하)</option>
+                                <option value="중견기업">중견기업(300명이상)</option>
                             </select>
                         </div>
                         <div class="notice_msg" style="display:none;"></div>
                     </div>
                 </div>
-                <div class="rows">
-                    <div class="row mbr_name mbr_foreign_type mbr_foreign_type1 devNationView" style="display:none">
-                        <div class="col_1">
-                            <label for="Contn_Code" class="mbr_name">대륙선택<i class="icon required" aria-hidden="hidde">*</i></label>
-                        </div>
-                        <div class="col_2">
-                            <div class="select_wrap dev-land">
-                                <select id="Contn_Code" name="Contn_Code">
-                                    <option value=""></option>
-                                        <option value="R">아시아</option>
-                                        <option value="U">유럽</option>
-                                        <option value="S">북아메리카</option>
-                                        <option value="T">남아메리카</option>
-                                        <option value="W">아프리카</option>
-                                        <option value="V">오세아니아</option>
-                                </select>
-                            </div>
-                            <div class="notice_msg"></div>
-                        </div>
-                    </div>
-                    <div class="row mbr_name mbr_foreign_type mbr_foreign_type2 devNationView" style="display:none">
-                        <div class="col_1">
-                            <label for="Nation_Code" class="mbr_name">국가선택<i class="icon required" aria-hidden="hidde">*</i></label>
-                        </div>
-                        <div class="col_2">
-                            <div class="select_wrap dev-nation">
-                                <select id="Nation_Code" name="Nation_Code">
-                                    <option value=""></option>
-                                </select>
-                            </div>
-                            <div class="notice_msg"></div>
-                        </div>
-                    </div>
-                </div>
+               
 
                 <div class="row company_num">
                     <div class="col_1">
@@ -97,7 +64,7 @@
                         고객센터(Fax.02-565-9351)나 헬프데스크(helpdesk@jobkorea.co.kr)로 보내주시기 바랍니다.
                     </div>
                     <div class="col_2">
-                        <input type="text" name="Corp_RegNum" id="Corp_RegNum" class="mbr_name dev-corp-num" maxlength="13" value="" />
+                        <input type="text" name="cmember_cno" id="Corp_RegNum" class="mbr_name dev-corp-num" maxlength="13" value="" />
                         <div class="notice_msg" id="notice_msg_regnum"></div>
                     </div>
                 </div>
@@ -107,7 +74,7 @@
                             <label class="mbr_name" for="Corp_Name">회사명<i class="icon required" aria-hidden="hidde">*</i></label>
                         </div>
                         <div class="col_2">
-                            <input class="mbr_name dev-corp-name" data-val="true" data-val-maxlength="필드 Corp_Name은(는) 최대 길이가 &#39;50&#39;인 문자열 또는 배열 형식이어야 합니다." data-val-maxlength-max="50" data-val-required="Corp_Name 필드가 필요합니다." id="Corp_Name" maxlength="50" name="Corp_Name" type="text" value="" />
+                            <input class="mbr_name dev-corp-name" data-val="true" data-val-maxlength="필드 Corp_Name은(는) 최대 길이가 &#39;50&#39;인 문자열 또는 배열 형식이어야 합니다." data-val-maxlength-max="50" data-val-required="Corp_Name 필드가 필요합니다." id="Corp_Name" maxlength="50" name="cmember_cname" type="text" value="" />
                             <div class="notice_msg" id="notice_msg_corp_name"></div>
                         </div>
                     </div>
@@ -116,7 +83,7 @@
                             <label class="mbr_name" for="Boss_Name">대표자명<i class="icon required" aria-hidden="hidde">*</i></label>
                         </div>
                         <div class="col_2">
-                            <input class="mbr_name dev-ceo-name" data-val="true" data-val-maxlength="필드 Boss_Name은(는) 최대 길이가 &#39;20&#39;인 문자열 또는 배열 형식이어야 합니다." data-val-maxlength-max="20" data-val-required="Boss_Name 필드가 필요합니다." id="Boss_Name" maxlength="20" name="Boss_Name" type="text" value="" />
+                            <input class="mbr_name dev-ceo-name" data-val="true" data-val-maxlength="필드 Boss_Name은(는) 최대 길이가 &#39;20&#39;인 문자열 또는 배열 형식이어야 합니다." data-val-maxlength-max="20" data-val-required="Boss_Name 필드가 필요합니다." id="Boss_Name" maxlength="20" name="cmember_ceo" type="text" value="" />
                             <div class="notice_msg" id="notice_msg_ceo_name"></div>
                         </div>
                     </div>
@@ -126,7 +93,7 @@
                         <label for="Corp_Addr">회사주소<i class="icon required" aria-hidden="hidde">*</i></label>
                     </div>
                     <div class="col_2">
-                        <input id="Addr_Foreign" name="Addr_Foreign" type="text" value="" maxlength="150" />
+                        <input id="Addr_Foreign" name="cmember_addr" type="text" value="" maxlength="150" />
                         <div class="notice_msg msg_addr"></div>
                     </div>
                 </div>
@@ -146,7 +113,7 @@
         <label class="mbr_name" for="Mem_Name">가입자명<i class="icon required" aria-hidden="hidde">*</i></label>
     </div>
     <div class="col_2">
-        <input class="mbr_name dev-name" id="Mem_Name" maxlength="12" name="Mem_Name" type="text" value="">
+        <input class="mbr_name dev-name" id="Mem_Name" maxlength="12" name="cmember_name" type="text" value="">
         <div class="notice_msg" id="notice_msg_name"></div>
     </div>
 </div>
@@ -156,7 +123,7 @@
             <label for="U_ID">아이디<i class="icon required" aria-hidden="hidde">*</i></label>
         </div>
         <div class="col_2">
-            <input data-val="true" id="U_ID" maxlength="16" name="U_ID" class="dev-id" type="text" value="" />
+            <input data-val="true" id="U_ID" maxlength="16" name="cmember_id" class="dev-id" type="text" value="" />
             <div class="notice_msg" id="notice_msg_id"></div>
         </div>
     </div>
@@ -165,7 +132,7 @@
             <label for="U_PWD">비밀번호<i class="icon required" aria-hidden="hidde">*</i></label>
         </div>
         <div class="col_2">
-            <input id="U_PWD" class="dev-password" maxlength="16" name="U_PWD" type="password" style="ime-mode:disabled;" value="" />
+            <input id="U_PWD" class="dev-password" maxlength="16" name="cmember_pass" type="password" style="ime-mode:disabled;" value="" />
             <button type="button" class="btnHelp devPwdHelpBtn" title="안전한 비밀번호 작성법">?</button>
             <div class="lyHelp">
                 <dl>
@@ -176,7 +143,7 @@
                             <li>3자 이상 연속 영문/숫자 조합은 사용불가 (AAA. 111)</li>
                             <li>아이디, 반복되는 영문/숫자 조합은 사용불가 (1234, ABCD)</li>
                             <li>키보드의 연속 패턴은 사용하지 마세요. (ASDF) </li>
-                            <li>비밀번호는 주기적으로 변경하여 안전하게 관리하기</li>
+                            <li>비밀번호는 주기적으로 변경하여 안전하게 관리하기</li>    
                         </ol>
                     </dd>
                 </dl>
@@ -193,12 +160,8 @@
         <label class="mbr_phone" for="Corp_Phone">전화번호<i class="icon required" aria-hidden="hidde">*</i></label>
     </div>
     <div class="col_2">
-        <input class="mbr_phone dev-phone" data-val="true" id="Corp_Phone" maxlength="13" name="Corp_Phone" title="전화번호" type="text" value="" />
+        <input class="mbr_email_id dev-mail" data-val="true" id="Corp_Phone" maxlength="13" name="cmember_phone" title="전화번호" type="text" value="" />
         <div class="notice_msg" id="notice_msg_phone"><p class="failure">필수 정보입니다.</p></div>
-        <input type="hidden" id="Corp_Phone1" name="Corp_Phone1" value="" />
-        <input type="hidden" id="Corp_Phone2" name="Corp_Phone2" value="" />
-        <input type="hidden" id="Corp_Phone3" name="Corp_Phone3" value="" />
-        <input type="hidden" id="Corp_Phone_Etc" name="Corp_Phone_Etc" value="" />
     </div>
 </div>
 <div class="row mbr_email">
@@ -206,7 +169,7 @@
         <label for="Email_ID" class="mbr_email_id">이메일<i class="icon required" aria-hidden="hidde">*</i></label>
     </div>
     <div class="col_2">
-        <input type="text" id="email" name="email" class="mbr_email_id dev-mail" size="8" maxlength="100" value="" />
+        <input type="text" id="email" name="cmember_email" class="mbr_email_id dev-mail" size="8" maxlength="100" value="" />
         <div class="notice_msg" id="notice_msg_mail"></div>
         <input type="hidden" id="Email_ID" name="Email_ID" />
         <input type="hidden" id="Email_Addr" name="Email_Addr" />

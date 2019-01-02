@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name = "find" extends = "struts-default, struts-tiles">
+		<action name = "findId" class = "findUserInfo.findIdAction">
+			<result name = "error">/findUserInfo/error.jsp</result>
+			<result name = "success">/findUserInfo/findId_result.jsp</result>
+		</action>
+		<action name = "findPwd" class = "findUserInfo.findPwdAction">
+			<result name = "error">/findUserInfo/error.jsp</result>
+			<result name = "success">/findUserInfo/findPwd_result.jsp</result>
+		</action>
+	</package>
+</struts>

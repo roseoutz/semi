@@ -5,7 +5,7 @@
 	
 	<typeAlias alias = "member" type = "VO.khMemberVO"/>
 	<typeAlias alias = "Cmember" type = "VO.khCMemberVO"/>
-	<!-- 리절트 맵 정의 -->
+	<!-- 리절트 맵 정의 
 	<resultMap id = "joinGenRes" class = "member">
 		<result property = "member_id" column = "member_id"/>
 		<result property = "member_name" column = "member_name"/>
@@ -26,7 +26,7 @@
 		<result property = "cmember_addr" column = "cmember_addr"/>
 		<result property = "cmember_ceo" column = "cmember_ceo"/>
 	</resultMap>
-	
+	-->
 	<!-- 공통으로 사용할 select -->
 	<sql id = "select-all">
 		SELECT * FROM SH_SBOARD2
@@ -41,27 +41,20 @@
 	</sql>
 	
 	<insert id = "insertGenMember" parameterClass = "member">
-		INSERT INTO KH_MEMBER(MEMBER_ID, MEMBER_PASS, MEMBER_PHONE, MEMBER_EMAIL, MEMBER_NAME) 
-		VALUES (#member_id#, #member_pass#, #member_phone#, #member_email#, #member_name#)
+		INSERT INTO KH_MEMBER(MEMBER_ID, MEMBER_PASS, MEMBER_PHONE, MEMBER_EMAIL, MEMBER_NAME, MEMBER_DATE) 
+		VALUES (#member_id#, #member_pass#, #member_phone#, #member_email#, #member_name#, #member_date#)
 	</insert>
 	
 	<insert id = "insertCorpMember" parameterClass = "Cmember">
-		INSERT INTO KH_CMEMBER(CMEMBER_CNO, CMEMBER_ID, CMEMBER_PASS, CMEMBER_NAME, CMEMBER_PHONE, CMEMBER_EMAIL, CMEMBER_TYPE, CMEMBER_CNAME, CMEMBER_ADDR, CMEMBER_CEO) 
-		VALUES (#cmember_cno#, #cmember_id#, #cmember_pass#, #cmember_name#, #cmember_phone#, #cmember_email#, #cmember_type#, #cmember_cname#, #cmember_addr#, #cmember_ceo#)
+		INSERT INTO KH_CMEMBER(CMEMBER_CNO, CMEMBER_ID, CMEMBER_PASS, CMEMBER_NAME, CMEMBER_PHONE, CMEMBER_EMAIL, CMEMBER_TYPE, CMEMBER_CNAME, CMEMBER_ADDR, CMEMBER_CEO, CMEMBER_DATE) 
+		VALUES (#cmember_cno#, #cmember_id#, #cmember_pass#, #cmember_name#, #cmember_phone#, #cmember_email#, #cmember_type#, #cmember_cname#, #cmember_addr#, #cmember_ceo#, #cmember_date#)
 	</insert>
 	
-	<select id = "loginCheckCorp" resultClass = "int" parameterClass = "Cmember">
-		SELECT COUNT(*) FROM KH_CMEMBER WHERE CMEMBER_ID = #cmember_id# and CMEMBER_PASS = #cmember_pass#
+	<select id = "loginCheckCorp" resultClass = "Cmember" parameterClass = "Cmember">
+		SELECT * FROM KH_CMEMBER WHERE CMEMBER_ID = #cmember_id# and CMEMBER_PASS = #cmember_pass#
 	</select>
 	
-	<select id = "loginCheckGen" resultClass = "int" parameterClass = "member">
-		SELECT COUNT(*) FROM KH_MEMBER WHERE MEMBER_ID = #member_id# and MEMBER_PASS = #member_pass#
+	<select id = "loginCheckGen" resultClass = "member" parameterClass = "member">
+		SELECT * FROM KH_MEMBER WHERE MEMBER_ID = #member_id# and MEMBER_PASS = #member_pass#
 	</select>
-	
-	<delete id = "deleteMember" parameterClass="member">
-		DELETE FROM KH_MEMBER WHERE MEMBER_ID = #member_id# and MEMBER_PASS = #member_pass#
-	</delete>
-	<delete id = "deleteCMember" parameterClass="Cmember">
-		DELETE FROM KH_CMEMBER WHERE CMEMBER_ID = #cmember_id# and CMEMBER_PASS = #cmember_pass#
-	</delete>
 </sqlMap>

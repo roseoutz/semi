@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 
+
 <body class="jkJoin">
     <div id="wrap">
 
@@ -11,7 +12,7 @@
 
     <h3 class="skip">글로벌 메뉴</h3>
     <ul class="gnb f_clear">
-        <li><a href="http://www.jobkorea.co.kr">홈</a></li>
+        <li><a href="main.action">홈</a></li>
         <li><a href="/help/">1:1문의</a></li>
     </ul>
 
@@ -29,7 +30,7 @@
     <h3 class="skip">개인회원 가입 정보</h3>
     <fieldset>
         <legend>개인회원 가입</legend>
-<form action="inputGen.action" id="frm" method="post" name="frm" onsubmit="return checkForm();">            <!-- 약관 동의 -->
+<form action="inputGen.action" id="frm" method="post" name="genForm" onsubmit="return checkForm2();">            <!-- 약관 동의 -->
 <input data-val="true" data-val-required="&lt;p class=&quot;failure&quot;>필수 정보입니다.&lt;/p>" id="M_Id" name="M_Id" type="hidden" value="" /><input id="OEM_No" name="OEM_No" type="hidden" value="1" /><input id="DI_Code" name="DI_Code" type="hidden" value="" /><input id="getCertifynum" name="getCertifynum" type="hidden" value="" /><input id="CertifyReCall" name="CertifyReCall" type="hidden" value="" /><input id="ReSubmit" name="ReSubmit" type="hidden" value="" /><input id="CertifyCode" name="CertifyCode" type="hidden" value="" /><input id="Aptitute_Stat" name="Aptitute_Stat" type="hidden" value="" />            <!-- 소셜 로그인 -->
 
             <div class="row_group mbr_info">
@@ -668,7 +669,8 @@
                     <button type="submit" class="mbrBtnRegist"><span>가입하기</span></button>
                 </div>
             </div>
-</form>    </fieldset>
+</form>   
+</fieldset>
     <!-- familysite -->
 
 </div>

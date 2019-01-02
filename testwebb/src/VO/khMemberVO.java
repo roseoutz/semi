@@ -1,11 +1,14 @@
 package VO;
 
+import java.util.Date;
+
 public class khMemberVO {
 	private String member_id; 		
 	private String member_pass;		
 	private String member_phone;	
 	private String member_email;	
 	private String member_name;		
+	private Date member_date;
 
 	public String getMember_id() {
 		return member_id;
@@ -45,6 +48,14 @@ public class khMemberVO {
 
 	public void setMember_name(String member_name) {
 		this.member_name = member_name;
+	}
+
+	public Date getMember_date() {
+		return member_date;
+	}
+
+	public void setMember_date(Date member_date) {
+		this.member_date = member_date;
 	}
 
 }
