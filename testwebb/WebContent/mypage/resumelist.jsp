@@ -1,30 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
 <!DOCTYPE html>
 <body id="secMtu">
 
 	<div id="wrap">
 		<section id="container">
-			<h1 class="skip">°³ÀÎÈ¸¿ø ¼­ºñ½º</h1>
-			<section class="myContent" style="float:left; widht:190px;">
-				<div class="profile info">
-					<div class="photo mtuSpImgAfter devPhotoBtns btns">
-						<p class="img">
-							<img src="./mypage_files/M_Photo_View.asp" alt="ÀÌ·Â¼­ »çÁø"
-								style="width: 100%">
-						</p>
-						<button class="btn mtuSpImg btnModify" type="button">
-							<span class="skip">»çÁøÆíÁý</span>
-						</button>
-						<button class="btn btnPhotoDel mtuSpImg btnDelete" type="button">
-							<span class="skip">»çÁø»èÁ¦</span>
-						</button>
-					</div>
-					<div class="name">
-						<strong>±èµ¿±Ô</strong>´Ô
-					</div>
-				</div>
-			</section>
+			<h1 class="skip">ê°œì¸íšŒì› ì„œë¹„ìŠ¤</h1>
 			<section class="content">
 				<div class="modal modal-spinner" role="dialog" aria-hidden="true"
 					style="display: none;"></div>
@@ -32,65 +15,65 @@
 					<div class="innerHd">
 						<ul>
 							<li class="hdTab"><a
-								href="http://127.0.0.1:8080/testwebb/rslist.tiles">ÀÌ·Â¼­ °ü¸®</a></li>
+								href="rslist.action">ì´ë ¥ì„œ ê´€ë¦¬</a></li>
 							<li class="on"><a
-								href="http://127.0.0.1:8080/testwebb/pflist.tiles">Ã·ºÎÆÄÀÏ °ü¸®</a></li>
+								href="pflist.action">ì²¨ë¶€íŒŒì¼ ê´€ë¦¬</a></li>
 						</ul>
 					</div>
 
-					<h2 class="skip">ÀÌ·Â¼­ °ü¸®</h2>
+					<h2 class="skip">ì´ë ¥ì„œ ê´€ë¦¬</h2>
 					<div class="btnBx">
 						<a href="http://127.0.0.1:8080/testwebb/rswrite.tiles"
-							class="btn btnBl mtuSpImgBefore" target="_blank"><span>ÀÌ·Â¼­
-								µî·Ï</span></a>
+							class="btn btnBl mtuSpImgBefore" target="_blank"><span>ì´ë ¥ì„œ
+								ë“±ë¡</span></a>
 					</div>
 
 					<div class="hopeWorking">
-						<h3 class="header">Èñ¸Á±Ù¹«Á¶°Ç</h3>
-						<div class="summary">Á¤º¸º¸¾È, ³×Æ®¿öÅ©¡¤¼­¹ö¡¤º¸¾È, Á¤º¸º¸¾È, Linux, º¸¾È±â¼ú,
-							º¸¾È°ü¸®, ³×Æ®¿öÅ©º¸¾È, Á¤º¸º¸¾È, ÇØÅ·, º¸¾ÈÄÁ¼³ÆÃ, ½Ã½ºÅÛ¿î¿µ, Á¤±ÔÁ÷, °æ±â ¼º³²½Ã ºÐ´ç±¸, ¼­¿ïÀüÁö¿ª,
-							2,800 ¸¸¿ø ÀÌ»ó</div>
+						<h3 class="header">í¬ë§ê·¼ë¬´ì¡°ê±´</h3>
+						<div class="summary">ì •ë³´ë³´ì•ˆ, ë„¤íŠ¸ì›Œí¬Â·ì„œë²„Â·ë³´ì•ˆ, ì •ë³´ë³´ì•ˆ, Linux, ë³´ì•ˆê¸°ìˆ ,
+							ë³´ì•ˆê´€ë¦¬, ë„¤íŠ¸ì›Œí¬ë³´ì•ˆ, ì •ë³´ë³´ì•ˆ, í•´í‚¹, ë³´ì•ˆì»¨ì„¤íŒ…, ì‹œìŠ¤í…œìš´ì˜, ì •ê·œì§, ê²½ê¸° ì„±ë‚¨ì‹œ ë¶„ë‹¹êµ¬, ì„œìš¸ì „ì§€ì—­,
+							2,800 ë§Œì› ì´ìƒ</div>
 						<div class="buttons">
 							<button type="button" class="button buttonSetting">
-								<span>¼³Á¤ÇÏ±â</span>
+								<span>ì„¤ì •í•˜ê¸°</span>
 							</button>
 							<button type="button" class="button buttonDetail">
-								<span>»ó¼¼º¸±â</span>
+								<span>ìƒì„¸ë³´ê¸°</span>
 							</button>
 						</div>
 						<div class="popup">
 							<div class="list">
 								<div class="item">
-									<div class="label">°í¿ëÇüÅÂ</div>
-									<div class="value">Á¤±ÔÁ÷</div>
+									<div class="label">ê³ ìš©í˜•íƒœ</div>
+									<div class="value">ì •ê·œì§</div>
 								</div>
 								<div class="item">
-									<div class="label">Èñ¸Á¿¬ºÀ</div>
-									<div class="value">2,800 ¸¸¿ø ÀÌ»ó</div>
+									<div class="label">í¬ë§ì—°ë´‰</div>
+									<div class="value">2,800 ë§Œì› ì´ìƒ</div>
 								</div>
 								<div class="item">
-									<div class="label">±Ù¹«Áö¿ª</div>
-									<div class="value">°æ±â ¼º³²½Ã ºÐ´ç±¸, ¼­¿ïÀüÁö¿ª</div>
+									<div class="label">ê·¼ë¬´ì§€ì—­</div>
+									<div class="value">ê²½ê¸° ì„±ë‚¨ì‹œ ë¶„ë‹¹êµ¬, ì„œìš¸ì „ì§€ì—­</div>
 								</div>
 								<div class="item">
-									<div class="label">Á÷¹«</div>
+									<div class="label">ì§ë¬´</div>
 									<div class="value">
 										<div class="list">
 											<div class="item">
-												<div class="category">³×Æ®¿öÅ©&#183;¼­¹ö&#183;º¸¾È</div>
-												Linux, º¸¾È°ü¸®, ½Ã½ºÅÛ¿î¿µ, º¸¾È±â¼ú, Á¤º¸º¸¾È
+												<div class="category">ë„¤íŠ¸ì›Œí¬&#183;ì„œë²„&#183;ë³´ì•ˆ</div>
+												Linux, ë³´ì•ˆê´€ë¦¬, ì‹œìŠ¤í…œìš´ì˜, ë³´ì•ˆê¸°ìˆ , ì •ë³´ë³´ì•ˆ
 											</div>
 										</div>
 									</div>
 
 								</div>
 								<div class="item">
-									<div class="label">»ê¾÷</div>
+									<div class="label">ì‚°ì—…</div>
 									<div class="value">
 										<div class="list">
 											<div class="item">
-												<div class="category">Á¤º¸º¸¾È</div>
-												º¸¾ÈÄÁ¼³ÆÃ, ÇØÅ·, ³×Æ®¿öÅ©º¸¾È, Á¤º¸º¸¾È
+												<div class="category">ì •ë³´ë³´ì•ˆ</div>
+												ë³´ì•ˆì»¨ì„¤íŒ…, í•´í‚¹, ë„¤íŠ¸ì›Œí¬ë³´ì•ˆ, ì •ë³´ë³´ì•ˆ
 											</div>
 										</div>
 									</div>
@@ -105,28 +88,28 @@
 					<div class="tableList  ">
 						<div class="">
 							<div class="listSortArea">
-								<div class="col col01">ÀÌ·Â¼­ Á¦¸ñ</div>
-								<div class="col col02">ÀÌ·Â¼­ °ü¸®</div>
+								<div class="col col01">ì´ë ¥ì„œ ì œëª©</div>
+								<div class="col col02">ì´ë ¥ì„œ ê´€ë¦¬</div>
 							</div>
 							<div class="mtuList">
 								<ul>
-									<!-- [°³¹ß] ÀÌ·Â¼­ ÀÛ¼ºÁß yet Å¬·¡½º Ãß°¡ -->
+									<!-- [ê°œë°œ] ì´ë ¥ì„œ ìž‘ì„±ì¤‘ yet í´ëž˜ìŠ¤ ì¶”ê°€ -->
 									<li class="ing">
 										<div class="col col01">
 											<div class="tit">
 												<em class="badge">2018.12.19</em><a
-													href="/User/Resume/Write" target="_blank">ÀÌ·Â¼­ Á¦¸ñ</a>
+													href="/User/Resume/Write" target="_blank">ì´ë ¥ì„œ ì œëª©</a>
 											</div>
 											<div class="date"></div>
 										</div>
 										<div class="col col02">
 											<!-- checkbox -->
 											<div class="btnCell">
-												<a class="btn" href="" target="_blank">¼öÁ¤</a>
+												<a class="btn" href="" target="_blank">ìˆ˜ì •</a>
 											</div>
 											<div class="btnCell">
 												<button class="btn" type="button" onclick="">
-													<span>»èÁ¦</span>
+													<span>ì‚­ì œ</span>
 												</button>
 											</div>
 										</div>
@@ -138,10 +121,10 @@
 						<div class="linkMng"></div>
 						<!-- TIP -->
 						<div class="mtuTip">
-							<strong class="skip">ÀÌ¿ë TIP</strong>
+							<strong class="skip">ì´ìš© TIP</strong>
 							<ul class="tipList">
-								<li>ÀÔ»çÁö¿øÀ» ÇÑ ÈÄ ÇØ´ç ÀÌ·Â¼­ÀÇ ³»¿ëÀ» ¼öÁ¤ÇØµµ <em>ÀÌÀü¿¡ Áö¿øÇÑ ÀÌ·Â¼­ÀÇ ³»¿ëÀº
-										¹Ù²îÁö ¾ÊÀ¸¹Ç·Î</em> È¸»ç¸¶´Ù ÀÌ·Â¼­ ³»¿ëÀ» ´Ù¸£°Ô Áö¿øÇÒ ¼ö ÀÖ½À´Ï´Ù.
+								<li>ìž…ì‚¬ì§€ì›ì„ í•œ í›„ í•´ë‹¹ ì´ë ¥ì„œì˜ ë‚´ìš©ì„ ìˆ˜ì •í•´ë„ <em>ì´ì „ì— ì§€ì›í•œ ì´ë ¥ì„œì˜ ë‚´ìš©ì€
+										ë°”ë€Œì§€ ì•Šìœ¼ë¯€ë¡œ</em> íšŒì‚¬ë§ˆë‹¤ ì´ë ¥ì„œ ë‚´ìš©ì„ ë‹¤ë¥´ê²Œ ì§€ì›í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 								</li>
 							</ul>
 						</div>
@@ -149,32 +132,36 @@
 							style="position: absolute; top: 100px; left: 70px; z-index: 9999; display: none;">
 							<iframe id="devResumeEmailIfrm" name="devResumeEmailIfrm"
 								width="593" height="450" marginwidth="0" marginheight="0"
-								frameborder="no" scrolling="no" title="ÀÌ·Â¼­ ÀÌ¸ÞÀÏÀü¼Û ·¹ÀÌ¾î"></iframe>
+								frameborder="no" scrolling="no" title="ì´ë ¥ì„œ ì´ë©”ì¼ì „ì†¡ ë ˆì´ì–´"></iframe>
 						</div>
 					</div>
 
 
 
-					<iframe id="frmFileDownload" style="display: none" title="ºó ÇÁ·¹ÀÓ"></iframe>
+					<iframe id="frmFileDownload" style="display: none" title="ë¹ˆ í”„ë ˆìž„"></iframe>
 			</section>
 			<hr />
 			<section class="secLnb">
-				<h1 class="skip">°³ÀÎÈ¸¿ø ¼­ºñ½º ¸Þ´º</h1>
+				<h1 class="skip">ê°œì¸íšŒì› ì„œë¹„ìŠ¤ ë©”ë‰´</h1>
 				<div class="lnbGroup">
-					<h2 class="lnbTit">ÀÌ·Â¼­ °ü¸®</h2>
+					<h2 class="lnbTit">ì´ë ¥ì„œ ê´€ë¦¬</h2>
 					<ul>
-						<li><a href="http://127.0.0.1:8080/testwebb/rswrite.tiles"
-							target="_blank">ÀÌ·Â¼­ µî·Ï</a></li>
-						<li><a href="http://127.0.0.1:8080/testwebb/rslist.tiles">ÀÌ·Â¼­
-								°ü¸®</a></li>
+						<li><a href="rswrite.action"
+							target="_blank">ì´ë ¥ì„œ ë“±ë¡</a></li>
+						<li><a href="rslist.action">ì´ë ¥ì„œ
+								ê´€ë¦¬</a></li>
 					</ul>
 				</div>
 				<div class="lnbGroup">
-					<h2 class="lnbTit">È¸¿øÁ¤º¸ °ü¸®</h2>
+					<h2 class="lnbTit">íšŒì›ì •ë³´ ê´€ë¦¬</h2>
 					<ul>
-						<li><a href="#">È¸¿øÁ¤º¸ ¼öÁ¤</a></li>
-						<li><a href="#">ºñ¹Ð¹øÈ£ º¯°æ</a></li>
-						<li><a href="#">È¸¿øÅ»Åð</a></li>
+						<li><a href="#">íšŒì›ì •ë³´ ìˆ˜ì •</a></li>
+						<s:if test="#session.session_type=='ê¸°ì—…'">
+						<li><a href="javascript:open_win_noresizable('checkForm.action?cmember_id=<s:property value="#session.session_id"/>&member_type=corp')" class="">íšŒì›íƒˆí‡´</a></li>
+						</s:if>
+						<s:else>
+						<li><a href="javascript:open_win_noresizable('checkForm.action?member_id=<s:property value="#session.session_id"/>&member_type=gen')" class="">íšŒì›íƒˆí‡´</a></li>
+						</s:else>
 					</ul>
 				</div>
 			</section>

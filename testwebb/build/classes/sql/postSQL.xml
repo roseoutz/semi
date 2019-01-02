@@ -21,7 +21,7 @@
 		
 		<insert id="insertPost" parameterClass="post">
 			insert into kh_post(post_no, post_subject, post_writer, post_content, post_date, post_career, post_edu, post_em_type, post_pay, post_loc, post_prefer, post_time)
-			values (post_no_seq.NEXTVAL,#post_subject#, #post_writer#, #post_content#, #post_date#, #post_career#, #post_edu#, #post_em_type#, #post_pay#, #post_loc#, #post_prefer#, #post_time#)
+			values (kh_post_seq.NEXTVAL,#post_subject#, #post_writer#, #post_content#, #post_date#, #post_career#, #post_edu#, #post_em_type#, #post_pay#, #post_loc#, #post_prefer#, #post_time#)
 		</insert>
 
 </sqlMap>

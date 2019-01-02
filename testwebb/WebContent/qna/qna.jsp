@@ -25,8 +25,14 @@
 				<div class="lnbGroup">
 					<ul>
 						<li><a href="#" target="_blank">아이디∙비밀번호 찾기<span class="lnbFile"></span></a></li>
-						<li><a href="#" class="">회원탈퇴</a></li>
+						<s:if test="#session.session_type=='기업'">
+						<li><a href="javascript:open_win_noresizable('checkForm.action?cmember_id=<s:property value="#session.session_id"/>&member_type=corp')" class="">회원탈퇴</a></li>
+						</s:if>
+						<s:else>
+						<li><a href="javascript:open_win_noresizable('checkForm.action?member_id=<s:property value="#session.session_id"/>&member_type=gen')" class="">회원탈퇴</a></li>
+						</s:else>
 					</ul>
+
 				</div>
 				</section>
 	<!--// tap menu -->
@@ -103,6 +109,7 @@
 	</div>
 	</section>
 	</div>
-</div>	
+</div>
+
 </body>
 	

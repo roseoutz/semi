@@ -1,4 +1,4 @@
-package simpleqna;
+package notice;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -11,22 +11,23 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
 import VO.khMtmVO;
+import VO.khNoticeVO;
 
-public class qaList extends ActionSupport {
+public class noticeList extends ActionSupport {
 
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	
-	private List<khMtmVO> list = new ArrayList<khMtmVO>();
+	private List<khNoticeVO> list = new ArrayList<khNoticeVO>();
 	private int currentPage = 1;
 	private int totalCount;
 	private int blockCount = 5;
 	private int blockPage = 5;
 	private String pagingHtml;
-	private qnaPagingAction page;
+	private noticePagingAction page;
 	private String keyword;
 	
-	public qaList() throws IOException {
+	public noticeList() throws IOException {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
 		reader.close();
@@ -34,15 +35,15 @@ public class qaList extends ActionSupport {
 	
 	public String execute() throws Exception{
 		if(getKeyword()==null) {
-			list = sqlMapper.queryForList("selectAllqa");
+			list = sqlMapper.queryForList("selectAllnotice");
 			totalCount = list.size();
-			page = new qnaPagingAction(currentPage, totalCount, blockCount, blockPage, getKeyword());
+			page = new noticePagingAction(currentPage, totalCount, blockCount, blockPage, getKeyword());
 			pagingHtml = page.getPagingHtml().toString();
 		} else {
 			System.out.println(getKeyword());
-			list = sqlMapper.queryForList("selectSearchAllqa", getKeyword());
+			list = sqlMapper.queryForList("selectSearchAllnotice", getKeyword());
 			totalCount = list.size();
-			page = new qnaPagingAction(currentPage, totalCount, blockCount, blockPage, getKeyword());
+			page = new noticePagingAction(currentPage, totalCount, blockCount, blockPage, getKeyword());
 			pagingHtml = page.getPagingHtml().toString();
 		}
 		
@@ -63,7 +64,7 @@ public class qaList extends ActionSupport {
 	}
 
 	public static void setReader(Reader reader) {
-		qaList.reader = reader;
+		noticeList.reader = reader;
 	}
 
 	public static SqlMapClient getSqlMapper() {
@@ -71,14 +72,14 @@ public class qaList extends ActionSupport {
 	}
 
 	public static void setSqlMapper(SqlMapClient sqlMapper) {
-		qaList.sqlMapper = sqlMapper;
+		noticeList.sqlMapper = sqlMapper;
 	}
 
-	public List<khMtmVO> getList() {
+	public List<khNoticeVO> getList() {
 		return list;
 	}
 
-	public void setList(List<khMtmVO> list) {
+	public void setList(List<khNoticeVO> list) {
 		this.list = list;
 	}
 
@@ -122,11 +123,11 @@ public class qaList extends ActionSupport {
 		this.pagingHtml = pagingHtml;
 	}
 
-	public qnaPagingAction getPage() {
+	public noticePagingAction getPage() {
 		return page;
 	}
 
-	public void setPage(qnaPagingAction page) {
+	public void setPage(noticePagingAction page) {
 		this.page = page;
 	}
 

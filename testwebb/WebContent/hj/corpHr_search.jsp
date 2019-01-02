@@ -11,6 +11,7 @@
 				<div class="modal modal-spinner" role="dialog" aria-hidden="true"
 					style="display: none;"></div>
 				<div class="contWrap ResumeMngCont">
+					
 					<div class="innerHd">
 						<ul>
 							<li class="hdTap"><h2 class="header">인재 검색</h2></li>

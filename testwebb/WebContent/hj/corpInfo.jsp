@@ -18,7 +18,6 @@
 						</ul>
 					</div>
 					<form method="post" action="postWriteAction.action">
-					<input type="hidden" value="test" name="post_writer"/>
 					<h2 class="skip">공고입력</h2>
 					<div class="hopeWorking">
 						<h3 class="header">공고 제목</h3>

@@ -51,9 +51,9 @@
 	</package>
 	<!-- 							고객센터						 -->
 	<package name="simpleqna" extends="struts-default, tiles-default">
-		<action name="simpleqna">
+		<action name="simpleqna" class="simpleqna.qaList">
 			<result type="tiles">simpleqna</result>
-		</action>	
+		</action>
 	</package>
 	
 	<package name="qna" extends="struts-default, tiles-default">
@@ -66,9 +66,13 @@
 	</package>
 	
 	<package name="notice" extends="struts-default, tiles-default">
-		<action name="notice">
+		<action name="notice" class="notice.noticeList">
 			<result type="tiles">notice</result>
-		</action>	
+		</action>
+		
+		<action name="noticeView" class="notice.noticeView">
+			<result type="tiles">noticeview</result>
+		</action>
 	</package>
 	
 	<package name="mypage" extends="struts-default, tiles-default">
@@ -76,6 +80,34 @@
 			<result type="tiles">mypage</result>
 		</action>	
 	</package>
+	
+	<package name="rslist" extends="struts-default, tiles-default">
+		<action name="rslist">
+			<result type="tiles">rslist</result>
+		</action>	
+	</package>
+	
+	<package name="pflist" extends="struts-default, tiles-default">
+		<action name="pflist">
+			<result type="tiles">pflist</result>
+		</action>	
+	</package>
+	
+	<package name = "joinout" extends = "struts-default, tiles-default">
+		<action name= "joinout" class="join.joinout">
+			<result type="tiles">main</result>
+		</action>
+	
+	<action name="checkForm" class="join.joinout" method="checkForm">
+		<result>/common/checkPassword.jsp</result>
+	</action>
+		
+	<action name="checkAction" class="join.joinout" method="checkAction">
+		<result name="error">/common/checkError.jsp</result>
+		<result>/common/checkSuccess.jsp</result>
+	</action>
+		</package>
+	
 	<include file="join.xml"/>
 	<include file="login.xml"/>
 	
