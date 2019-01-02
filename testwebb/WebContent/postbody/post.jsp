@@ -256,7 +256,7 @@
 						</td>
 						<s:set name="review_writer"
 							value='<s:property value="review_writer"/>' />
-						<s:if test="#session.session_sid == review_writer">
+						<s:if test="#session.session_id == review_writer">
 							<td>
 								<!-- 코멘트 삭제 --> <!-- 
 							<a href="javascript:open_win_noresizable('fcDeleteCheck.action?fc_no=<s:property value="fc_no" />&fc_orgno=<s:property value="fc_orgno"/>&currentPage=<s:property value="currentPage" />','fcDeleteCheck')">x</a>
@@ -311,8 +311,6 @@
 					<td colspan="2" align="right">
 						<s:if test="#session.session_id == resultClass.review_writer">
 							<input name="list" type="button" value="수정" class="inputb" onClick="javascript:location.href='fModifyForm.action?f_no=<s:property value="fresultClass.f_no" />&currentPage=<s:property value="currentPage" />'">
-						</s:if> 
-						<s:if test="#session.session_id == resultClass.review_writer">
 							<input name="list" type="button" value="삭제" class="inputb" onClick="javascript:deleteForm('fDeleteCheck.action?f_no=<s:property value="f_no" />&currentPage=<s:property value="currentPage" />')">
 						</s:if> 
 						<input name="list" type="button" value="목록" class="inputb" onClick="javascript:location.href='postList.action?currentPage=<s:property value="currentPage" />'"></td>

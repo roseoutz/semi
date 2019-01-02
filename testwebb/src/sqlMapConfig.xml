@@ -27,4 +27,5 @@
 	<sqlMap resource="/sql/simpleqnaSQL.xml"/>
 	<sqlMap resource="/sql/noticeSQL.xml"/>
 	<sqlMap resource="/sql/findUserInfoSQL.xml"/>
+	<sqlMap resource="/sql/reviewSQL.xml"/>
 </sqlMapConfig>
