@@ -7,12 +7,31 @@
 		<action name = "admin_main">
 			<result type = "tiles">admin_main</result>
 		</action>
-		<action name = "admin_login" class = "admin.login.loginAction">
+		 <action name = "memberlistGen" class = "admin.memberlistGenAction">
+		 	<result type = "tiles">memberlistGen</result>
+	    </action>
+	     <action name = "memberlistCorp" class = "admin.memberlistCorpAction">
+		 	<result type = "tiles">memberlistCorp</result>
+	    </action>
+	    <action name = "admin_qna">
+	    	<result type = "tiles">admin_qna</result>
+	    </action>
+	    <action name = "admin_simpleqna">
+	    	<result type = "tiles">admin_simpleqna</result>
+	    </action>
+	    <action name = "admin_notice">
+	    	<result type = "tiles">admin_notice</result>
+	    </action>
+		<action name = "admin_login" class = "admin.loginAction">
 			<result name = "error">/admin/login/loginFail.jsp</result>
 			<result name = "success">/admin/login/loginSuccess.jsp</result>
 		</action>
-		<action name = "admin_logout" class = "admin.login.logoutAction">
+		<action name = "admin_logout" class = "admin.logoutAction">
 			<result>/admin/main/logout.jsp</result>
 		</action>
+		<action name = "deleteMember" class = "admin.deleteMemberAction">
+			<result>/admin/memberlist/deleteOK.jsp</result>
+		</action>
+	   
 	</package>
 </struts>

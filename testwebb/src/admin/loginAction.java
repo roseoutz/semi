@@ -1,4 +1,4 @@
-package admin.login;
+package admin;
 import com.opensymphony.xwork2.*;
 import com.ibatis.common.resources.*;
 import com.ibatis.sqlmap.client.SqlMapClient;

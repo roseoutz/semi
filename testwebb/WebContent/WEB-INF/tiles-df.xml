@@ -106,12 +106,46 @@
  		<put-attribute name="body" value="/main/main.jsp"/> 
  	</definition>
  	
- 	<definition name="admin_main" template="/layout.jsp"> <!-- 관리자메인 -->
+ 	<definition name="admin_main" template="/admin_layout.jsp"> <!-- 관리자메인 -->
 		<put-attribute name="repo" value="/admin/main/main_repo.jsp"/>
 		<put-attribute name="headerrepo" value="/admin/common/header_repo.jsp"/>
 		<put-attribute name="header" value="/admin/common/header.jsp"/>
-		<put-attribute name="footer" value="/admin/common/footer.jsp"/> 
  		<put-attribute name="body" value="/admin/main/main.jsp"/> 
+ 	</definition>
+ 	
+ 	<definition name ="memberlistGen" template="/admin_layout.jsp"> <!-- 관리자 일반회원리스트 -->
+ 		<put-attribute name="repo" value="/admin/memberlist/memberlist_repo.jsp"/>
+ 		<put-attribute name="headerrepo" value="/admin/common/header_repo.jsp"/>
+		<put-attribute name="header" value="/admin/common/header.jsp"/>
+		<put-attribute name="body" value="/admin/memberlist/memberlist.jsp"/> 
+ 	</definition>
+ 	
+ 	<definition name ="memberlistCorp" template="/admin_layout.jsp"> <!-- 관리자 기업회원리스트 -->
+ 		<put-attribute name="repo" value="/admin/memberlistCorp/memberlistCorp_repo.jsp"/>
+ 		<put-attribute name="headerrepo" value="/admin/common/header_repo.jsp"/>
+		<put-attribute name="header" value="/admin/common/header.jsp"/>
+		<put-attribute name="body" value="/admin/memberlistCorp/memberlistCorp.jsp"/> 
+ 	</definition>
+ 	
+ 	<definition name ="admin_qna" template="/admin_layout.jsp"> <!-- 관리자 q&a -->
+ 		<put-attribute name="repo" value="/admin/qna/qna_repo.jsp"/>
+ 		<put-attribute name="headerrepo" value="/admin/common/header_repo.jsp"/>
+		<put-attribute name="header" value="/admin/common/header.jsp"/>
+		<put-attribute name="body" value="/admin/qna/qna.jsp"/> 
+ 	</definition>
+ 	
+ 	<definition name ="admin_simpleqna" template="/admin_layout.jsp"> <!-- 관리자 자주묻는질문 -->
+ 		<put-attribute name="repo" value="/admin/simpleqna/simpleqna_repo.jsp"/>
+ 		<put-attribute name="headerrepo" value="/admin/common/header_repo.jsp"/>
+		<put-attribute name="header" value="/admin/common/header.jsp"/>
+		<put-attribute name="body" value="/admin/simpleqna/simpleqna.jsp"/> 
+ 	</definition>
+ 	
+ 	<definition name ="admin_notice" template="/admin_layout.jsp"> <!-- 관리자 공지사항 -->
+ 		<put-attribute name="repo" value="/admin/notice/notice_repo.jsp"/>
+ 		<put-attribute name="headerrepo" value="/admin/common/header_repo.jsp"/>
+		<put-attribute name="header" value="/admin/common/header.jsp"/>
+		<put-attribute name="body" value="/admin/notice/notice.jsp"/> 
  	</definition>
  	
  	<definition name="post" template="/layout.jsp"> 
