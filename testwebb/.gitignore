@@ -23,7 +23,13 @@
 hs_err_pid*
 
 
+
 /build/
+.build/
+build/
+/classes/
+.classes/
+classes/
 .classpath/
 .classpath
 logs/

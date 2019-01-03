@@ -49,7 +49,7 @@ public class postViewAction extends ActionSupport {
 	public String execute() throws Exception{
 		paramClass.setPost_no(getPost_no());
 
-		resultClass = (khPostVO)sqlMapper.queryForObject("",getPost_no());
+		resultClass = (khPostVO)sqlMapper.queryForObject("selectPostOne",getPost_no());
 		reviewList = sqlMapper.queryForList("selectReview",getPost_no());
 		
 		return SUCCESS;

@@ -2,54 +2,84 @@
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 
 <sqlMap>
-	<typeAlias alias="post" type="VO.khPostVO"/>
+	<typeAlias alias="post" type="VO.khPostVO" />
+	<typeAlias alias="review" type="VO.khReviewVO" />
 	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
-		<resultMap class="post" id="postRes">
-			<result property="post_no" column="post_no"/>
-			<result property="post_subject" column="post_subject"/>
-			<result property="post_writer" column="post_writer"/>
-			<result property="post_content" column="post_content"/>
-			<result property="post_date" column="post_date"/>
-			<result property="post_career" column="post_career"/>
-			<result property="post_edu" column="post_edu"/>
-			<result property="post_em_type" column="post_em_type"/>
-			<result property="post_pay" column="post_pay"/>
-			<result property="post_loc" column="post_loc"/>
-			<result property="post_prefer" column="post_prefer"/>
-			<result property="post_time" column="post_time"/>
-		</resultMap>
-		
-		<!-- 채용공고 select -->		
-		<select id="selectPost" parameterClass="post">
-			select * from kh_post
-			where post_no = #post_no#
-		</select>
-		
-		<!-- 채용공고 작성 insert query -->
-		<insert id="insertPost" parameterClass="post">
-			insert into kh_post(post_no, post_subject, post_writer, post_content, post_date, post_career, post_edu, post_em_type, post_pay, post_loc, post_prefer, post_time)
-			values (kh_post_seq.NEXTVAL,#post_subject#, #post_writer#, #post_content#, #post_date#, #post_career#, #post_edu#, #post_em_type#, #post_pay#, #post_loc#, #post_prefer#, #post_time#)
-		</insert>
-		
-		<!-- 채용공고 수정 -->
-		<update id="updatePost" parameterClass="post">
-			<!--  
-			UPDATE KH_POST
-			SET POST_SUBJECT=#post_subject#,POST_DATE=#post_date#,POST_CONTENT=#post_content#,POST_CAREER=#post_career#,
-			post_edu=#post_edu#,post_em_type=#post_em_type#,post_pay=#post_pay#,post_loc=#post_loc#,
-			post_prefer=#post_prefer#,post_time=#post_time#
-			<include refid="where-no"/>
-			-->
-			update kh_post set
-			post_subject=#post_subject#,post_date=#post_date#,post_content=#post_content#,post_career=#post_career#,
-			post_edu=#post_edu#,post_em_type=#post_em_type#,post_pay=#post_pay#,post_loc=#post_loc#,
-			post_prefer=#post_prefer#,post_time=#post_time#
-			where post_no = #post_no#
-		</update>
-		
-		<!-- 채용공고 삭제 -->
-		<delete id="deletePost" parameterClass="post">
-			delete from kh_post
-			where post_no = #post_no#
-		</delete>
+	<resultMap class="post" id="postRes">
+		<result property="post_no" column="post_no" />
+		<result property="post_subject" column="post_subject" />
+		<result property="post_writer" column="post_writer" />
+		<result property="post_content" column="post_content" />
+		<result property="post_date" column="post_date" />
+		<result property="post_career" column="post_career" />
+		<result property="post_edu" column="post_edu" />
+		<result property="post_em_type" column="post_em_type" />
+		<result property="post_pay" column="post_pay" />
+		<result property="post_loc" column="post_loc" />
+		<result property="post_prefer" column="post_prefer" />
+		<result property="post_time" column="post_time" />
+	</resultMap>
+
+	<resultMap id="reviewRes" class="review">
+		<result property="review_no" column="review_no" />
+		<result property="review_writer" column="review_writer" />
+		<result property="review_content" column="review_content" />
+		<result property="review_date" column="review_date" />
+		<result property="review_post_no" column="review_post_no" />
+	</resultMap>
+
+
+	<!-- 채용공고 select -->
+	<select id="selectPost" resultMap="postRes">
+		select * from kh_post
+		order by post_no desc
+	</select>
+
+	<!-- 채용공고 상세보기 -->
+	<select id="selectPostOne" parameterClass="int">
+		select * from kh_post
+		where post_no = #post_no#
+	</select>
+	
+	<!-- 리뷰 select -->
+	<select id="selectReview" resultMap="reviewRes" parameterClass="int">
+		select * from kh_review
+		where review_post_no = #review_post_no#
+		order by review_date desc;
+	</select>
+	
+	<!-- 채용공고 작성 insert query -->
+	<insert id="insertPost" parameterClass="post">
+		insert into kh_post(post_no, post_subject, post_writer, post_content,
+		post_date, post_career, post_edu, post_em_type, post_pay, post_loc,
+		post_prefer, post_time)
+		values (kh_post_seq.NEXTVAL,#post_subject#, #post_writer#, #post_content#,
+		#post_date#, #post_career#, #post_edu#, #post_em_type#, #post_pay#,
+		#post_loc#, #post_prefer#, #post_time#)
+	</insert>
+	
+	<insert id="insertReview" parameterClass="review">
+		insert into kh_review 
+		(review_no,review_writer,review_content,review_date,review_post_no)
+		values
+		(kh_review_no.NEXTVAL,#review_writer#,#review_content#,#review_date#,#review_post_no#)
+	</insert>
+
+	<!-- 채용공고 수정 -->
+	<update id="updatePost" parameterClass="post">
+		<!-- UPDATE KH_POST SET POST_SUBJECT=#post_subject#,POST_DATE=#post_date#,POST_CONTENT=#post_content#,POST_CAREER=#post_career#, 
+			post_edu=#post_edu#,post_em_type=#post_em_type#,post_pay=#post_pay#,post_loc=#post_loc#, 
+			post_prefer=#post_prefer#,post_time=#post_time# <include refid="where-no"/> -->
+		update kh_post set
+		post_subject=#post_subject#,post_date=#post_date#,post_content=#post_content#,post_career=#post_career#,
+		post_edu=#post_edu#,post_em_type=#post_em_type#,post_pay=#post_pay#,post_loc=#post_loc#,
+		post_prefer=#post_prefer#,post_time=#post_time#
+		where post_no = #post_no#
+	</update>
+
+	<!-- 채용공고 삭제 -->
+	<delete id="deletePost" parameterClass="post">
+		delete from kh_post
+		where post_no = #post_no#
+	</delete>
 </sqlMap>
