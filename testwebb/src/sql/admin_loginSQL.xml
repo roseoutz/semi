@@ -8,7 +8,12 @@
 		SELECT * FROM KH_ADMIN WHERE ADMIN_ID = #admin_id# AND ADMIN_PASS = #admin_pass#
 	</select>
 	
+	<!-- 일반회원  탈퇴시키기-->
 	<delete id = "deleteGenMember" parameterClass = "String">
 		DELETE FROM KH_MEMBER WHERE MEMBER_ID = #member_id#
+	</delete>
+	<!-- 기업회원 탈퇴시키기 -->
+	<delete id = "deleteCorpMember" parameterClass = "String">
+		DELETE FROM KH_CMEMBER WHERE CMEMBER_ID = #cmember_id#
 	</delete>
 </sqlMap>

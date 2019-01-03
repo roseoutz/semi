@@ -14,36 +14,41 @@
 				
 					<div class="topHdWrap">
 					<br>
-						<h2 class="top_hd_2">기업회원 리스트(총 회원 수 : <s:property value = "list.size()"/> )</h2>
+						<h2 class="top_hd_2">기업회원 리스트(총 회원 수 : <s:property value = "totalCount"/> )</h2>
 					</div>
 					<table border = "1" cellpadding = "0" cellspacing = "0">
-						<tr height = "30" align = "center">
-							<th width = "150"><strong>아이디</strong></th>
-							<th width = "150">비밀번호</th>
-							<th width = "70">이름</th>
-							<th width = "120">전화번호</th>
-							<th width = "200">이메일</th>
+						<tr height = "40" align = "center">
+							<th width = "100">사업자등록번호</th>
+							<th width = "100">아이디</th>
+							<th width = "70">비밀번호</th>
+							<th width = "120">회사명</th>
+							<th width = "80">대표명</th>
+							<th width = "190">주소</th>
+							<th width = "150">이메일</th>
 							<th width = "100">가입날짜</th>
 							<th width = "100">관리</th>
 						</tr>
 						<s:iterator value = "list" status="stat">
 							<tr height = "30" align = "center">
-								<td><s:property value = "member_id"/></td>
-								<td><s:property value = "member_pass"/></td>
-								<td><s:property value = "member_name"/></td>
-								<td><s:property value = "member_phone"/></td>
-								<td><s:property value = "member_email"/></td>
-								<td><s:property value = "member_date"/></td>
-								<td><input type = "button" value = "탈  퇴" onclick = "return open_win('admin/memberlist/deleteMember.jsp?id=<s:property value = "member_id"/>', '회원탈퇴');"/></td>
+								<td><s:property value = "cmember_cno"/></td>
+								<td><s:property value = "cmember_id"/></td>
+								<td><s:property value = "cmember_pass"/></td>
+								<td><s:property value = "cmember_cname"/></td>
+								<td><s:property value = "cmember_ceo"/></td>
+								<td><s:property value = "cmember_addr"/></td>
+								<td><s:property value = "cmember_email"/></td>
+								<td><s:property value = "cmember_date"/></td>
+								<td><input type = "button" value = "탈  퇴" onclick = "return open_win('admin/memberlistCorp/deleteCorpMember.jsp?id=<s:property value = "cmember_id"/>', '회원탈퇴');"/></td>
 							</tr>
 						</s:iterator>
-						<s:if test = "list.size() <= 0">
+						<s:if test = "totalCount == 0">
 							<tr height = "30" align = "center">
 								<th colspan = "5">등록된 회원이 없습니다.</th>
 							</tr>
 						</s:if>
 					</table>
 					<br>
+					<!-- 페이징 -->
 					<div style = "text-align:center;">
 						<s:property value = "pagingHtml" escape = "false"/>
 					</div>
@@ -52,8 +57,9 @@
 						<br>
 						<form>
 							<select name = "category">
+								<option value = "cno">사업자번호</option>
 								<option value = "id">아이디</option>
-								<option value = "name">회원이름</option>
+								<option value = "cname">회사명</option>
 							</select>
 							<input type = "text" name = "search"/>
 							<input type = "submit" value = "회원찾기"/>

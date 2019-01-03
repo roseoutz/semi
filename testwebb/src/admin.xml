@@ -32,6 +32,9 @@
 		<action name = "deleteMember" class = "admin.deleteMemberAction">
 			<result>/admin/memberlist/deleteOK.jsp</result>
 		</action>
+		<action name = "deleteCorpMember" class = "admin.deleteCorpMemberAction">
+			<result>/admin/memberlistCorp/deleteOK.jsp</result>
+		</action>
 	   
 	</package>
 </struts>

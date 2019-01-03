@@ -11,3 +11,8 @@ alert("로그인이 필요한 서비스입니다.");
 location.replace("admin_main.action");
 </script>
 </s:if>
+<script>
+function open_win(url, name) {
+	var oWin = window.open(url, name, "scrollbars=no,status=no, resizable=no, width=300, height=150");	
+}
+</script>

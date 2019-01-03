@@ -8,7 +8,7 @@
 
     <h3 class="skip">글로벌 메뉴</h3>
     <ul class="gnb f_clear">
-        <li><a href="http://www.jobkorea.co.kr">홈</a></li>
+        <li><a href="main.action">홈</a></li>
         <li><a href="/help/">1:1문의</a></li>
     </ul>
 
@@ -157,7 +157,7 @@
 </div>
 <div class="row mbr_phone">
     <div class="col_1">
-        <label class="mbr_phone" for="Corp_Phone">전화번호<i class="icon required" aria-hidden="hidde">*</i></label>
+        <label class="mbr_phone" for="Corp_Phone">전화번호('-'도 포함해서입력해주세요.)<i class="icon required" aria-hidden="hidde">*</i></label>
     </div>
     <div class="col_2">
         <input class="mbr_email_id dev-mail" data-val="true" id="Corp_Phone" maxlength="13" name="cmember_phone" title="전화번호" type="text" value="" />

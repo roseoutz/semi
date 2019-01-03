@@ -17,7 +17,7 @@
 						<h2 class="top_hd_2">일반회원 리스트(총 회원 수 : <s:property value = "totalCount"/> )</h2>
 					</div>
 					<table border = "1" cellpadding = "0" cellspacing = "0">
-						<tr height = "30" align = "center">
+						<tr height = "40" align = "center">
 							<th width = "150"><strong>아이디</strong></th>
 							<th width = "150">비밀번호</th>
 							<th width = "70">이름</th>
@@ -37,7 +37,7 @@
 								<td><input type = "button" value = "탈  퇴" onclick = "return open_win('admin/memberlist/deleteMember.jsp?id=<s:property value = "member_id"/>', '회원탈퇴');"/></td>
 							</tr>
 						</s:iterator>
-						<s:if test = "list.size() <= 0">
+						<s:if test = "totalCount == 0">
 							<tr height = "30" align = "center">
 								<th colspan = "5">등록된 회원이 없습니다.</th>
 							</tr>
