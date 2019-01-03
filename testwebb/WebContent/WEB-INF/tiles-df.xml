@@ -106,6 +106,14 @@
  		<put-attribute name="body" value="/main/main.jsp"/> 
  	</definition>
  	
+ 	<definition name="admin_main" template="/layout.jsp"> <!-- 관리자메인 -->
+		<put-attribute name="repo" value="/admin/main/main_repo.jsp"/>
+		<put-attribute name="headerrepo" value="/admin/common/header_repo.jsp"/>
+		<put-attribute name="header" value="/admin/common/header.jsp"/>
+		<put-attribute name="footer" value="/admin/common/footer.jsp"/> 
+ 		<put-attribute name="body" value="/admin/main/main.jsp"/> 
+ 	</definition>
+ 	
  	<definition name="post" template="/layout.jsp"> 
 		<put-attribute name="repo" value="/main/main_repo.jsp"/>
 		<put-attribute name="headerrepo" value="/common/header_repo.jsp"/>

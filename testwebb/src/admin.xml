@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name = "adminPage" extends = "struts-default, tiles-default">
+		<action name = "admin_main">
+			<result type = "tiles">admin_main</result>
+		</action>
+		<action name = "admin_login" class = "admin.login.loginAction">
+			<result name = "error">/admin/login/loginFail.jsp</result>
+			<result name = "success">/admin/login/loginSuccess.jsp</result>
+		</action>
+		<action name = "admin_logout" class = "admin.login.logoutAction">
+			<result>/admin/main/logout.jsp</result>
+		</action>
+	</package>
+</struts>
