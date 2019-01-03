@@ -34,7 +34,7 @@
     </s:if>
     <s:else>
     <div class="loginWrap">
-        <h3><s:property value = "#session.session_id"/>님 환영합니다.</h3>
+        <h3><s:property value = "#session.session_id"/>님님닝림님 환영합니다.</h3>
     </div>
     </s:else>
     <!-- 로그인 전 // -->
