@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+	
+	<typeAlias alias = "member" type = "VO.khMemberVO"/>
+	<typeAlias alias = "Cmember" type = "VO.khCMemberVO"/>
+	
+	<resultMap id = "memberRes" class = "member">
+		<result property = "member_id" column = "member_id"/>
+		<result property = "member_name" column = "member_name"/>
+		<result property = "member_email" column = "member_email"/>
+		<result property = "member_pass" column = "member_pass"/>
+		<result property = "member_phone" column = "member_phone"/>
+		<result property = "member_date" column = "member_date"/>
+	</resultMap>
+	
+	<resultMap id = "CmemberRes" class = "Cmember">
+		<result property = "cmember_cno" column = "cmember_cno"/>
+		<result property = "cmember_id" column = "cmember_id"/>
+		<result property = "cmember_pass" column = "cmember_pass"/>
+		<result property = "cmember_name" column = "cmember_name"/>
+		<result property = "cmember_phone" column = "cmember_phone"/>
+		<result property = "cmember_email" column = "cmember_email"/>
+		<result property = "cmember_type" column = "cmember_type"/>
+		<result property = "cmember_cname" column = "cmember_cname"/>
+		<result property = "cmember_addr" column = "cmember_addr"/>
+		<result property = "cmember_ceo" column = "cmember_ceo"/>
+		<result property = "cmember_date" column = "cmember_date"/>
+	</resultMap>
+	
+	<update id="updateGeInfo">
+		update kh_member
+		set (member_phone=#member_phone#,member_email=#member_email#,)
+		where member_id = #session_id#
+	</update>
+
+	</update>
+	
+</sqlMap>

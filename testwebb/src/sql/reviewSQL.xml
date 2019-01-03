@@ -12,11 +12,6 @@
 		<result property="review_post_no" column="review_post_no" />
 	</resultMap>
 
-	<!-- 공통 where-no 절 -->
-	<sql id="where-no">
-		where review_no = #review_no#
-	</sql>
-
 	<!-- 리뷰 SELECT -->
 	<select id="selectReview" parameterClass="review">
 		select * from kh_review
@@ -36,12 +31,12 @@
 	<update id="updateReview" parameterClass="review">
 		update kh_review
 		set review_content=#review_content#,review_date=#review_date#
-		<include refid="where-no" />
+		where review_no = #review_no#
 	</update>
 
 	<!-- 리뷰 삭제 -->
 	<delete id="deleteReview" parameterClass="review">
 		delete from kh_review
-		<include refid="where-no" />
+		where review_no = #review_no#
 	</delete>
 </sqlMap>

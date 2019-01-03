@@ -126,7 +126,13 @@
 		</action>
 	</package>
 	
+	<!-- 회원정보수정 -->
 	
+	<package name="edit_test" extends="struts-default, tiles-default">
+		<action name="edit_test">
+			<result type="tiles">edit_test</result>
+		</action>
+	</package>
 	
 
 	

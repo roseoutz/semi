@@ -150,7 +150,14 @@
 				<div class="lnbGroup">
 					<h2 class="lnbTit">회원정보 관리</h2>
 					<ul>
-						<li><a href="#">회원정보 수정</a></li>
+						<li>
+						<s:if test="#session.session_type=='기업'">
+							<a href="#">회원정보 수정</a>
+						</s:if>
+						<s:else>
+							<a href="#">회원정보 수정</a>
+						</s:if>
+						</li>
 						<s:if test="#session.session_type=='기업'">
 							<li><a
 								href="javascript:open_win_noresizable('checkForm.action?cmember_id=<s:property value="#session.session_id"/>&member_type=corp')"

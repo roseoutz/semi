@@ -8,14 +8,13 @@
 			<h1 class="tpl_hd_1"  style="width:960px; margin:auto;">
 				<span class="blind">LS엠트론㈜</span> 채용정보
 			</h1>
-
 			<section class="secReadSummary"  style="width:960px; margin:auto;">
 				<h2 class="hd_2 blind">요약정보</h2>
 				<div class="readSumWrap clear">
 					<article class="artReadJobSum">
 						<div class="sumTit">
 							<h3 class="hd_3">
-								<span class="coName"> LS엠트론㈜ </span>2019년 LS엠트론 신입/경력사원 수시 채용
+								<span class="coName"> 기업명 </span> subject
 							</h3>
 						</div>
 						<div class="tbRow clear">
@@ -25,11 +24,11 @@
 								<dl class="tbList">
 									<dt>경력</dt>
 									<dd>
-										<strong class="col_1">신입·경력</strong> 부문별 상이
+										<strong class="col_1">post_career</strong> 부문별 상이
 									</dd>
 									<dt>학력</dt>
 									<dd>
-										<strong class="col_1">대졸이상</strong> (졸업예정자 가능) 부문별 상이
+										<strong class="col_1">post_edu</strong> (졸업예정자 가능) 부문별 상이
 									</dd>
 								</dl>
 							</div>
@@ -41,36 +40,28 @@
 									<dd>
 										<ul class="addList">
 
-											<li><strong class="col_1">정규직</strong> <span
+											<li><strong class="col_1">post_em_type</strong> <span
 												class="tahoma"></span></li>
 										</ul>
 									</dd>
 
 									<dt>급여</dt>
 									<dd>
-										<em class="dotum"></em> 회사내규에 따름
+										<em class="dotum"></em> post_pay
 									</dd>
 									<dt>지역</dt>
 									<dd>
-										<a
-											href="http://www.jobkorea.co.kr/List_GI/GI_Area_List.asp?AreaNo=B080&amp;AllStat=1"
-											target="_blank" title="새창"
-											onclick="javascript:go_Area_List('B080',1); return false;">경기도
-											군포시</a>, <a
-											href="http://www.jobkorea.co.kr/List_GI/GI_Area_List.asp?AreaNo=B240&amp;AllStat=1"
-											target="_blank" title="새창"
-											onclick="javascript:go_Area_List('B240',1); return false;">안양시
-											동안구</a>, <a
-											href="http://www.jobkorea.co.kr/List_GI/GI_Area_List.asp?AreaNo=M120&amp;AllStat=1"
-											target="_blank" title="새창"
-											onclick="javascript:go_Area_List('M120',1); return false;">전북
-											전주시 덕진구</a>
+										<a	href="http://www.jobkorea.co.kr/List_GI/GI_Area_List.asp?AreaNo=B080&amp;AllStat=1" target="_blank" title="새창" 	onclick="javascript:go_Area_List('B080',1); return false;">
+											post_loc
+										</a>
 									</dd>
 
 									<dt>시간</dt>
 									<dd>
+										<!-- 
 										주<span class="tahoma">5</span>일 (월~금)
-
+										 -->
+										 post_time
 									</dd>
 
 								</dl>
@@ -82,39 +73,25 @@
 								<div class="tbLogo">
 									<div class="logo">
 										<p>
-											<a href="/Company/1648371/?C_IDX=350" target="_blank"
-												title="새창"><img
-												src="http://img.jobkorea.kr\trans\c\200x80\l\s\JK_Co_lsmtron09.png"
-												id="cologo" name="cologo" alt="LS엠트론㈜"
-												onload="go_logo_size(this, 100, 40);" width="100"
-												height="40"></a>
+											<a href="/Company/1648371/?C_IDX=350" target="_blank" title="새창">
+												<img src="http://img.jobkorea.kr\trans\c\200x80\l\s\JK_Co_lsmtron09.png" 	id="cologo" name="cologo" alt="LS엠트론㈜" onload="go_logo_size(this, 100, 40);" width="100" 	height="40">
+											</a>
 										</p>
 									</div>
 								</div>
-
 								<dl class="tbList">
-
 									<dt>산업(업종)</dt>
 									<dd>금속·재료·자재</dd>
 									<dt>사원수</dt>
 									<dd>
-										<span class="tahoma">7,000</span>명
-									</dd>
-									<dt>설립년도</dt>
-									<dd>
-										<text> <span class="tahoma">2008</span>년 (<span
-											class="tahoma">10</span>년차) </text>
+										<span class="tahoma">detail_em_num</span>명
 									</dd>
 									<dt>기업형태</dt>
-									<dd>대기업 (주권(유가증권) 상장)</dd>
+									<dd>cmember_type</dd>
 									<dt>홈페이지</dt>
 									<dd>
-
-										<span class="tahoma"><a class="devCoHomepageLink"
-											href="http://www.lsmtron.co.kr"
-											onclick="javascript:go_HomePageTrace('http://www.lsmtron.co.kr','31310176');return false;">lsmtron.co.kr</a></span>
+										detail_url;
 									</dd>
-
 								</dl>
 							</div>
 						</div>
@@ -132,10 +109,8 @@
 
 			<div id="detailArea" class="divDetailWrap">
 				<div id="menuContainer" class="devTplTabBx"></div>
-
 				<section id="tab01" class="secReadDetail">
 					<h2 class="hd_2 blind">상세요강</h2>
-
 					<article class="artReadDetail">
 						<h3 class="hd_3 blind">상세요강 정보</h3>
 						<!-- *******************************************채용공고 상세요강 ************************************************ -->
