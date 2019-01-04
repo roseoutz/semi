@@ -58,7 +58,7 @@
 	
 	<package name="qna" extends="struts-default, tiles-default">
 		<action name="qnaWrite" class="qna.mtmWriteAction">
-			<result type="tiles">qna</result>
+			<result>/qna/writeOK.jsp</result>
 		</action>
 		<action name="qna">
 			<result type="tiles">qna</result>

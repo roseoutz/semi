@@ -1,12 +1,14 @@
 package VO;
+import java.util.*;
 
 public class khMtmVO {
-	// 1:1문의사항
-	private int mtm_no;				// 1:1문의사항 번호
-	private String mtm_writer;		// 일반회원 작성자
-	private String mtm_writer_c;	// 기업회원 작성자	
-	private String mtm_email;		// 답변받을 이메일
-	private String mtm_content;		// 문의내용
+	private int mtm_no;			
+	private String mtm_writer;	
+	private String mtm_session_type;	
+	private String mtm_email;		
+	private String mtm_content;	
+	private String mtm_subject;
+	private Date mtm_date;
 
 	public int getMtm_no() {
 		return mtm_no;
@@ -24,14 +26,6 @@ public class khMtmVO {
 		this.mtm_writer = mtm_writer;
 	}
 
-	public String getMtm_writer_c() {
-		return mtm_writer_c;
-	}
-
-	public void setMtm_writer_c(String mtm_writer_c) {
-		this.mtm_writer_c = mtm_writer_c;
-	}
-
 	public String getMtm_email() {
 		return mtm_email;
 	}
@@ -46,6 +40,30 @@ public class khMtmVO {
 
 	public void setMtm_content(String mtm_content) {
 		this.mtm_content = mtm_content;
+	}
+
+	public String getMtm_session_type() {
+		return mtm_session_type;
+	}
+
+	public void setMtm_session_type(String mtm_session_type) {
+		this.mtm_session_type = mtm_session_type;
+	}
+
+	public String getMtm_subject() {
+		return mtm_subject;
+	}
+
+	public void setMtm_subject(String mtm_subject) {
+		this.mtm_subject = mtm_subject;
+	}
+
+	public Date getMtm_date() {
+		return mtm_date;
+	}
+
+	public void setMtm_date(Date mtm_date) {
+		this.mtm_date = mtm_date;
 	}
 
 }

@@ -14,36 +14,36 @@
 				
 					<div class="topHdWrap">
 					<br>
-						<h2 class="top_hd_2">기업회원 리스트(총 회원 수 : <s:property value = "totalCount"/> )</h2>
+						<h2 class="top_hd_2">기업회원 리스트(총 회원 수 : <s:property value = "totalCount"/> )<s:property value = "session.sesion_id"/></h2>
 					</div>
 					<table border = "1" cellpadding = "0" cellspacing = "0">
 						<tr height = "40" align = "center">
-							<th width = "100">사업자등록번호</th>
-							<th width = "100">아이디</th>
-							<th width = "70">비밀번호</th>
-							<th width = "120">회사명</th>
-							<th width = "80">대표명</th>
-							<th width = "190">주소</th>
-							<th width = "150">이메일</th>
-							<th width = "100">가입날짜</th>
-							<th width = "100">관리</th>
+							<th width = "110" style = "border : 3px solid; font-size : 10pt">사업자등록번호</th>
+							<th width = "90" style = "border : 3px solid; font-size : 10pt">아이디</th>
+							<th width = "70" style = "border : 3px solid; font-size : 10pt"><b>비밀번호</b></th>
+							<th width = "120" style = "border : 3px solid; font-size : 10pt">회사명</th>
+							<th width = "80" style = "border : 3px solid; font-size : 10pt">대표명</th>
+							<th width = "190" style = "border : 3px solid; font-size : 10pt">주소</th>
+							<th width = "150" style = "border : 3px solid; font-size : 10pt">이메일</th>
+							<th width = "60" style = "border : 3px solid; font-size : 10pt">가입날짜</th>
+							<th width = "70" style = "border : 3px solid; font-size : 10pt">관리</th>
 						</tr>
 						<s:iterator value = "list" status="stat">
 							<tr height = "30" align = "center">
-								<td><s:property value = "cmember_cno"/></td>
-								<td><s:property value = "cmember_id"/></td>
-								<td><s:property value = "cmember_pass"/></td>
-								<td><s:property value = "cmember_cname"/></td>
-								<td><s:property value = "cmember_ceo"/></td>
-								<td><s:property value = "cmember_addr"/></td>
-								<td><s:property value = "cmember_email"/></td>
-								<td><s:property value = "cmember_date"/></td>
-								<td><input type = "button" value = "탈  퇴" onclick = "return open_win('admin/memberlistCorp/deleteCorpMember.jsp?id=<s:property value = "cmember_id"/>', '회원탈퇴');"/></td>
+								<td style = "border : 2px solid;"><s:property value = "cmember_cno"/></td>
+								<td style = "border : 2px solid;"><s:property value = "cmember_id"/></td>
+								<td style = "border : 2px solid;"><s:property value = "cmember_pass"/></td>
+								<td style = "border : 2px solid;"><s:property value = "cmember_cname"/></td>
+								<td style = "border : 2px solid;"><s:property value = "cmember_ceo"/></td>
+								<td style = "border : 2px solid;"><s:property value = "cmember_addr"/></td>
+								<td style = "border : 2px solid;"><s:property value = "cmember_email"/></td>
+								<td style = "border : 2px solid;"><s:property value = "cmember_date"/></td>
+								<td style = "border : 2px solid;"><input type = "button" value = "탈  퇴" onclick = "return open_win('admin/memberlistCorp/deleteCorpMember.jsp?id=<s:property value = "cmember_id"/>', '회원탈퇴');"/></td>
 							</tr>
 						</s:iterator>
 						<s:if test = "totalCount == 0">
 							<tr height = "30" align = "center">
-								<th colspan = "5">등록된 회원이 없습니다.</th>
+								<th colspan = "9" style = "border : 2px solid;">등록된 회원이 없습니다.</th>
 							</tr>
 						</s:if>
 					</table>

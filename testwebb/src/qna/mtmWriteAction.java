@@ -1,6 +1,7 @@
 package qna;
 
 import java.io.Reader;
+import java.util.Calendar;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -18,13 +19,15 @@ public class mtmWriteAction extends ActionSupport {
 	public khMtmVO resultClass;
 	
 	private int mtm_no;
-	private String mtm_writer;		// 일반회원 작성자
-	private String mtm_writer_c;	// 기업회원 작성자	
+	private String mtm_writer;			
 	private String email1;
 	private String email2;
 	private String mtm_email;
 	private String mtm_content;	
+	private String mtm_subject;
+	private String mtm_session_type;
 	
+	private Calendar today = Calendar.getInstance();
 	public mtmWriteAction() throws Exception {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
@@ -36,9 +39,11 @@ public class mtmWriteAction extends ActionSupport {
 		resultClass = new khMtmVO();
 		
 		paramClass.setMtm_writer(getMtm_writer());
-		paramClass.setMtm_writer_c(getMtm_writer_c());
 		paramClass.setMtm_content(getMtm_content());
+		paramClass.setMtm_subject(getMtm_subject());
 		paramClass.setMtm_email(email1+"@"+email2);
+		paramClass.setMtm_date(today.getTime());
+		paramClass.setMtm_session_type(getMtm_session_type());
 		sqlMapper.insert("insertmtm",paramClass);
 		return SUCCESS;
 	}
@@ -91,13 +96,6 @@ public class mtmWriteAction extends ActionSupport {
 		this.mtm_writer = mtm_writer;
 	}
 
-	public String getMtm_writer_c() {
-		return mtm_writer_c;
-	}
-
-	public void setMtm_writer_c(String mtm_writer_c) {
-		this.mtm_writer_c = mtm_writer_c;
-	}
 
 	public String getMtm_email() {
 		return mtm_email;
@@ -129,6 +127,30 @@ public class mtmWriteAction extends ActionSupport {
 
 	public void setEmail2(String email2) {
 		this.email2 = email2;
+	}
+
+	public String getMtm_subject() {
+		return mtm_subject;
+	}
+
+	public void setMtm_subject(String mtm_subject) {
+		this.mtm_subject = mtm_subject;
+	}
+
+	public String getMtm_session_type() {
+		return mtm_session_type;
+	}
+
+	public void setMtm_session_type(String mtm_session_type) {
+		this.mtm_session_type = mtm_session_type;
+	}
+
+	public Calendar getToday() {
+		return today;
+	}
+
+	public void setToday(Calendar today) {
+		this.today = today;
 	}
 	
 	

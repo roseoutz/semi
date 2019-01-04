@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-공지사항 화면입니다.
+<div id="container">
+	<div id="content">
+				
+					<div class="topHdWrap">
+					<br>
+						<h2 class="top_hd_2">공지사항 관리</h2>
+					</div>
+					
+			</div>
+		</div>
 </body>
 </html>

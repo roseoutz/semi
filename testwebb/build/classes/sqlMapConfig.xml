@@ -29,4 +29,6 @@
 	<sqlMap resource="/sql/findUserInfoSQL.xml"/>
 	<sqlMap resource="/sql/admin_loginSQL.xml"/>
 	<sqlMap resource="/sql/memberlistSQL.xml"/>
+	<sqlMap resource="/sql/admin_simpleqnaSQL.xml"/>
+	<sqlMap resource="/sql/admin_qnaSQL.xml"/>
 </sqlMapConfig>

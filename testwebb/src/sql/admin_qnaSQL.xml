@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+	<typeAlias alias="qna" type="VO.khMtmVO"/>
+	
+	<resultMap class="qna" id="qnaRes">
+		<result property = "mtm_no" column = "mtm_no"/>
+		<result property = "mtm_writer" column = "mtm_writer"/>
+		<result property = "mtm_session_type" column = "mtm_session_type"/>
+		<result property = "mtm_email" column = "mtm_email"/>
+		<result property = "mtm_content" column = "mtm_content"/>
+		<result property = "mtm_subject" column = "mtm_subject"/>
+		<result property = "mtm_date" column = "mtm_date"/>
+	</resultMap>
+	
+	<!-- 1:1문의 리스트 -->
+	<select id = "selectQnaAll" resultMap = "qnaRes">
+		SELECT * FROM KH_MTM ORDER BY MTM_DATE DESC
+	</select>
+	<!-- 1:1문의 아이디검색 리스트 -->
+	<select id = "selectQnaId" resultMap = "qnaRes" parameterClass = "String">
+		SELECT * FROM KH_MTM WHERE MTM_WRITER LIKE '%'||#keyword#||'%' ORDER BY MTM_DATE DESC
+	</select>
+	<!-- 1:1문의 기업구분검색 리스트 -->
+	<select id = "selectQnaType" resultMap = "qnaRes" parameterClass = "String">
+		SELECT * FROM KH_MTM WHERE MTM_SESSION_TYPE LIKE '%'||#keyword#||'%' ORDER BY MTM_DATE DESC
+	</select>
+	<!-- 1:1문의 상세보기 -->
+	<select id = "selectQnaOne" parameterClass = "String" resultMap = "qnaRes">
+		SELECT * FROM KH_MTM WHERE MTM_NO = #mtm_no#
+	</select>
+	<!-- 1:1문의 삭제 -->
+	<delete id = "deleteQna" parameterClass = "String">
+		DELETE FROM KH_MTM WHERE MTM_NO = #mtm_no#
+	</delete>
+</sqlMap>

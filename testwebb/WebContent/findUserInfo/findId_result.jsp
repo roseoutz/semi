@@ -64,12 +64,12 @@
 						<ul>
 						<s:if test = "category == '기업'">
 							<s:iterator value = "findId" status = "stat">
-								<li><s:property value = "cmember_id"/> 가입날짜 : (<s:property value = "cmember_date"/>)</li>
+								<li><s:property value = "cmember_id"/> (가입날짜 : <s:property value = "cmember_date"/>)</li>
 							</s:iterator>
 						</s:if>
 						<s:else>
 						 	<s:iterator value = "findId" status = "stat">
-								<li><s:property value = "member_id"/> 가입날짜 : (<s:property value = "member_date"/>)</li>
+								<li><s:property value = "member_id"/> (가입날짜 : <s:property value = "member_date"/>)</li>
 							</s:iterator>
 						</s:else>
 						</ul>

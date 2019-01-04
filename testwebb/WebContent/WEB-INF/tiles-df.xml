@@ -134,6 +134,13 @@
 		<put-attribute name="body" value="/admin/qna/qna.jsp"/> 
  	</definition>
  	
+ 	<definition name ="viewqna" template="/admin_layout.jsp"> <!-- 관리자 q&a상세보기 -->
+ 		<put-attribute name="repo" value="/admin/qna/viewqna_repo.jsp"/>
+ 		<put-attribute name="headerrepo" value="/admin/common/header_repo.jsp"/>
+		<put-attribute name="header" value="/admin/common/header.jsp"/>
+		<put-attribute name="body" value="/admin/qna/viewqna.jsp"/> 
+ 	</definition>
+ 	
  	<definition name ="admin_simpleqna" template="/admin_layout.jsp"> <!-- 관리자 자주묻는질문 -->
  		<put-attribute name="repo" value="/admin/simpleqna/simpleqna_repo.jsp"/>
  		<put-attribute name="headerrepo" value="/admin/common/header_repo.jsp"/>

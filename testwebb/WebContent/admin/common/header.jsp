@@ -31,8 +31,8 @@
 							<!-- 채용정보 -->
 							<li><a href="memberlistGen.action" style="font:bold 20px Dotum;">일반회원관리</a></li>
 							<li><a href="memberlistCorp.action" style="font:bold 20px Dotum;">기업회원관리</a></li>
-							<li><a href="admin_qna.action" style="font:bold 20px Dotum;">Q&A 관리</a></li>
-							<li><a href="admin_simpleqna.action" style="font:bold 20px Dotum;">자주묻는질문 관리</a></li>
+							<li><a href="admin_qna.action" style="font:bold 20px Dotum;">1:1문의</a></li>
+							<li><a href="admin_simpleqna.action" style="font:bold 20px Dotum;">Q&A</a></li>
 							<li><a href="admin_notice.action" style="font:bold 20px Dotum;">공지사항</a></li>
 							
 							<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>

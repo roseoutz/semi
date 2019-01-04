@@ -13,10 +13,9 @@ location.replace("admin_main.action");
 </s:if>
 
 <script type="text/javascript">
-function delete_event(num){
-	var num1 = num;
-	if (confirm("정말 삭제하시겠습니까?") == true){    //확인
-  	  location.href='deleteqna.action?no='+num1;
+function delete_event(){
+	if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+  	  location.href='deleteqna.action?no=<s:property value = "resultClass.mtm_no"/>';
 	}else{   //취소
  	   return;
 	}

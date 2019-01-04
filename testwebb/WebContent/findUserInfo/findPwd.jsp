@@ -54,6 +54,20 @@
   .mbrTplBox .info em {font-weight:bold; color:#f60;}
   .mbrTplBox .info em.odd {color:#2e7de4;}
 </style>
+<style>
+	.submit button{
+		background-color: #008CBA; 
+	    border: none;
+	    color: white;
+	    padding: 15px 28px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 16px;
+	    margin: 4px 2px;
+	    cursor: pointer;
+	}
+</style>
 <script type = "text/javascript">
 	function checkForm(){
 		var form = document.findPwdForm;
@@ -184,7 +198,7 @@
 			</div>
       <br>
       <br>
-		  <div style = "text-align:center;"><input type = "submit" value = "비밀번호 찾기" style = "width:117px; height:49px"></div>
+		  <div class = "submit" style = "text-align:center;"><button type = "submit">비밀번호 찾기</button></div>
 			</form>
 
 		</div>

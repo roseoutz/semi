@@ -4,18 +4,10 @@
 <sqlMap>
 	<typeAlias alias="mtm" type="VO.khMtmVO"/>
 	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
-		<resultMap class="mtm" id="mtmRes">
-			<result property="mtm_no" column="mtm_no"/>
-			<result property="mtm_writer" column="mtm_writer"/>
-			<result property="mtm_writer_c" column="mtm_writer_c"/>
-			<result property="mtm_content" column="mtm_content"/>
-			<result property="mtm_email" column="mtm_email"/>
-			
-		</resultMap>
 		
 		<insert id="insertmtm" parameterClass="mtm">
-			insert into kh_mtm(mtm_no, mtm_writer_c, mtm_writer, mtm_content, mtm_email)
-			values (mtm_no_seq.NEXTVAL,#mtm_writer_c#, #mtm_writer#, #mtm_content#, #mtm_email#)
+			insert into kh_mtm(mtm_no, mtm_session_type, mtm_subject, mtm_writer, mtm_content, mtm_email, mtm_date)
+			values (mtm_no_seq.NEXTVAL,#mtm_session_type#, #mtm_subject#, #mtm_writer#, #mtm_content#, #mtm_email#, #mtm_date#)
 		</insert>
 		
 		

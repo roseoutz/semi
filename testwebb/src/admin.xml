@@ -13,8 +13,14 @@
 	     <action name = "memberlistCorp" class = "admin.memberlistCorpAction">
 		 	<result type = "tiles">memberlistCorp</result>
 	    </action>
-	    <action name = "admin_qna">
+	    <action name = "admin_qna" class = "admin.qnaAction">
 	    	<result type = "tiles">admin_qna</result>
+	    </action>
+	    <action name = "viewqna" class = "admin.viewqnaAction">
+	    	<result type = "tiles">viewqna</result>
+	    </action>
+	    <action name = "deleteqna" class = "admin.deleteqnaAction">
+	    	<result>/admin/qna/deleteOK.jsp</result>
 	    </action>
 	    <action name = "admin_simpleqna">
 	    	<result type = "tiles">admin_simpleqna</result>
@@ -34,6 +40,9 @@
 		</action>
 		<action name = "deleteCorpMember" class = "admin.deleteCorpMemberAction">
 			<result>/admin/memberlistCorp/deleteOK.jsp</result>
+		</action>
+		<action name = "writeSimpleQna" class = "admin.writeSimpleQnaAction">
+			<result>/admin/simpleqna/writeOK.jsp</result>
 		</action>
 	   
 	</package>

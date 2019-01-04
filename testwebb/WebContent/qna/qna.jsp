@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix = "s" uri = "/struts-tags" %>
+<% 
+	String type = (String)session.getAttribute("session_type"); 
+	String id = (String)session.getAttribute("session_id");
+%>
 <body id="secHelp" class="helpMain">
 <div id="wrap">
 	<div id="container" class="sideTure">
@@ -45,21 +49,26 @@
 	<!-- tap menu //-->
 		<div class="inquiryForm">
 			<form id="form" action="qnaWrite.action" method="post">
-			<s:if test="#session.session_type=='기업'">
-				<s:hidden name="mtm_writer_c" value="#session.session_id"/>
-			</s:if>
-			<s:else>
-				<s:hidden name="mtm_writer" value="#session.session_id"/>
-			</s:else>
 				<fieldset>
 					<legend>문의하기 입력</legend>
 					<div class="tbInquiryBx">
+						<div class="tbRow tbMail">
+							<div class="tbCell tbTh">
+								<label for="lb_inq_4">제목 <em>(필수)</em></label>
+							</div>
+							<div class="tbCell">
+								<input type="text" style="width:70%;" id="lb_inq_4" name="mtm_subject" class="mtcIpt" title="이메일 주소 앞부분"  value="">
+								<input type = "hidden" name="mtm_writer" value="<%= id %>"/>
+								<input type="hidden" name = "mtm_session_type" value = "<%= type %>"/>
+								<p>${type}</p>
+							</div>
+						</div>
 						<div class="tbRow">
 							<div class="tbCell tbTh">
-								<label for="lb_inq_2">내용 <em>(필수)</em></label>
+								<label for="lb_inq_2">내용<em>(필수)</em></label>
 							</div>
 						<div class="tbCell">
-							<textarea name="mtm_contents" id="lb_inq_2" title="내용을 입력하세요." class="txArea"></textarea>
+							<textarea name="mtm_content" id="lb_inq_2" title="내용을 입력하세요." class="txArea"></textarea>
 						</div>
 						</div>
 						<div class="tbRow tbMail">

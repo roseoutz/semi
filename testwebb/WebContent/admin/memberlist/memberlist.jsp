@@ -18,28 +18,28 @@
 					</div>
 					<table border = "1" cellpadding = "0" cellspacing = "0">
 						<tr height = "40" align = "center">
-							<th width = "150"><strong>아이디</strong></th>
-							<th width = "150">비밀번호</th>
-							<th width = "70">이름</th>
-							<th width = "120">전화번호</th>
-							<th width = "200">이메일</th>
-							<th width = "100">가입날짜</th>
-							<th width = "100">관리</th>
+							<th width = "150" style = "border : 3px solid; font-size : 10pt"><strong>아이디</strong></th>
+							<th width = "150" style = "border : 3px solid; font-size : 10pt">비밀번호</th>
+							<th width = "70" style = "border : 3px solid; font-size : 10pt">이름</th>
+							<th width = "120" style = "border : 3px solid; font-size : 10pt">전화번호</th>
+							<th width = "200" style = "border : 3px solid; font-size : 10pt">이메일</th>
+							<th width = "100" style = "border : 3px solid; font-size : 10pt">가입날짜</th>
+							<th width = "100" style = "border : 3px solid; font-size : 10pt">관리</th>
 						</tr>
 						<s:iterator value = "list" status="stat">
 							<tr height = "30" align = "center">
-								<td><s:property value = "member_id"/></td>
-								<td><s:property value = "member_pass"/></td>
-								<td><s:property value = "member_name"/></td>
-								<td><s:property value = "member_phone"/></td>
-								<td><s:property value = "member_email"/></td>
-								<td><s:property value = "member_date"/></td>
-								<td><input type = "button" value = "탈  퇴" onclick = "return open_win('admin/memberlist/deleteMember.jsp?id=<s:property value = "member_id"/>', '회원탈퇴');"/></td>
+								<td style = "border : 2px solid;"><s:property value = "member_id"/></td>
+								<td style = "border : 2px solid;"><s:property value = "member_pass"/></td>
+								<td style = "border : 2px solid;"><s:property value = "member_name"/></td>
+								<td style = "border : 2px solid;"><s:property value = "member_phone"/></td>
+								<td style = "border : 2px solid;"><s:property value = "member_email"/></td>
+								<td style = "border : 2px solid;"><s:property value = "member_date"/></td>
+								<td style = "border : 2px solid;"><input type = "button" value = "탈  퇴" onclick = "return open_win('admin/memberlist/deleteMember.jsp?id=<s:property value = "member_id"/>', '회원탈퇴');"/></td>
 							</tr>
 						</s:iterator>
 						<s:if test = "totalCount == 0">
 							<tr height = "30" align = "center">
-								<th colspan = "5">등록된 회원이 없습니다.</th>
+								<th colspan = "7"  style = "border : 2px solid;">등록된 회원이 없습니다.</th>
 							</tr>
 						</s:if>
 					</table>

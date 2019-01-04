@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+	<typeAlias alias = "simpleqna" type = "VO.khQAVO"/>
+	
+	<!-- 자주묻는질묻 등록 -->	
+	<insert id = "insertSimpleQna">
+		INSERT INTO KH_QA(QA_NO, QA_SUBJECT, QA_CONTENT) 
+		VALUES (KH_QA_SEQ.NEXTVAL, #qa_subject#, #qa_content#)
+	</insert>
+	<!-- 자주묻는질문 삭제 -->
+	<delete id = "deleteSimpleQna" parameterClass = "String">
+		DELETE FROM KH_QA WHERE QA_NO = #qa_no#
+	</delete>
+	<!-- 자주묻는질문 수정 -->
+
+
+</sqlMap>
