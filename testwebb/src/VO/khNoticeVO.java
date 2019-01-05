@@ -3,10 +3,10 @@ package VO;
 import java.util.Date;
 
 public class khNoticeVO {
-	private int notice_no;			// 공지 번호
-	private String notice_subject; 	// 공지 제목
-	private String notice_content;	// 공지 내용
-	private Date notice_regdate; 	// 공지 날짜
+	private int notice_no;			
+	private String notice_subject;
+	private String notice_content;	
+	private Date notice_date; 	
 	public int getNotice_no() {
 		return notice_no;
 	}
@@ -25,12 +25,13 @@ public class khNoticeVO {
 	public void setNotice_content(String notice_content) {
 		this.notice_content = notice_content;
 	}
-	public Date getNotice_regdate() {
-		return notice_regdate;
+	public Date getNotice_date() {
+		return notice_date;
 	}
-	public void setNotice_regdate(Date notice_regdate) {
-		this.notice_regdate = notice_regdate;
+	public void setNotice_date(Date notice_date) {
+		this.notice_date = notice_date;
 	}
+
 
 
 }

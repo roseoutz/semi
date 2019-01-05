@@ -101,7 +101,7 @@
 								</dd>
 						</dl>
 					</div>
-					<div id="privacyBx2" class="privacyBx" style="display: none;">
+					<div id="privacyBx2" class="privacyBx">
 						<p>보내주신 의견은 면밀히 검토하여 더 나은 서비스로 보답하겠습니다. 별도로 답변을 드리지 않는 점 양해부탁드립니다.</p>
 					</div>
 					<div class="inquiryBtn">
@@ -115,8 +115,9 @@
 			</fieldset>
 		</form>
 	</div>
-	</div>
 	</section>
+	</div>
+	
 	</div>
 </div>
 

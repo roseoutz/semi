@@ -59,7 +59,7 @@
 								<tr>
 									<td class="sort"><s:property value="resultClass.notice_no"/></td>
 									<td class="alLeft" style="text-align:center;"><s:property value="resultClass.notice_subject"/></td>
-									<td class="date"><s:property value="resultClass.notice_regdate"/></td>
+									<td class="date"><s:property value="resultClass.notice_date"/></td>
 								</tr>
 								<tr>
 								<td colspan="3" style="text-align:left;"><s:property value="resultClass.notice_content"/></td>

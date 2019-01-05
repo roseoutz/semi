@@ -41,12 +41,12 @@
 			<div class="loungeContent noticeListContent">
 				<div class="topHdWrap clear">
 					<h2 class="lug_hd_2">공지사항</h2>
-					<form action="#">
+					<form>
 						<fieldset>
 							<legend>공지사항 검색</legend>
 							<div class="searchBarItem mtcPlaceholder">
-								<span class="phTx">키워드 검색</span> <input type="text" id="lb_sch" class="mtcSchInp" title="검색어 입력">
-								<button type="button" class="mtcBtnB mtcSchBtn">
+								<span class="phTx"></span> <input type="text" id="lb_sch" class="mtcSchInp" placeholder = "키워드 입력" name = "search">
+								<button type="submit" class="mtcBtnB mtcSchBtn">
 									<span class="skip">검색</span>
 								</button>
 							</div>
@@ -80,7 +80,7 @@
 								<tr>
 									<td class="sort" style="text-align:center;"><s:property value="notice_no"/></td>
 									<td class="alLeft" style="text-align:center;"><span class="tit"><s:a href="%{viewURL}"><s:property value="notice_subject"/></s:a></span></td>
-									<td class="date"><s:property value="notice_regdate"/></td>
+									<td class="date"><s:property value="notice_date"/></td>
 								</tr>
 							</s:iterator>
 							<s:if test="list.size()==0">

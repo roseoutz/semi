@@ -13,8 +13,9 @@
 				
 					<div class="topHdWrap">
 					<br>
-						<h2 class="top_hd_2">1:1 문의 (문의 수 : <s:property value = "totalCount"/>)</h2>
+						<h2 class="top_hd_2">1:1 문의 </h2>
 					</div>
+					<b><font size = "2pt" color = "blue">< 문의 수 : <s:property value = "totalCount"/> ></font></b>
 					<table border = "1" cellpadding = "0" cellspacing = "0">
 						<tr height = "40" align = "center">
 							<th width = "60" style = "border : 3px solid; font-size : 10pt">문의날짜</th>

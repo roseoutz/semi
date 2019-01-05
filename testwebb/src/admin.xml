@@ -28,6 +28,9 @@
 	    <action name = "admin_notice">
 	    	<result type = "tiles">admin_notice</result>
 	    </action>
+	    <action name = "writeNotice" class = "admin.writeNoticeAction">
+	    	<result>/admin/notice/writeOK.jsp</result>
+	    </action>
 		<action name = "admin_login" class = "admin.loginAction">
 			<result name = "error">/admin/login/loginFail.jsp</result>
 			<result name = "success">/admin/login/loginSuccess.jsp</result>

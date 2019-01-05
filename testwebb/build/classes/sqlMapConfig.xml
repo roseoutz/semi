@@ -31,4 +31,5 @@
 	<sqlMap resource="/sql/memberlistSQL.xml"/>
 	<sqlMap resource="/sql/admin_simpleqnaSQL.xml"/>
 	<sqlMap resource="/sql/admin_qnaSQL.xml"/>
+	<sqlMap resource="/sql/admin_noticeSQL.xml"/>
 </sqlMapConfig>

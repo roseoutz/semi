@@ -14,8 +14,9 @@
 				
 					<div class="topHdWrap">
 					<br>
-						<h2 class="top_hd_2">일반회원 리스트(총 회원 수 : <s:property value = "totalCount"/> )</h2>
+						<h2 class="top_hd_2">일반회원 리스트</h2>
 					</div>
+					<b><font size = "2pt" color = "blue">< 회원 수 : <s:property value = "totalCount"/> ></font></b>
 					<table border = "1" cellpadding = "0" cellspacing = "0">
 						<tr height = "40" align = "center">
 							<th width = "150" style = "border : 3px solid; font-size : 10pt"><strong>아이디</strong></th>

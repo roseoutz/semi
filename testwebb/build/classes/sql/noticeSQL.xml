@@ -8,13 +8,13 @@
 			<result property="notice_no" column="notice_no"/>
 			<result property="notice_subject" column="notice_subject"/>
 			<result property="notice_content" column="notice_content"/>
-			<result property="notice_regdate" column="notice_date"/>
+			<result property="notice_date" column="notice_date"/>
 			
 		</resultMap>
 		
 		<insert id="insertnotice" parameterClass="notice">
 			insert into kh_notice(notice_no, notice_subject, notice_content, notice_date)
-			values (kh_notice_seq.NEXTVAL,#notice_subject#, #notice_content#, #notice_regdate#)
+			values (kh_notice_seq.NEXTVAL,#notice_subject#, #notice_content#, #notice_date#)
 		</insert>
 
 		<select id="selectAllnotice" resultMap="noticeRes">
