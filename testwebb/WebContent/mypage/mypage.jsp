@@ -152,11 +152,11 @@
 					<ul>
 						<li>
 						<s:if test="#session.session_type=='기업'">
-							<a href="#">회원정보 수정</a>
+							<a href="./edit_test.action">회원정보 수정</a>
 						</s:if>
 						<s:else>
-							<a href="#">회원정보 수정</a>
-						</s:if>
+							<a href="./edit_test2.action">회원정보 수정</a>
+						</s:else>
 						</li>
 						<s:if test="#session.session_type=='기업'">
 							<li><a

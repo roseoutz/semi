@@ -56,7 +56,7 @@ public class loginAction extends ActionSupport implements SessionAware{
 			return ERROR;
 			}else {
 				session.put("session_id", CresultClass.getCmember_id());
-				session.put("session_type", "±‚æ˜");
+				session.put("session_type", "Í∏∞ÏóÖ");
 				session.put("session_name", CresultClass.getCmember_name());
 				setHeaderType("corpmain");
 				return SUCCESS;
@@ -64,7 +64,7 @@ public class loginAction extends ActionSupport implements SessionAware{
 			
 		}else {
 			session.put("session_id", resultClass.getMember_id());
-			session.put("session_type", "¿œπ›");
+			session.put("session_type", "ÏùºÎ∞ò");
 			session.put("session_name", resultClass.getMember_name());
 			setHeaderType("main");
 			return SUCCESS;

@@ -28,13 +28,39 @@
 		<result property = "cmember_ceo" column = "cmember_ceo"/>
 		<result property = "cmember_date" column = "cmember_date"/>
 	</resultMap>
-	
-	<update id="updateGeInfo">
-		update kh_member
-		set (member_phone=#member_phone#,member_email=#member_email#,)
-		where member_id = #session_id#
-	</update>
 
+	<!-- 공통으로 사용할 where 절 -->
+	<sql id="where-ge">
+		where member_id = #member_id#
+	</sql>
+	
+	<sql id="where-corp">
+		where cmember_id = #cmember_id#
+	</sql>
+	
+	<select id="selectGeAll" parameterClass="member">
+		select * from kh_member
+		where member_id = #member_id#
+	</select>
+	
+	<select id="selectCorpAll" parameterClass="Cmember">
+		select * from kh_cmember
+		<include refid="where-corp"/>
+	</select>
+	
+	<!-- 정보수정 쿼리 -->
+	<update id="updateGeInfo" parameterClass="member">
+		update kh_member
+		set (member_phone=#member_phone#,member_email=#member_email#)
+		<include refid="where-ge"/>
 	</update>
+	
+	<update id="updateCorpInfo" parameterClass="Cmember">
+		update kh_cmember
+		set (cmember_phone=#cmember_phone#,cmember_email=#cmember_email#,cmember_type=#cmember_type#,
+		cmember_cname=#cmember_cname#,cmember_addr=#cmember_addr#,cmember_ceo=#cmember_ceo#,cmember_date=#cmember_date#)
+		<include refid="where-corp"/>
+	</update>
+	
 	
 </sqlMap>

@@ -4,7 +4,6 @@
 <sqlMap>
 	<typeAlias alias="post" type="VO.khPostVO" />
 	<typeAlias alias="review" type="VO.khReviewVO" />
-	<!-- board.boardVO 자바빈의 호출 명칭 등록? -->
 	<resultMap class="post" id="postRes">
 		<result property="post_no" column="post_no" />
 		<result property="post_subject" column="post_subject" />
@@ -44,7 +43,7 @@
 	<!-- 리뷰 select -->
 	<select id="selectReview" resultMap="reviewRes" parameterClass="int">
 		select * from kh_review
-		where review_post_no = #review_post_no#
+		where review_post_no = #post_no#
 		order by review_date desc;
 	</select>
 	
@@ -67,19 +66,29 @@
 
 	<!-- 채용공고 수정 -->
 	<update id="updatePost" parameterClass="post">
-		<!-- UPDATE KH_POST SET POST_SUBJECT=#post_subject#,POST_DATE=#post_date#,POST_CONTENT=#post_content#,POST_CAREER=#post_career#, 
-			post_edu=#post_edu#,post_em_type=#post_em_type#,post_pay=#post_pay#,post_loc=#post_loc#, 
-			post_prefer=#post_prefer#,post_time=#post_time# <include refid="where-no"/> -->
 		update kh_post set
 		post_subject=#post_subject#,post_date=#post_date#,post_content=#post_content#,post_career=#post_career#,
 		post_edu=#post_edu#,post_em_type=#post_em_type#,post_pay=#post_pay#,post_loc=#post_loc#,
 		post_prefer=#post_prefer#,post_time=#post_time#
 		where post_no = #post_no#
 	</update>
+	
+	<!-- 리뷰 수정 -->
+	<update id="updateReview" parameterClass="review">
+		update kh_review
+		set review_content=#review_content#,review_date=#review_date#
+		where review_no = #review_no#
+	</update>
 
 	<!-- 채용공고 삭제 -->
 	<delete id="deletePost" parameterClass="post">
 		delete from kh_post
 		where post_no = #post_no#
+	</delete>
+	
+	<!-- 리뷰 삭제 -->
+	<delete id="deleteReview" parameterClass="review">
+		delete from kh_review
+		where review_no = #review_no#
 	</delete>
 </sqlMap>

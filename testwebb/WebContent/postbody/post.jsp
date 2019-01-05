@@ -5,9 +5,10 @@
 <body id="secStar" class="lgiSubRead" style="">
 	<div id="wrap">
 		<section id="container">
+			<s:hidden name="post_no" value="%{resultClass.post_no}"/>
 			<h1 class="tpl_hd_1" style="width: 960px; margin: auto;">
 				<span class="blind">
-					<s:property value=""/>
+					<s:property value="post_subject"/>
 				</span> 채용정보
 			</h1>
 			<section class="secReadSummary" style="width: 960px; margin: auto;">
@@ -17,7 +18,7 @@
 						<div class="sumTit">
 							<h3 class="hd_3">
 								<span class="coName"> 기업명 </span>
-								<s:property value=""/>
+								<s:property value="post_subject"/>
 							</h3>
 						</div>
 						<div class="tbRow clear">
@@ -27,13 +28,13 @@
 									<dt>경력</dt>
 									<dd>
 										<strong class="col_1">
-											<s:property value=""/>
+											<s:property value="post_career"/>
 										</strong> 
 									</dd>
 									<dt>학력</dt>
 									<dd>
 										<strong class="col_1">
-											<s:property value=""/>
+											<s:property value="post_edu"/>
 										</strong> 
 									</dd>
 								</dl>
@@ -46,23 +47,23 @@
 										<ul class="addList">
 											<li>
 												<strong class="col_1">
-													<s:property value=""/>
+													<s:property value="post_em_type"/>
 												</strong> 
 											</li>
 										</ul>
 									</dd>
 									<dt>급여</dt>
 									<dd>
-										<s:property value=""/>
+										<s:property value="post_pay"/>
 									</dd>
 									<dt>지역</dt>
-									<dd>${resultClass.post_loc}</dd>
+									<dd><s:property value="post_loc"/></dd>
 									<dt>시간</dt>
 									<dd>
 										<!-- 
 										주<span class="tahoma">5</span>일 (월~금)
 										 -->
-										post_time
+										<s:property value="post_time"/>
 									</dd>
 								</dl>
 							</div>
@@ -86,7 +87,7 @@
 				</tr>
 				<s:iterator value="reviewList" status="stat">
 					<tr>
-						<s:hidden name="review_no" value="%{resultClass.review_no}" />
+						<s:hidden name="review_no" value="%{reResultClass.review_no}" />
 						<td height="30" width="100" align="center" bgcolor="#e9e9e9">
 							<font size="2">
 								<s:property value="review_writer" /> 

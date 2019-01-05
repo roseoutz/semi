@@ -25,7 +25,8 @@ public class postViewAction extends ActionSupport {
 	private khReviewVO reResultClass;
 	
 	private int currentPage;
-
+	
+	//post 변수
 	private int post_no;
 	private String post_subject;
 	private String post_writer;
@@ -38,6 +39,13 @@ public class postViewAction extends ActionSupport {
 	private String post_prefer;
 	private String post_time;
 	Calendar post_date = Calendar.getInstance();
+	
+	//review 변수
+	private int review_no;
+	private int review_post_no;
+	private String review_writer;
+	private String review_content;
+	Calendar review_date = Calendar.getInstance();
 	
 	
 	public postViewAction() throws Exception {
@@ -198,6 +206,47 @@ public class postViewAction extends ActionSupport {
 	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;
 	}
+
+	public int getReview_no() {
+		return review_no;
+	}
+
+	public void setReview_no(int review_no) {
+		this.review_no = review_no;
+	}
+
+	public int getReview_post_no() {
+		return review_post_no;
+	}
+
+	public void setReview_post_no(int review_post_no) {
+		this.review_post_no = review_post_no;
+	}
+
+	public String getReview_writer() {
+		return review_writer;
+	}
+
+	public void setReview_writer(String review_writer) {
+		this.review_writer = review_writer;
+	}
+
+	public String getReview_content() {
+		return review_content;
+	}
+
+	public void setReview_content(String review_content) {
+		this.review_content = review_content;
+	}
+
+	public Calendar getReview_date() {
+		return review_date;
+	}
+
+	public void setReview_date(Calendar review_date) {
+		this.review_date = review_date;
+	}
+	
 	
 	
 }

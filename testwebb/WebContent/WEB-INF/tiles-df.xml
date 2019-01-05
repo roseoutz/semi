@@ -197,14 +197,10 @@
  		<put-attribute name="body" value="/postbody/post.jsp"/>
  	</definition> 
  	
- 	<!-- 회원정보수정(일반회원) -->
- 	<definition name="edit_test" template="/layout.jsp">
- 		<put-attribute name="repo" value="/edit_test/repo.jsp"/>
- 		<put-attribute name="headerrepo" value="/common/header_repo.jsp"/>
- 		<put-attribute name="header" value="/edit_test/header.jsp"/>
- 		<put-attribute name="footer" value="/edit_test/footer.jsp"/>
- 		<put-attribute name="body" value="/edit_test/edit_test.jsp"/>
+ 	<definition name="editView" template="/layout2.jsp">
+ 		<put-attribute name="repo" value="/edit_test2/repo.jsp"/>
+ 		<put-attribute name="footer" value="/edit_test2/footer.jsp"/>
+ 		<put-attribute name="body" value="/edit_test2/edit_test2.jsp"/>
  	</definition>
- 	
  	
 </tiles-definitions>

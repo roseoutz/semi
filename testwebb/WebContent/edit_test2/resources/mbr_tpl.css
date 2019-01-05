@@ -158,7 +158,7 @@
 /* Template - button
 ------------------------------------------------------------------------------------ */
 .mbrBtn, .mbrBtn button, .mbrBtn input, .mbrBtn a {display:inline-block;}
-.mbrBtn {height:21px; background:url(/img/member/sprites/mbr_tpl_btn_1.gif?201607221524) no-repeat 0 0; overflow:hidden; vertical-align:middle;}
+.mbrBtn {height:21px; background:url(mbr_tpl_btn_1.gif?201607221524) no-repeat 0 0; overflow:hidden; vertical-align:middle;}
 .mbrBtn button {width:100%; height:100%;}
 .mbrBtn button span {position:absolute; top:-9999em; width:1px; height:1px; overflow:hidden;}
 .mbrBtn input {border:0 none; background:transparent; cursor:pointer; padding-top:50px;}
