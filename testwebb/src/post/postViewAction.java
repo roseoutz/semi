@@ -26,7 +26,7 @@ public class postViewAction extends ActionSupport {
 	
 	private int currentPage;
 	
-	//post 변수
+	//post
 	private int post_no;
 	private String post_subject;
 	private String post_writer;
@@ -40,7 +40,7 @@ public class postViewAction extends ActionSupport {
 	private String post_time;
 	Calendar post_date = Calendar.getInstance();
 	
-	//review 변수
+	//review 
 	private int review_no;
 	private int review_post_no;
 	private String review_writer;
@@ -55,6 +55,12 @@ public class postViewAction extends ActionSupport {
 	}
 	
 	public String execute() throws Exception{
+		paramClass = new khPostVO();
+		resultClass =new khPostVO();
+		
+		reParamClass = new khReviewVO();
+		reResultClass = new khReviewVO();
+		
 		paramClass.setPost_no(getPost_no());
 
 		resultClass = (khPostVO)sqlMapper.queryForObject("selectPostOne",getPost_no());

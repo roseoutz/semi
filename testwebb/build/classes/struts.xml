@@ -128,19 +128,15 @@
 	
 	<!-- 회원정보수정 -->
 	
-	<package name="editView" extends="struts-default, tiles-default">
-		<action name="editView" class="edit.geInfoViewAction" >
-			<result type="tiles">editView</result>
+	<package name="geInfo" extends="struts-default, tiles-default">
+		<action name="geInfo" class="edit.geInfoViewAction">
+			<result type="tiles">geInfo</result>
 		</action>
-		<!-- 
-		<action name="edit_test2_update" class="edit.geInfoEditAction">
-			<result type="chain">
-				edit_test2
-			</result>
-		</action>
-		 -->
 	</package>
 	
-
-	
+	<package name="corpInfo" extends="struts-default, tiles-default">
+		<action name="corpInfo" class="edit.corpInfoViewAction">
+			<result type="tiles">corpInfo</result>
+		</action>
+	</package>
 </struts>

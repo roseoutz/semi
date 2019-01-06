@@ -3,6 +3,8 @@ package edit;
 import java.io.Reader;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.catalina.Session;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -13,7 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import VO.khMemberVO;
 
-public class geInfoViewAction extends ActionSupport implements SessionAware {
+public class geInfoViewAction extends ActionSupport{
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 
@@ -25,24 +27,27 @@ public class geInfoViewAction extends ActionSupport implements SessionAware {
 	private String member_phone;
 	private String member_email;
 	
-	private Map session;
+	//private HttpSession session = request.getSession();
+	
 	
 	public geInfoViewAction() throws Exception{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
 		reader.close();
-		System.out.println(session.get("session_id"));
 	}
 	public String execute() throws Exception {
-		System.out.println(session.get("session_id"));
-
 		paramClass = new khMemberVO();
-		resultClass = new khMemberVO();
-
-		paramClass.setMember_id((String)session.get("session_id"));
 		
-		resultClass = (khMemberVO) sqlMapper.queryForObject("selectGeAll", getMember_id());
-		// sqlMapper.update("updateGeInfo",getId());
+		//paramClass.setMember_id((String)session.getAttribute("session_id"));
+		
+		resultClass = new khMemberVO();
+		
+		paramClass.setMember_id(getMember_id());	
+		paramClass.setMember_name(getMember_name());
+		paramClass.setMember_email(getMember_email());
+		paramClass.setMember_phone(getMember_phone());
+		
+		resultClass = (khMemberVO) sqlMapper.queryForObject("selectGeAll", paramClass);
 		return SUCCESS;
 	}
 
@@ -92,11 +97,6 @@ public class geInfoViewAction extends ActionSupport implements SessionAware {
 
 	public void setMember_email(String member_email) {
 		this.member_email = member_email;
-	}
-	@Override
-	public void setSession(Map session) {
-		// TODO Auto-generated method stub
-		this.session = session;
 	}
 
 }

@@ -1,17 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<head>
-
-<title>회원정보 수정 ㅣ 잡코리아 - 좋은 일이 생긴다(www1)</title>
-
-<link rel="SHORTCUT ICON" href="http://www.jobkorea.co.kr/favicon.ico"> 
-
 <!-- 키워드 스크립트 시작 -->
-<script src="./common/script/1166416616740867?v=2.8.35&amp;r=stable"></script>
-<script src="./common/script/fbevents.js"></script>
-<script src="./common/script/analytics.js"></script>
-<script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.ko.zg5MSsx1iCQ.O/m=client/rt=j/sv=1/d=1/ed=1/am=QQ/rs=AGLTcCNEOq2wSGbkO3AZRoF2A8wjum331w/cb=gapi.loaded_0" async=""></script>
-<script type="text/javascript">
+<script src="https://connect.facebook.net/signals/config/1166416616740867?v=2.8.35&amp;r=stable" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.ko.BvhmgmKSDj0.O/m=client/rt=j/sv=1/d=1/ed=1/am=QQ/rs=AGLTcCP9M6hiTbqZV_BmjexEkTZYvFrc7Q/cb=gapi.loaded_0" async=""></script><script src="./info/resources/1166416616740867" async=""></script><script async="" src="./info/resources/fbevents.js"></script><script async="" src="./info/resources/analytics.js"></script><script src="./info/resources/cb=gapi.loaded_0" async=""></script><script type="text/javascript">
 var EchoID = "jobkorea";
 var EchoGoodNm = "";
 var EchoAmount = "";
@@ -21,12 +11,12 @@ var EchoLogSend = "Y";
 var EchoCV = "";
 var EchoPN = "";
 </script> 
-<script type="text/javascript" src="./common/script/EchoScriptV2.js"></script>
+<script type="text/javascript" src="./info/resources/EchoScriptV2.js"></script>
 <!-- 키워드 스크립트 끝 -->
 
 
 <!-- DataStory Javascript Tracking  -->
-<script type="text/javascript" src="./common/script/dslog.js?dt=20181127" id="dslog_tag"></script>
+<script type="text/javascript" src="./info/resources/dslog.js" id="dslog_tag"></script>
 <script type="text/javascript">
     //<!--
     window.dsValDic = {};
@@ -56,24 +46,30 @@ var EchoPN = "";
     };
     //-->
 </script>
-<link rel="stylesheet" type="text/css" href="./common/css/common.css?201705291000">
-<link rel="stylesheet" type="text/css" href="./common/css/footer_sub.css">
-<link rel="stylesheet" type="text/css" href="./common/css/gnb.css?20170124001">
-<link rel="stylesheet" type="text/css" href="./common/css/gnb_sub.css?20170317002">
-<link rel="stylesheet" type="text/css" href="./common/css/mbr_common.css?date=201611151500">
-<link rel="stylesheet" type="text/css" href="./common/css/mbr_tpl.css?date=201603212000">
-<link rel="stylesheet" type="text/css" href="./common/css/mbr_style.css?date=201612201113">
+					<link rel="stylesheet" type="text/css" href="./info/resources/common.css">
+				
+			<link rel="stylesheet" type="text/css" href="./info/resources/footer_sub.css">
+	
+	<link rel="stylesheet" type="text/css" href="./info/resources/gnb.css">
+	<link rel="stylesheet" type="text/css" href="./info/resources/gnb_sub.css">
 
-<script type="text/javascript" src="./common/script/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="/include/js/Common_Regist.js?ver=20151216"></script>
-<script type="text/javascript" src="/include/js/Text_User/Resume_Open_Check.js?ver=20160713"></script>
-<script type="text/javascript" src="./common/script/underscore.js"></script>
-<script type="text/javascript" src="./common/script/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
-<script src="https://apis.google.com/js/client:platform.js" gapi_processed="true"></script>
-<script type="text/javascript" src="./common/script/kakao.min.js"></script>
-<script type="text/javascript" src="/Scripts/Member/SNS.js?ver=1.1"></script>
+	
+	<link rel="stylesheet" type="text/css" href="./info/resources/mbr_common.css">
+	<link rel="stylesheet" type="text/css" href="./info/resources/mbr_tpl.css">
+	
+	<link rel="stylesheet" type="text/css" href="./info/resources/mbr_style.css">
+	
+<script type="text/javascript" src="./info/resources/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="./info/resources/Common_Regist.js"></script>
+<script type="text/javascript" src="./info/resources/Resume_Open_Check.js"></script>
+<script type="text/javascript" src="./info/resources/underscore.js"></script>
+<script type="text/javascript" src="./info/resources/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
+<script src="./info/resources/client_platform.js" gapi_processed="true"></script>
+<script type="text/javascript" src="./info/resources/kakao.min.js"></script>
+<script type="text/javascript" src="./info/resources/SNS.js"></script>
 <script type="text/javascript">
 <!--
+
 	function jsSelectClear(argObj) {
 		  for (i=argObj.length-1; i>=0; i--) {
 			  argObj.options[i] = null;
@@ -94,9 +90,13 @@ var EchoPN = "";
 			document.getElementsByName("alimy")[1].disabled = false;
 		}
 	}
+
+
 	// 공백체크
 	function send() {
 		var form = document.form;
+
+		
 
 		// 휴대폰 번호 체크
 		if ($.trim($("#M_Hand_Phone2").val()) != "" || $.trim($("#M_Hand_Phone3").val()) != "") {
@@ -279,4 +279,3 @@ var EchoPN = "";
 
 //-->
 </script>
-</head>

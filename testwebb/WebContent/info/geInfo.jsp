@@ -3,6 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 	String session_id = (String) session.getAttribute("session_id");
+	String session_type = (String) session.getAttribute("session_type");
 	
 %>
 <!DOCTYPE html>
@@ -13,8 +14,6 @@
 
 <title>회원정보 수정 ㅣ 잡코리아 - 좋은 일이 생긴다(www2)</title>
 
-<meta name="verify-v1" content="wfOOCE9Vtx+Z5etOXJnS9LU03yGpBxkK74T/yU63Xqs=">
-<meta name="Robots" content="noindex,nofollow">
 
 <link rel="SHORTCUT ICON" href="http://www.jobkorea.co.kr/favicon.ico"> 
 
@@ -38,13 +37,13 @@
 	<div class="gnbWrap gnbWrap_mMng">
 		<div id="gnb">
 			<!--// 개인회원 -->
-			<h1><a class="logo" href="http://www.jobkorea.co.kr/"><img alt="잡코리아" src="./edit_test2/resources/h_logo.gif"></a>
-			<span class="bar"><span class="title"><img src="./edit_test2/resources/h_mng_gg.gif" width="117" height="23" alt="회원정보 관리"></span></span>
+			<h1><a class="logo" href="http://www.jobkorea.co.kr/"><img alt="잡코리아" src="./info/resources/h_logo.gif"></a>
+			<span class="bar"><span class="title"><img src="./info/resources/h_mng_gg.gif" width="117" height="23" alt="회원정보 관리"></span></span>
 			</h1>
 			<h2 class="skip">주요링크</h2>
 			<div class="secNav">
 				<ol>
-					<li class="mn1"><a href="localhost:8080/testwebb/edit_test2.action"><span></span>개인정보 수정</a></li>
+					<li class="mn1"><a href="localhost:8080/testwebb/editInfo.action"><span></span>개인정보 수정</a></li>
 					<li class="mn2"><a href="#"><span></span>비밀번호변경</a></li>
 					<li class="mn3 end"><a href="#" target="_blank"><span></span>회원탈퇴</a></li>
 				</ol>
@@ -61,7 +60,7 @@
 			<h1 class="skip">회원정보 수정</h1>
 			<form name="form" method="post" action="https://www.jobkorea.co.kr/Text_User/User_Info_Mng_Ok.asp">
 				<input type="hidden" name="M_Hand_Phone" id="M_Hand_Phone" value="">
-				<input type="hidden" name="M_Home_Phone" id="M_Home_Phone" value="">
+				<input type="hidden" name="M_Home_Phone" id="M_Home_Phone" value="<s:property value='resultClass.member_phone'/>">
 				<input type="hidden" name="R_No" id="R_No" value="">
 				<input type="hidden" name="Alimy_Chk" id="Alimy_Chk" value="0">
 				<input type="hidden" name="GoodJob_Mailing_Stat" id="GoodJob_Mailing_Stat" value="">
@@ -70,7 +69,7 @@
 				<fieldset>
 				<legend>회원정보 수정 입력폼</legend>
 				<div class="mbrSec mbrMngInfo">
-					<h2 class="mbrHeading2"><img src="./edit_test2/resources/mbr_h_mng_gg.gif" alt="회원정보 수정"></h2>
+					<h2 class="mbrHeading2"><img src="./info/resources/mbr_h_mng_gg.gif" alt="회원정보 수정"></h2>
 					<div class="mbrTplDesc">
 						<p>회원님의 정보를 수정·확인하실 수 있습니다.</p>
 					</div>
@@ -86,24 +85,30 @@
 								<th scope="row" colspan="2"><label for="lb_id"><span class="blank"></span> 아이디</label></th>
 								<td>
 									<div class="social_row"><strong>${session_id}</strong>
-									<input type="hidden" name="session_id" value="<%=session_id%>"/> 
+									<input type="hidden" name="session_id" value="<%=session_id%><%=session_type%>"/> 
 									</div>
 								</td>
 							</tr>
 							<tr>
-								<th scope="row" colspan="2"><span class="blank"></span> 이름 <img alt="필수입력사항" src="./edit_test2/resources/icon_b.gif"></th>
+								<th scope="row" colspan="2"><span class="blank"></span> 이름 <img alt="필수입력사항" src="./info/resources/icon_b.gif"></th>
 								<td colspan="3">
+									<s:property value="resultClass.name"/>
+									${resultClass.name}
 									<input type="hidden" class="txtForm" id="M_Name" name="M_Name" size="12" maxlength="15" value="<s:property value="resultClass.member_name"/>">
 								</td>
 							</tr>
 							<tr>
-								<th class="contectInfo" rowspan="3" style="border-right:1px solid #e5e5e5;"><span class="blank"></span> 연락처 <img alt="필수입력사항" src="./edit_test2/resources/icon_b.gif"></th>
+								<th class="contectInfo" rowspan="2" style="border-right:1px solid #e5e5e5;">
+									<span class="blank"></span> 
+									연락처 
+									<img alt="필수입력사항" src="./info/resources/icon_b.gif">
+								</th>
 								<th scope="row">휴대폰</th>
 								<td>
 									<div class="mbrHelpWrap">
 										<div class="mobile">
 											<label for="M_Hand_Phone1" class="blind">휴대폰</label>
-											<input type="text" name="member_phone" id="member_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext" onkeydown="handlerNum(this);" style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value='resultClass.member_phone'/>"> 
+											<input type="text" name="member_phone" id="member_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext" onkeydown="handlerNum(this);" style="width:350px; ime-mode:disabled; float:left;"  value=""> 
 											<div style="left:403px; top:0px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
 												<div class="desc">
 													<p>휴대폰 번호를 입력해 주세요</p>
@@ -279,7 +284,7 @@ function loadScriptFn(url, callback) {
 		<!-- End Adobe Marketing Cloud Tag Management code -->
 	</div>
 	<!-- 메인 최근 방문 페이지 쿠키 저장-->
-<script type="text/javascript" src="./edit_test2/resources/popup-manager.js"></script>
+<script type="text/javascript" src="./info/resources/popup-manager.js"></script>
 <script type="text/javascript">	
 if (typeof window.dsHelper !== 'undefined') {}
 

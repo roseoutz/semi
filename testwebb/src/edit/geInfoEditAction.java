@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import VO.khMemberVO;
 
-public class geInfoEditAction extends ActionSupport  {
+public class geInfoEditAction extends ActionSupport {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	
@@ -18,6 +18,8 @@ public class geInfoEditAction extends ActionSupport  {
 	
 	private String member_phone;
 	private String member_email;
+
+
 	
 	public geInfoEditAction() throws Exception {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -64,6 +66,6 @@ public class geInfoEditAction extends ActionSupport  {
 	public void setMember_email(String member_email) {
 		this.member_email = member_email;
 	}
-	
+
 	
 }

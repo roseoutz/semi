@@ -197,10 +197,15 @@
  		<put-attribute name="body" value="/postbody/post.jsp"/>
  	</definition> 
  	
- 	<definition name="editView" template="/layout2.jsp">
- 		<put-attribute name="repo" value="/edit_test2/repo.jsp"/>
- 		<put-attribute name="footer" value="/edit_test2/footer.jsp"/>
- 		<put-attribute name="body" value="/edit_test2/edit_test2.jsp"/>
+ 	<definition name="geInfo" template="/layout2.jsp">
+ 		<put-attribute name="repo" value="/info/repo.jsp"/>
+ 		<put-attribute name="footer" value="/info/footer.jsp"/>
+ 		<put-attribute name="body" value="/info/geInfo.jsp"/>
  	</definition>
  	
+ 	<definition name="corpInfo" template="/layout2.jsp">
+ 		<put-attribute name="repo" value="/info/repo.jsp"/>
+ 		<put-attribute name="footer" value="/info/footer.jsp"/>
+ 		<put-attribute name="body" value="/info/corpInfo.jsp"/>
+ 	</definition>
 </tiles-definitions>
