@@ -1,18 +1,18 @@
 package VO;
 
 public class khCMemberDetailVO {
-	private int detail_cmember_id; // 기업회원 id(참조용)
-	private String detail_em_num; // 사원수
-	private String detail_capital; // 자본
-	private String detail_sales; // 매출
-	private String detail_pay; // 평균연봉
-	private String detail_url; // 기업 홈페이지
+	private String detail_cmember_id; 
+	private String detail_em_num; 
+	private String detail_capital; 
+	private String detail_sales; 
+	private String detail_pay; 
+	private String detail_url; 
 
-	public int getDetail_cmember_id() {
+	public String getDetail_cmember_id() {
 		return detail_cmember_id;
 	}
 
-	public void setDetail_cmember_id(int detail_cmember_id) {
+	public void setDetail_cmember_id(String detail_cmember_id) {
 		this.detail_cmember_id = detail_cmember_id;
 	}
 

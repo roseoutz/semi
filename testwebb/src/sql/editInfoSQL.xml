@@ -55,7 +55,7 @@
 		where member_id = #member_id#
 	</select>
 
-	<select id="selectCorpAll" parameterClass="Cmember"
+	<select id="selectCorpAll" parameterClass="String"
 		resultClass="Cmember">
 		select * from kh_cmember
 		<include refid="where-corp" />
@@ -81,6 +81,5 @@
 			cmember_cname=#cmember_cname#,cmember_addr=#cmember_addr#,cmember_ceo=#cmember_ceo#,cmember_date=#cmember_date#)
 			<include refid="where-corp" />
 		</update>
-
 
 </sqlMap>
