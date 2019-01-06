@@ -92,8 +92,8 @@
 							<tr>
 								<th scope="row" colspan="2"><span class="blank"></span> 이름 <img alt="필수입력사항" src="./info/resources/icon_b.gif"></th>
 								<td colspan="3">
-									<s:property value="resultClass.name"/>
-									${resultClass.name}
+									<s:property value="resultClass.member_name"/>
+									${resultClass.member_name}
 									<input type="hidden" class="txtForm" id="M_Name" name="M_Name" size="12" maxlength="15" value="<s:property value="resultClass.member_name"/>">
 								</td>
 							</tr>
@@ -108,7 +108,8 @@
 									<div class="mbrHelpWrap">
 										<div class="mobile">
 											<label for="M_Hand_Phone1" class="blind">휴대폰</label>
-											<input type="text" name="member_phone" id="member_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext" onkeydown="handlerNum(this);" style="width:350px; ime-mode:disabled; float:left;"  value=""> 
+											<input type="text" name="member_phone" id="member_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext" onkeydown="handlerNum(this);" style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value='resultClass.member_phone'/>">
+											<s:property value='resultClass.member_phone'/> 
 											<div style="left:403px; top:0px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
 												<div class="desc">
 													<p>휴대폰 번호를 입력해 주세요</p>

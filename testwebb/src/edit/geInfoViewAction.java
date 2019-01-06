@@ -15,7 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import VO.khMemberVO;
 
-public class geInfoViewAction extends ActionSupport{
+public class geInfoViewAction extends ActionSupport implements SessionAware{
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 
@@ -27,29 +27,41 @@ public class geInfoViewAction extends ActionSupport{
 	private String member_phone;
 	private String member_email;
 	
+	private Map session = null;
+	private String session_id;
+	
 	//private HttpSession session = request.getSession();
 	
-	
+	//constructor
 	public geInfoViewAction() throws Exception{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
 		reader.close();
 	}
+	
+	@Override
+	public void setSession(Map session) {
+		// TODO Auto-generated method stub
+		session_id = (String)session.get("session_id");
+		this.session = session;
+	}
+	
 	public String execute() throws Exception {
 		paramClass = new khMemberVO();
-		
+		resultClass = new khMemberVO();
 		//paramClass.setMember_id((String)session.getAttribute("session_id"));
 		
-		resultClass = new khMemberVO();
+		session_id = (String) session.get("session_id");
 		
-		paramClass.setMember_id(getMember_id());	
 		paramClass.setMember_name(getMember_name());
 		paramClass.setMember_email(getMember_email());
 		paramClass.setMember_phone(getMember_phone());
 		
-		resultClass = (khMemberVO) sqlMapper.queryForObject("selectGeAll", paramClass);
+		resultClass = (khMemberVO) sqlMapper.queryForObject("selectGeAll", session_id);
 		return SUCCESS;
 	}
+	
+	
 
 	public khMemberVO getParamClass() {
 		return paramClass;
@@ -98,5 +110,6 @@ public class geInfoViewAction extends ActionSupport{
 	public void setMember_email(String member_email) {
 		this.member_email = member_email;
 	}
+
 
 }

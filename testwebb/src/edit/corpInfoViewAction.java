@@ -1,6 +1,9 @@
 package edit;
 
 import java.io.Reader;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -10,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import VO.khCMemberDetailVO;
 import VO.khCMemberVO;
 
-public class corpInfoViewAction extends ActionSupport {
+public class corpInfoViewAction extends ActionSupport implements SessionAware {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	
@@ -35,6 +38,9 @@ public class corpInfoViewAction extends ActionSupport {
 	private String detail_pay;
 	private String detail_url;
 	
+	private String session_id;
+	private Map session;
+	
 	public corpInfoViewAction() throws Exception{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
@@ -48,7 +54,6 @@ public class corpInfoViewAction extends ActionSupport {
 		dParamClass = new khCMemberDetailVO();
 		dResultClass = new khCMemberDetailVO();
 		
-		paramClass.setCmember_id(getCmember_id());
 		paramClass.setCmember_name(getCmember_name());
 		paramClass.setCmember_phone(getCmember_phone());
 		paramClass.setCmember_email(getCmember_email());
@@ -63,9 +68,9 @@ public class corpInfoViewAction extends ActionSupport {
 		dParamClass.setDetail_sales(getDetail_sales());
 		dParamClass.setDetail_url(getDetail_url());
 		
-		//resultClass = (khCMemberVO) sqlMapper.queryForObject("selectCorpAll");
+		resultClass = (khCMemberVO) sqlMapper.queryForObject("selectCorpAll",session_id);
 		
-		//dResultClass = (khCMemberDetailVO) sqlMapper.queryForObject("selectCorpDetailAll");
+		dResultClass = (khCMemberDetailVO) sqlMapper.queryForObject("selectCorpDetailAll",session_id);
 		
 		return SUCCESS;
 	}
@@ -206,6 +211,13 @@ public class corpInfoViewAction extends ActionSupport {
 
 	public void setDetail_url(String detail_url) {
 		this.detail_url = detail_url;
+	}
+
+	@Override
+	public void setSession(Map session) {
+		// TODO Auto-generated method stub
+		session_id = (String)session.get("session_id");
+		this.session = session;
 	}
 	
 	
