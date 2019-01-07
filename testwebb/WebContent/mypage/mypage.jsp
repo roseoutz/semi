@@ -141,7 +141,7 @@
 				<div class="lnbGroup">
 					<h2 class="lnbTit">이력서 관리</h2>
 					<ul>
-						<li><a href="rswrite.action"
+						<li><a href="resumewrite/resumewrite.jsp"
 							target="_blank">이력서 등록</a></li>
 						<li><a href="rslist.action">이력서
 								관리</a></li>

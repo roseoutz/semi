@@ -4,6 +4,11 @@
 
 <sqlMap>
 	<typeAlias alias="resume" type="VO.khResumeVO"/>
+	<typeAlias alias="edu" type="VO.khEduVO"/>
+	<typeAlias alias="career" type="VO.khCareerVO"/>
+	<typeAlias alias="award" type="VO.khAwardVO"/>
+	<typeAlias alias="port" type="VO.khPortVO"/>
+	<typeAlias alias="intro" type="VO.khIntroVO"/>
 	
 	<resultMap class="resume" id="resumeRes">
 		<result property="resume_no" column="resume_no"/>
@@ -11,17 +16,96 @@
 		<result property="resume_subject" column="resume_subject"/>
 		<result property="resume_date" column="resume_date"/>
 		<result property="resume_addr" column="resume_addr"/>
+		<result property="resume_birth" column="resume_birth"/>
+		<result property="resume_sex" column="resume_sex"/>
+	</resultMap>
+	<resultMap class="edu" id="eduRes">
+		<result property="edu_no" column="edu_no"/>
+		<result property="edu_resume_no" column="edu_resume_no"/>
+		<result property="edu_school_type" column="edu_school_type"/>
+		<result property="edu_school" column="edu_school"/>
+		<result property="edu_major" column="edu_major"/>
+		<result property="edu_grade" column="edu_grade"/>
+		<result property="edu_enter_date" column="edu_enter_date"/>
+		<result property="edu_graduate_date" column="edu_graduate_date"/>
+		<result property="edu_graduate_status" column="edu_graduate_status"/>
+	</resultMap>
+	<resultMap class="career" id="careerRes">
+		<result property="career_no" column="career_no"/>
+		<result property="career_re_no" column="career_re_no"/>
+		<result property="career_cname" column="career_cname"/>
+		<result property="career_dept" column="career_dept"/>
+		<result property="career_enter_date" column="career_enter_date"/>
+		<result property="career_leave_date" column="career_leave_date"/>
+		<result property="career_position" column="career_position"/>
+		<result property="career_job" column="career_job"/>
+		<result property="career_pay" column="career_pay"/>
+		<result property="career_content" column="career_content"/>
+		<result property="career_explain" column="career_explain"/>
+	</resultMap>
+	<resultMap class="port" id="portRes">
+		<result property="port_no" column="port_no"/>
+		<result property="port_re_no" column="port_re_no"/>
+		<result property="port_url" column="port_url"/>
+		<result property="port_orgname" column="port_orgname"/>
+		<result property="port_savname" column="port_savname"/>
+	</resultMap>
+	<resultMap class="award" id="awardRes">
+		<result property="award_no" column="award_no"/>
+		<result property="award_re_no" column="award_re_no"/>
+		<result property="award_name" column="award_name"/>
+		<result property="award_publisher" column="award_publisher"/>
+		<result property="award_date" column="award_date"/>
+	</resultMap>
+	<resultMap class="intro" id="introRes">
+		<result property="intro_no" column="intro_no"/>
+		<result property="intro_re_no" column="intro_re_no"/>
+		<result property="intro_content" column="intro_content"/>
 	</resultMap>
 	
 	<!-- 이력서 insert -->
 	<insert id="insertResume" parameterClass="resume">
-		INSERT INTO KH_RESUME(RESUME_NO,RESUME_M_ID,RESUME_ADDR,RESUME_SUBJECT,RESUME_DATE)
-		VALUES (KH_RESUME_SEQ.NEXTVAL,##,#resume_addr#,#resume_subject#,#resume_date#)
+		INSERT INTO KH_RESUME(RESUME_NO, RESUME_M_ID, RESUME_ADDR, RESUME_SUBJECT, RESUME_DATE, RESUME_BIRTH, RESUME_SEX)
+		VALUES (KH_RESUME_SEQ.NEXTVAL, #resume_m_id#, #resume_addr#, #resume_subject#, #resume_date#, #resume_birth#, #resume_sex#)
 	</insert>
 	
-	<!-- 이력서 delete -->
-	<delete id="deleteResume" parameterClass="resume">
-		DELETE FROM KH_RESUME
-		WHERE RESUME_NO = #resume_no#	
-	</delete>
+	<!-- resume_no뽑기 -->
+	<select id = "selectSeq" resultClass = "int">
+		SELECT KH_RESUME_SEQ.CURRVAL FROM DUAL
+	</select>
+
+	<!-- 학력 insert -->
+	<insert id="insertEdu" parameterClass = "edu">
+		INSERT INTO KH_EDU(EDU_NO, EDU_RESUME_NO, EDU_SCHOOL_TYPE, EDU_SCHOOL, EDU_MAJOR, EDU_GRADE, EDU_ENTER_DATE, EDU_GRADUATE_DATE, EDU_GRADUATE_STATUS) 
+		VALUES (KH_EDU_SEQ.NEXTVAL, #edu_resume_no#, #edu_school_type#, #edu_school#, #edu_major#, #edu_grade#, #edu_enter_date#, #edu_graduate_date#, #edu_graduate_status#)
+	</insert>
+	
+	<!-- 경력 insert -->
+	<insert id = "insertCareer" parameterClass = "career">
+		INSERT INTO KH_CAREER(CAREER_NO, CAREER_RE_NO, CAREER_CNAME, CAREER_DEPT, CAREER_ENTER_DATE, CAREER_LEAVE_DATE, CAREER_POSITION, CAREER_JOB, CAREER_PAY, CAREER_CONTENT, CAREER_EXPLAIN) 
+		VALUES (KH_CAREER_SEQ.NEXTVAL, #career_re_no#, #career_cname#, #career_dept#, #career_enter_date#, #career_leave_date#, #career_position#, #career_job#, #career_pay#, #career_content#, #career_explain#)
+	</insert>
+	
+	<!-- 포트폴리오 insert -->
+	<insert id = "insertPort" parameterClass ="port">
+		INSERT INTO KH_PORT(PORT_NO, PORT_RE_NO, PORT_URL, PORT_ORGNAME, PORT_SAVNAME) 
+		VALUES (KH_PORT_SEQ.NEXTVAL, #port_re_no#, #port_url#, #port_orgname#, #port_savname#)
+	</insert>
+	
+	<!-- 수상 insert -->
+	<insert id = "insertAward" parameterClass = "award">
+		INSERT INTO KH_AWARD(AWARD_NO, AWARD_RE_NO, AWARD_NAME, AWARD_PUBLISHER, AWARD_DATE) 
+		VALUES (KH_AWARD_SEQ.NEXTVAL, #award_re_no#, #award_name#, #award_publisher#, #award_date#)
+	</insert>
+	
+	<!-- 자기소개서 insert -->
+	<insert id = "insertIntro" parameterClass = "intro">
+		INSERT INTO KH_INTRO(INTRO_NO, INTRO_RE_NO, INTRO_CONTENT) 
+		VALUES (KH_INTRO_SEQ.NEXTVAL, #intro_re_no#, #intro_content#)
+	</insert>
+	
+	<!-- 이력서 뽑기 -->
+	<select id = "selectResume" parameterClass = "String" resultMap = "resumeRes">
+		SELECT * FROM KH_RESUME WHERE RESUME_M_ID = #resume_m_id#
+	</select>
 </sqlMap>

@@ -13,7 +13,7 @@
     <h3 class="skip">글로벌 메뉴</h3>
     <ul class="gnb f_clear">
         <li><a href="main.action">홈</a></li>
-        <li><a href="/help/">1:1문의</a></li>
+        <li><a href="qna.action">1:1문의</a></li>
     </ul>
 
     <h3 class="skip">회원 형태별 가입</h3>

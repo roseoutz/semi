@@ -48,13 +48,10 @@
 		<div id="content">
 			<h1 class="skip">아이디 찾기</h1>
 			<div class="mbrSec mbrSchIDResult">
-        	<h1><a class="logo" href="../main.action"><img alt="잡코리아" src="image/h_logo.gif"></a>
-          
-        <br><br>
-				<h2 class="mbrHeading2"><img src="image/h_cc_schid.gif" alt="아이디조회"></h2>
+        	<h1><a class="logo" href="../main.action"><img src="../image/404JOB.png" height="35" width="160" style="float: left;"></a></h1>
+        <br><br><br>
 				<div class="mbrTplDesc">
-					<p>※ 개인정보보호를 위해 일부분은 *로 표시됩니다.</p>
-					<p>동명이인이 있는 경우, 본인 외의 ID가 노출될 수 있습니다.</p>
+					<p>※ 동명이인이 있는 경우, 본인 외의 ID가 노출될 수 있습니다.</p>
 				</div>
 
 				<div class="mbrTplBox">

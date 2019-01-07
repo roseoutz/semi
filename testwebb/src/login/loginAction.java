@@ -23,6 +23,7 @@ public class loginAction extends ActionSupport implements SessionAware{
 	private int checkCount;
 	private String headerType;
 	private Map session;
+	private String session2;
 	
 	public loginAction() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -48,7 +49,6 @@ public class loginAction extends ActionSupport implements SessionAware{
 		CparamClass.setCmember_id(getId());
 		CparamClass.setCmember_pass(getPwd());
 		
-		
 		resultClass = (khMemberVO)sqlMapper.queryForObject("loginCheckGen", paramClass);
 		if(resultClass == null) {
 			CresultClass = (khCMemberVO)sqlMapper.queryForObject("loginCheckCorp", CparamClass);
@@ -66,6 +66,8 @@ public class loginAction extends ActionSupport implements SessionAware{
 			session.put("session_id", resultClass.getMember_id());
 			session.put("session_type", "¿œπ›");
 			session.put("session_name", resultClass.getMember_name());
+			session.put("session_email", resultClass.getMember_email());
+			session.put("session_phone", resultClass.getMember_phone());
 			setHeaderType("main");
 			return SUCCESS;
 		}

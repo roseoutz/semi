@@ -3,11 +3,11 @@ package VO;
 import java.util.Date;
 
 public class khAwardVO {
-	private int award_no; 			// 식별자
-	private int award_re_no;			// 이력서번호(참조용)
-	private String award_name; 		// 수상/자격증 이름
-	private String award_publisher;	// 수상/발행 기관
-	private Date award_date; 		// 수상/취득 일
+	private int award_no; 			
+	private int award_re_no;			
+	private String award_name; 		
+	private String award_publisher;	
+	private String award_date; 		
 
 	public int getAward_no() {
 		return award_no;
@@ -41,12 +41,13 @@ public class khAwardVO {
 		this.award_publisher = award_publisher;
 	}
 
-	public Date getAward_date() {
+	public String getAward_date() {
 		return award_date;
 	}
 
-	public void setAward_date(Date award_date) {
+	public void setAward_date(String award_date) {
 		this.award_date = award_date;
 	}
+
 
 }

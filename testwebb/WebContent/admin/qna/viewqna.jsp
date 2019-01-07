@@ -11,10 +11,7 @@
 	<div id="container">
 		<div id="content">
 
-			<div class="topHdWrap">
-				<br>
-				<h2 class="top_hd_2">상세보기</h2>
-			</div>
+			<br><br>
 			<table width="500" border="1" cellspacing="0" cellpadding="0" align="center">
 					<tr height="30">
 						<th align="center" width="125" style = "border : 3px solid; font-size : 10pt" >글 번호</th>

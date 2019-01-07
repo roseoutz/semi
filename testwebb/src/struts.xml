@@ -82,7 +82,7 @@
 	</package>
 	
 	<package name="rslist" extends="struts-default, tiles-default">
-		<action name="rslist">
+		<action name="rslist" class = "resume.rslistAction">
 			<result type="tiles">rslist</result>
 		</action>	
 	</package>
@@ -106,7 +106,22 @@
 		<result name="error">/common/checkError.jsp</result>
 		<result>/common/checkSuccess.jsp</result>
 	</action>
-		</package>
+	<!-- 이력서작성 액션 -->
+	<action name = "resumeWrite" class = "resume.resumeWriteAction">
+		<result name = "success">/resumewrite/resumewriteOK.jsp</result>
+		<result name = "input">/resumewrite/fileUpload.jsp</result>
+	</action>
+	<!-- 파일다운로드 -->
+	<action name = "fileDownload" class = "resume.fileDownloadAction">
+		<result name = "success" type = "stream">
+			<param name = "contentType">binary/octet-stream</param>
+			<param name = "inputName">inputStream</param>
+			<param name = "contentDisposition">${contentDisposition}</param>
+			<param name = "contentLength">${contentLength}</param>
+			<param name = "bufferSize">4096</param>
+		</result>
+	</action>
+	</package>
 	
 	<include file="join.xml"/>
 	<include file="login.xml"/>

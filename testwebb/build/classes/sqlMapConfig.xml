@@ -32,4 +32,5 @@
 	<sqlMap resource="/sql/admin_simpleqnaSQL.xml"/>
 	<sqlMap resource="/sql/admin_qnaSQL.xml"/>
 	<sqlMap resource="/sql/admin_noticeSQL.xml"/>
+	<sqlMap resource="/sql/resumeSQL.xml"/>
 </sqlMapConfig>

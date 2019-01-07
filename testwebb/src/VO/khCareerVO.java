@@ -3,16 +3,17 @@ package VO;
 import java.util.Date;
 
 public class khCareerVO {
-	private int career_no;			//식별자
-	private int career_re_no;		//이력서번호(참조용)
-	private String career_cname;	//기업명
-	private String career_dept;		//부서
-	private Date career_enter_date;	//입사일
-	private Date career_leave_date;	//퇴사일
-	private String career_position;	//직책/직급
-	private String career_job;		//직무
-	private String career_pay;		//연봉
-	private String career_content;	//경력기술서
+	private int career_no;			
+	private int career_re_no;		
+	private String career_cname;	
+	private String career_dept;		
+	private String career_enter_date;	
+	private String career_leave_date;
+	private String career_position;	
+	private String career_job;	
+	private String career_pay;		
+	private String career_content;
+	private String career_explain;
 
 	public int getCareer_no() {
 		return career_no;
@@ -46,22 +47,6 @@ public class khCareerVO {
 		this.career_dept = career_dept;
 	}
 
-	public Date getCareer_enter_date() {
-		return career_enter_date;
-	}
-
-	public void setCareer_enter_date(Date career_enter_date) {
-		this.career_enter_date = career_enter_date;
-	}
-
-	public Date getCareer_leave_date() {
-		return career_leave_date;
-	}
-
-	public void setCareer_leave_date(Date career_leave_date) {
-		this.career_leave_date = career_leave_date;
-	}
-
 	public String getCareer_position() {
 		return career_position;
 	}
@@ -92,6 +77,30 @@ public class khCareerVO {
 
 	public void setCareer_content(String career_content) {
 		this.career_content = career_content;
+	}
+
+	public String getCareer_explain() {
+		return career_explain;
+	}
+
+	public void setCareer_explain(String career_explain) {
+		this.career_explain = career_explain;
+	}
+
+	public String getCareer_enter_date() {
+		return career_enter_date;
+	}
+
+	public void setCareer_enter_date(String career_enter_date) {
+		this.career_enter_date = career_enter_date;
+	}
+
+	public String getCareer_leave_date() {
+		return career_leave_date;
+	}
+
+	public void setCareer_leave_date(String career_leave_date) {
+		this.career_leave_date = career_leave_date;
 	}
 
 }

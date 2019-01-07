@@ -1,31 +1,119 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix = "s" uri = "/struts-tags" %>
 <!DOCTYPE html>
+<head>
+<title>404JOB | 이력서 등록</title>
+<s:if test="#session.session_id==null">
+<script>
+alert("로그인이 필요한 서비스입니다.");
+location.replace("main.action");
+</script>
+</s:if>
+<link rel="stylesheet" type="text/css"
+	href="https://i.jobkorea.kr/content/css/ver_2/text_user/resume/header.css" />
+<link rel="stylesheet" type="text/css"
+	href="https://i.jobkorea.kr/content/css/ver_2/text_user/resume/layout.css" />
+<link rel="stylesheet" type="text/css" href="./css/css.css" />
+<link rel="stylesheet"
+	href="https://i.jobkorea.kr/content/css/ver_2/text_user/resume/write.css?201812181400" />
+<style>
+.autocomplete .list .hover {
+	background-color: #f5f5f5;
+}
 
+.popupSearchDuty .list .hover {
+	background-color: #f5f5f5;
+}
+</style>
+<script src="/testwebb/resumewrite/script/jquery"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+	//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+	function sample4_execDaumPostcode() {
+		new daum.Postcode(
+				{
+					oncomplete : function(data) {
+						// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+						// 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+						// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+						var roadAddr = data.roadAddress; // 도로명 주소 변수
+						var extraRoadAddr = ''; // 참고 항목 변수
+
+						// 법정동명이 있을 경우 추가한다. (법정리는 제외)
+						// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+						if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+							extraRoadAddr += data.bname;
+						}
+						// 건물명이 있고, 공동주택일 경우 추가한다.
+						if (data.buildingName !== '' && data.apartment === 'Y') {
+							extraRoadAddr += (extraRoadAddr !== '' ? ', '
+									+ data.buildingName : data.buildingName);
+						}
+						// 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+						if (extraRoadAddr !== '') {
+							extraRoadAddr = ' (' + extraRoadAddr + ')';
+						}
+
+						// 우편번호와 주소 정보를 해당 필드에 넣는다.
+						document.getElementById('sample4_postcode').value = data.zonecode;
+						document.getElementById("sample4_roadAddress").value = roadAddr;
+						document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+
+						// 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+						if (roadAddr !== '') {
+							document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+						} else {
+							document.getElementById("sample4_extraAddress").value = '';
+						}
+
+						var guideTextBox = document.getElementById("guide");
+						// 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+						if (data.autoRoadAddress) {
+							var expRoadAddr = data.autoRoadAddress
+									+ extraRoadAddr;
+							guideTextBox.innerHTML = '(예상 도로명 주소 : '
+									+ expRoadAddr + ')';
+							guideTextBox.style.display = 'block';
+
+						} else if (data.autoJibunAddress) {
+							var expJibunAddr = data.autoJibunAddress;
+							guideTextBox.innerHTML = '(예상 지번 주소 : '
+									+ expJibunAddr + ')';
+							guideTextBox.style.display = 'block';
+						} else {
+							guideTextBox.innerHTML = '';
+							guideTextBox.style.display = 'none';
+						}
+					}
+				}).open();
+	}
+</script>
+</head>
 <body class="resume resume-write" style="">
 	<div class="resumePage">
 		<div class="resumeHeader">
 			<div class="container">
-				<a href="#" class="logo"><img src="./images/404job.png" alt="404JOB"></a>
+				<a href="../main.action" class="logo"><img src="./images/404job.png" alt="404JOB"></a>
 				<div class="links">
-					<a href="#"
+					<a href="../main.action"
 						class="link linkHome">개인회원 홈</a> <a
 						href="#"
 						class="link linkManage">이력서 관리</a>
 				</div>
 			</div>
 		</div>
-		<form action="#"
-			method="post" id="frm1">
+		<form action="resumeWrite.action" method="post" id="frm1" enctype = "multipart/form-data">
 			<input type="text" id="HistoryBackCheck" value="0"
 				style="display: none;">
 			<div class="resumeWrapper">
 				<div class="resumeContainer">
 					<div class="resumeTitle">
 						<input id="UserResume_M_Resume_Title" maxlength="100"
-							name="UserResume.M_Resume_Title" 
+							name="resume_subject" 
 							placeholder="기업에게 나에 대해 알려줍시다. 강점, 목표, 관심분야도 좋아요." type="text"
-							readonly>
+							>
 					</div>
 
 					<div class="formWrap formWrapProfile">
@@ -35,46 +123,43 @@
 								<div
 									class="input is-label input-profile-name is-value is-readonly">
 									<div class="label">이름</div>
-									<div class="value">apply_mem_id</div>
+									<div class="value"><s:property value = "%{#session['session_name']}"/></div>
+									<input type = "hidden" name = "resume_name" value = "<s:property value = "%{#session['session_name']}"/>">
 								</div>
-								<div class="input is-label input-profile-birth is-value is-readonly">
-									<div class="label">생년월일</div>
-									<div class="value">apply_birth</div>
-									<div class="validation hidden" aria-hidden="true">생년월일을
-										입력해주세요</div>
-								</div>
-								<div
-									class="input is-label dropdown-profile-sex is-value is-readonly">
-									<div class="label">성별</div>
-									<div class="value">남자</div>
-								</div>
-								<div class="input is-label input-profile-hp is-value" style="width:235px;">
-									<label for="UserInfo_M_Email">이메일</label> 
-									<input type="email" name="apply_email" id="UserInfo_M_Email" data-format-type="email" value="">
-									<div class="autocomplete hidden" aria-hidden="true">
-										<div class="list">
-											<ul></ul>
-										</div>
-									</div>
+								<div class="input is-label input-profile-hp is-value">
+									<label for="UserInfo_M_Hand_Phone">생년월일</label> 
+									<input
+										type="text" name="resume_birth"
+										id="UserInfo_M_Hand_Phone" placeholder="010-0000-1234"
+										maxlength="30">
 									<div class="validation hidden" aria-hidden="true"></div>
-									<div class="backdrop">
-										<div class="highlights"></div>
-									</div>
+								</div>
+								<div class="input is-label input-profile-hp is-value" style="width:100px">
+										<label for="UnivSchool_Entc_YM_c536">성별</label> 
+										<select name="resume_sex">
+											<option value = "남자">남자</option>
+											<option value = "여자">여자</option>
+										</select>
+								</div>
+								<div class="input is-label input-profile-hp is-value is-readonly" style="width:235px;">
+									<label for="UserInfo_M_Email">이메일</label> 
+									<div class = "value"><s:property value = "%{#session['session_email']}"/></div>
+									<input type = "hidden" name = "resume_name" value = "<s:property value = "%{#session['session_email']}"/>">
+									
+									
 								</div>
 							</div>
 							<div class="row">
-								<div class="input is-label input-profile-hp is-value">
+								<div class="input is-label input-profile-hp is-value is-readonly">
 									<label for="UserInfo_M_Hand_Phone">휴대폰번호</label> 
-									<input
-										type="text" name="apply_phone"
-										id="UserInfo_M_Hand_Phone" placeholder="010-1234-1234"
-										value="010-4122-0347" maxlength="30">
+									<div class = "value"><s:property value = "%{#session['session_phone']}"/></div>
+									<input type = "hidden" name = "resume_phone" value = "<s:property value = "%{#session['session_phone']}"/>">
 									<div class="validation hidden" aria-hidden="true"></div>
 								</div>
 								<div class="input is-label input-profile-hp is-value"
 									style="width: 250px">
 									<label for="UserInfo_M_Hand_Phone">주소</label> 
-									<input type="text" name="apply_add" id="sample4_roadAddress" value="" maxlength="30"> 
+									<input type="text" name="resume_addr" id="sample4_roadAddress" value="" maxlength="30"> 
 									<input type="hidden" id="sample4_postcode" placeholder="우편번호">
 									<input type="hidden" id="sample4_jibunAddress" placeholder="지번주소"> 
 									<input type="hidden" id="sample4_detailAddress" placeholder="상세주소">
@@ -88,32 +173,7 @@
 								</div>
 							</div>
 
-							<div class="picture dropped" style="">
-
-								<div class="guide"></div>
-									<input type="file" accept="image/*" id="imgInput" name="apply_file"> 
-									<img id="image_section" />
-								<script>
-									function readURL(input) {
-
-										if (input.files && input.files[0]) {
-											var reader = new FileReader();
-
-											reader.onload = function(e) {
-												$('#image_section').attr('src',
-														e.target.result);
-											}
-
-											reader
-													.readAsDataURL(input.files[0]);
-										}
-									}
-
-									$("#imgInput").change(function() {
-										readURL(this);
-									});
-								</script>
-							</div>
+							
 						</div>
 					</div>
 					<div class="formWrap formWrapEducation" id="formEducation" style="">
@@ -124,27 +184,27 @@
 									<div class="row">
 										<div class="input is-label input-profile-hp is-value" style="width:100px">
 										<label for="UnivSchool_Entc_YM_c536">구분(대학)</label> 
-										<select name="education_school_type">
-											<option>고등학교</option>
-											<option>전문대</option>
-											<option>대학교</option>
-											<option>대학원</option>
+										<select name="edu_school_type">
+											<option value = "고등학교">고등학교</option>
+											<option value = "전문대">전문대</option>
+											<option value = "대학교">대학교</option>
+											<option value = "대학원">대학원</option>
 										</select>
 										</div>
 										<div class="input is-label input-profile-hp is-value" style="width:200px">
 										<label for="UnivSchool_Entc_YM_c536">학교명(OO대학교)</label> 
-										 <input type="text" name="education_school_name" id="UnivSchool_Schl_Name_c536" placeholder="OO대학교" maxlength="50">
+										 <input type="text" name="edu_school" id="UnivSchool_Schl_Name_c536" placeholder="OO대학교" maxlength="50">
 										</div>
 
 										<div class="input is-label input-profile-hp is-value" style="width:200px">
 											<label for="UnivSchool_Entc_YM_c536">입학년월(2018.01)</label> 
 											<input
-												type="text" name="education_enter_date"
+												type="text" name="edu_enter_date"
 												id="UnivSchool_Entc_YM_c536" placeholder="입학년월">
 										</div>
 										<div class="input is-label input-profile-hp is-value" style="width:200px">
 											<label for="UnivSchool_Grad_YM_c536">졸업년월(2018.01)</label> <input
-												type="text" name="education_graduate_date"
+												type="text" name="edu_graduate_date"
 												id="UnivSchool_Grad_YM_c536" placeholder="졸업년월">
 										</div>
 									</div>
@@ -153,29 +213,24 @@
 
 										<div class="input is-label input-profile-hp is-value" style="width:400px">
 												<label for="univmajor_0_0">전공명</label> <input type="text"
-													id="univmajor_0_0" name="education_major_name"
+													id="univmajor_0_0" name="edu_major"
 													maxlength="50">
 											</div>
 
 										</span>
 										<div class="input is-label input-profile-hp is-value" style="width:100px">
-											<label for="UnivSchool_Grade_c536">학점</label> <input
-												type="text" name="education_grade"
-												id="UnivSchool_Grade_c536" value="" maxlength="4"
+											<label for="UnivSchool_Grade_c536">학점(0.0/0.0)</label> <input
+												type="text" name="edu_grade"
+												id="UnivSchool_Grade_c536" value="" maxlength="7"
 												data-format-type="score">
 										</div>
 
-										<div class="input is-label input-profile-hp is-value" style="width:100px">
-											<label for="UnivSchool_Grade_c536">학점</label> <input
-												type="text" name="education_maxgrade"
-												id="UnivSchool_Grade_c536" value="" maxlength="4"
-												data-format-type="score">
-										</div>
+										
 										<div class="input is-label input-profile-hp is-value" style="width:100px">
 										<label for="UnivSchool_Entc_YM_c536">졸업상태</label> 
-										<select name="education_graduate_satus">
-											<option style="text-align: center">재학</option>
-											<option>졸업</option>
+										<select name="edu_graduate_status">
+											<option style="text-align: center" value = "재학">재학</option>
+											<option value = "졸업">졸업</option>
 										</select>
 										</div>
 									</div>
@@ -196,13 +251,13 @@
 								<div class="container container1">
 									<div class="row">
 										<div class="input is-label input-profile-hp is-value" style="width:200px">
-											<label for="Career_C_Name_c6">회사명</label> <input type="text" name="career_company"
+											<label for="Career_C_Name_c6">회사명</label> <input type="text" name="career_cname"
 												id="Career_C_Name_c6" maxlength="50">
 										</div>
 										<div class="input is-label input-profile-hp is-value" style="width:200px">
 											> <label for="Career_C_Part_c6">부서명</label>
 											<div class="validation hidden" aria-hidden="true"></div>
-											<input type="text" name="career_department"
+											<input type="text" name="career_dept"
 												id="Career_C_Part_c6" value="" maxlength="25">
 										</div>
 										<div class="input is-label input-profile-hp is-value" style="width:200px">
@@ -245,7 +300,7 @@
 									<label for="UserResume_M_Career_Text"
 										class="lblCareerDescription">경력기술서 </label>
 									<textarea cols="30" id="UserResume_M_Career_Text"
-										name="carrer_description" rows="10"></textarea>
+										name="carrer_content" rows="10"></textarea>
 								</div>
 								<div class="buttons alignRight"></div>
 							</div>
@@ -291,10 +346,10 @@
 								<font size="3"><b>파일 첨부</b></font>
 								<input type="text" class="fileName" readonly="readonly">
 								<label for="uploadBtn" class="btn_file">찾아보기</label>
-								<input type="file" id="uploadBtn" class="uploadBtn" name="portfolio_file">
+								<input type="file" id="uploadBtn" class="uploadBtn" name="upload">
 								&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 								<font size="3"><b>URL 첨부</b></font>
-								<input type="text" name="portfolio_url" style="height:30px; width:300px;">
+								<input type="text" name="port_url" style="height:30px; width:300px;">
 							</div>
 							<script>
 							var uploadFile = $('.fileBox .uploadBtn');
@@ -325,7 +380,7 @@
 													<div class="highlights"></div>
 												</div>
 												<div class="clickable"></div>
-												<textarea name="introduction_content"
+												<textarea name="intro_content"
 													id="ResumeProfile_Contents_c535" cols="30" rows="10"
 													placeholder="해당내용을 입력하세요." class="spellcheck"></textarea>
 												<div class="validation validation-content hidden">자기소개서

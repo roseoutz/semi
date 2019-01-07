@@ -47,12 +47,10 @@
 		<div id="content">
 			<h1 class="skip">비밀번호 찾기</h1>
 			<div class="mbrSec mbrSchIDResult">
-        	<h1><a class="logo" href="../main.action"><img alt="잡코리아" src="image/h_logo.gif"></a>
+        	<h1><a class="logo" href="../main.action"><img src="../image/404JOB.png" height="35" width="160" style="float: left;"></a></h1>
           
-        <br><br>
-				<h2 class="mbrHeading2"><img src="image/h_cc_schpwd.gif" alt="아이디조회"></h2>
+        <br><br><br>
 				<div class="mbrTplDesc">
-					<p>※ 개인정보보호를 위해 일부분은 *로 표시됩니다.</p>
 					<p>비밀번호 재설정은 마이페이지에서 할 수 있습니다.</p>
 				</div>
 

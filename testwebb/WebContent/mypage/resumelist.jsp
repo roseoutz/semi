@@ -23,7 +23,7 @@
 
 					<h2 class="skip">이력서 관리</h2>
 					<div class="btnBx">
-						<a href="http://127.0.0.1:8080/testwebb/rswrite.tiles"
+						<a href="../resumewrite/resumewrite.jsp"
 							class="btn btnBl mtuSpImgBefore" target="_blank"><span>이력서
 								등록</span></a>
 					</div>
@@ -94,11 +94,12 @@
 							<div class="mtuList">
 								<ul>
 									<!-- [개발] 이력서 작성중 yet 클래스 추가 -->
+									<s:if test = "resultClass != null">
 									<li class="ing">
 										<div class="col col01">
 											<div class="tit">
-												<em class="badge">2018.12.19</em><a
-													href="/User/Resume/Write" target="_blank">이력서 제목</a>
+												<em class="badge"><s:property value = "resultClass.resume_date"/></em><a
+													href="/User/Resume/Write" target="_blank"><s:property value = "resultClass.resume_subject"/></a>
 											</div>
 											<div class="date"></div>
 										</div>
@@ -114,6 +115,14 @@
 											</div>
 										</div>
 									</li>
+									</s:if>
+									<s:else>
+										<div class="col col01">
+											<div class="tit" style = "text-align:center;">
+												작성된 이력서가 없습니다.
+											</div>
+										</div>
+									</s:else>
 								</ul>
 							</div>
 						</div>
@@ -146,7 +155,7 @@
 				<div class="lnbGroup">
 					<h2 class="lnbTit">이력서 관리</h2>
 					<ul>
-						<li><a href="rswrite.action"
+						<li><a href="resumewrite/resumewrite.jsp"
 							target="_blank">이력서 등록</a></li>
 						<li><a href="rslist.action">이력서
 								관리</a></li>

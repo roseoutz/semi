@@ -137,11 +137,11 @@
 	<div id="container">
 		<div id="content">
 			<div class="mbrSec mbrSch mbrSchID">
-        <h1><a class="logo" href="../main.action"><img alt="잡코리아" src="image/h_logo.gif"></a>
+        <h1><a class="logo" href="../main.action"><img src="../image/404JOB.png" height="27" width="160" style="float: left;"></a></h1>
 
         <span class="bar">
 				<span class="title">
-					<img src="image/h_cc_schpwd.gif" alt="비밀번호 찾기">
+					&nbsp;&nbsp;<img src="image/h_cc_schpwd.gif" height = "25" alt="비밀번호 찾기">
 				</span>
 			  </span>
         <br><br>
