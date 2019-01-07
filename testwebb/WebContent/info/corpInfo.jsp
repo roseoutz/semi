@@ -374,14 +374,14 @@
 				<hr>
 				<p class="mbrBtnFunc">
 					<span class="mbrBtn mbrBtnModify_1">
-							<a onclick="send();" style="cursor:pointer;">
-								<span>
-									수정하기
-								</span>
-							</a>
-						</span>
+						<a onclick="send();" style="cursor:pointer;">
+							<span>
+								수정하기
+							</span>
+						</a>
+					</span>
 					<span class="mbrBtn mbrBtnCancel_1">
-						<button type="button" onclick="location.href='http://www.jobkorea.co.kr/Text_User/GG_Home.asp'">
+						<button type="button" onclick="location.href='http://localhost:8080/testwebb/corppostlist.action'">
 							<span>
 								취소
 							</span>

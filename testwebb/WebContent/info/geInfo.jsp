@@ -4,7 +4,6 @@
 <%
 	String session_id = (String) session.getAttribute("session_id");
 	String session_type = (String) session.getAttribute("session_type");
-	
 %>
 <!DOCTYPE html>
 <head>
@@ -58,7 +57,7 @@
 	<div id="container">
 		<div id="content">
 			<h1 class="skip">회원정보 수정</h1>
-			<form name="form" method="post" action="https://www.jobkorea.co.kr/Text_User/User_Info_Mng_Ok.asp">
+			<form action="updateGeInfo.action" id="geInfoForm" name="geInfoForm" method="post" action="https://www.jobkorea.co.kr/Text_User/User_Info_Mng_Ok.asp" onsubmit="return checkForm();">
 				<input type="hidden" name="M_Hand_Phone" id="M_Hand_Phone" value="">
 				<input type="hidden" name="M_Home_Phone" id="M_Home_Phone" value="<s:property value='resultClass.member_phone'/>">
 				<input type="hidden" name="R_No" id="R_No" value="">
@@ -93,7 +92,6 @@
 								<th scope="row" colspan="2"><span class="blank"></span> 이름 <img alt="필수입력사항" src="./info/resources/icon_b.gif"></th>
 								<td colspan="3">
 									<s:property value="resultClass.member_name"/>
-									${resultClass.member_name}
 									<input type="hidden" class="txtForm" id="M_Name" name="M_Name" size="12" maxlength="15" value="<s:property value="resultClass.member_name"/>">
 								</td>
 							</tr>
@@ -108,8 +106,7 @@
 									<div class="mbrHelpWrap">
 										<div class="mobile">
 											<label for="M_Hand_Phone1" class="blind">휴대폰</label>
-											<input type="text" name="member_phone" id="member_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext" onkeydown="handlerNum(this);" style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value='resultClass.member_phone'/>">
-											<s:property value='resultClass.member_phone'/> 
+											<input type="text" name="member_phone" id="member_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext"  style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value='resultClass.member_phone'/>">
 											<div style="left:403px; top:0px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
 												<div class="desc">
 													<p>휴대폰 번호를 입력해 주세요</p>
@@ -140,8 +137,11 @@
 				</div>
 				<hr>
 				<p class="mbrBtnFunc">
+				<!-- 
 					<span class="mbrBtn mbrBtnModify_1"><a onclick="send();" style="cursor:pointer;"><span>수정하기</span></a></span>
-					<span class="mbrBtn mbrBtnCancel_1"><button type="button" onclick="location.href='http://www.jobkorea.co.kr/Text_User/GG_Home.asp'"><span>취소</span></button></span>
+					 -->
+					 <span class="mbrBtn mbrBtnModify_1"><button type="submit"><span>수정하기</span></button></span>
+					<span class="mbrBtn mbrBtnCancel_1"><button type="button" onclick="location.href='http://localhost:8080/testwebb/mypage.action'"><span>취소</span></button></span>
 				</p>
 			</fieldset>
 		</form>

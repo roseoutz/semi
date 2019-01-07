@@ -30,7 +30,6 @@
 		<result property="cmember_date" column="cmember_date" />
 	</resultMap>
 
-
 	<resultMap id="CmemberDetailRes" class="CmemberDetail">
 		<result property="detail_cmember_id" column="detail_cmember_id" />
 		<result property="detail_em_num" column="detail_em_num" />
@@ -49,14 +48,12 @@
 		where cmember_id = #cmember_id#
 	</sql>
 
-	<select id="selectGeAll" parameterClass="String"
-		resultClass="member">
+	<select id="selectGeAll" parameterClass="String" resultClass="member">
 		select * from kh_member
 		where member_id = #member_id#
 	</select>
 
-	<select id="selectCorpAll" parameterClass="String"
-		resultClass="Cmember">
+	<select id="selectCorpAll" parameterClass="String" resultClass="Cmember">
 		select * from kh_cmember
 		<include refid="where-corp" />
 	</select>
@@ -69,9 +66,8 @@
 	<!-- 정보수정 쿼리 -->
 		<update id="updateGeInfo" parameterClass="member">
 			update kh_member
-			set
-			(member_phone=#member_phone#,member_email=#member_email#)
-			<include refid="where-ge" />
+			set	member_phone = #member_phone#, member_email = #member_email#
+			where member_id=#member_id#
 		</update>
 
 		<update id="updateCorpInfo" parameterClass="Cmember">

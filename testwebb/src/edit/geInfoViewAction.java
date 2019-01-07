@@ -42,7 +42,6 @@ public class geInfoViewAction extends ActionSupport implements SessionAware{
 	@Override
 	public void setSession(Map session) {
 		// TODO Auto-generated method stub
-		session_id = (String)session.get("session_id");
 		this.session = session;
 	}
 	

@@ -17,6 +17,38 @@ var EchoPN = "";
 
 <!-- DataStory Javascript Tracking  -->
 <script type="text/javascript" src="./info/resources/dslog.js" id="dslog_tag"></script>
+<script>
+	
+	function checkForm(){
+		var form = document.geInfoForm;
+		if(!form.member_phone.value){
+			alert("핸드폰 번호를 입력해 주세요.");
+			form.member_phone.focus();
+			return false;
+		}
+		if(!form.member_email.value){
+			alert("이메일을 입력해 주세요.");
+			form.member_email.focus();
+			return false;
+		}
+	}
+	
+	function checkForm2(){
+		var form = document.corpInfoForm;
+		if(!form.cmember_phone.value){
+			alert('핸드폰 번호를 입력해 주세요.');
+			form.cmember_phone.focus();
+			return false;
+		}
+		if(!form.cmember_email.value){
+			alert('이메일 주소를 입력해 주세요.');
+			form.cmember_email.focus();
+			return false;
+		}
+		if(!form.cmember_cname.value){}
+	}
+</script>
+
 <script type="text/javascript">
     //<!--
     window.dsValDic = {};
@@ -126,51 +158,6 @@ var EchoPN = "";
 			$("#M_Hand_Phone").val($("#M_Hand_Phone1").val() + "-" + $("#M_Hand_Phone2").val() + "-" + $("#M_Hand_Phone3").val());
 		}
 
-		// 전화번호 체크
-		if ($("#M_Home_Phone1").val() == "etc") {
-			if ($.trim($("#M_Home_Phone_Etc").val()) == "") {
-				CautionResultView(10, "전화번호를 입력해 주세요.");
-				$("#M_Home_Phone_Etc").focus();
-				return false;
-			}
-
-			$("#M_Home_Phone").val($("#M_Home_Phone_Etc").val());
-
-		} else {
-			if ($("#M_Home_Phone1").val() != "" || $.trim($("#M_Home_Phone2").val()) != "" || $.trim($("#M_Home_Phone3").val()) != "") {
-
-				if ($("#M_Home_Phone1").val() == "") {
-					CautionResultView(10, "전화번호를 입력해 주세요.");
-					$("#M_Home_Phone1").focus();
-					return false;
-				}
-
-				if ($.trim($("#M_Home_Phone2").val()) == "") {
-					CautionResultView(10, "전화번호를 입력해 주세요.");
-					$("#M_Home_Phone2").focus();
-					return false;
-				}
-				if ($("#M_Home_Phone2").val().length < 3 || check_num($("#M_Home_Phone2").val()) == false) {
-					CautionResultView(10, "전화번호를 정확히 입력해 주세요.");
-					$("#M_Home_Phone2").focus();
-					return false;
-				}
-
-				if ($.trim($("#M_Home_Phone3").val()) == "") {
-					CautionResultView(10, "전화번호를 입력해 주세요.");
-					$("#M_Home_Phone3").focus();
-					return false;
-				}
-				if ($("#M_Home_Phone3").val().length < 3 || check_num($("#M_Home_Phone3").val()) == false) {
-					CautionResultView(10, "전화번호를 정확히 입력해 주세요.");
-					$("#M_Home_Phone3").focus();
-					return false;
-				}
-
-				$("#M_Home_Phone").val($("#M_Home_Phone1").val() + "-" + $("#M_Home_Phone2").val() + "-" + $("#M_Home_Phone3").val());
-			}
-		}
-
 		// 이메일 체크
 		if ($.trim($("#Email_ID").val()) != "" || $.trim($("#Email_Addr_Text").val()) != "") {
 			var Email_ID = $.trim($("#Email_ID").val());
@@ -222,9 +209,6 @@ var EchoPN = "";
 			return false;
 		}
 
-		//입사지원 내역이 있는 경우 연락처 삭제 시 체크 (연락처 중 집전화 또는 휴대폰 또는 이메일만 공개하고 입사지원 한 경우)
-		
-
 		// 주소 체크
 		/*   // 주소 필수값 제거함.
 		if ($("#M_ZipCode").val() != "" || $.trim($("#M_Addr_Text").val()) != "" || ($.trim($("#M_Addr_Text1").val()) != "" && $("#M_Addr_Text1").val() != "상세주소를 입력해 주세요.")) {
@@ -268,13 +252,6 @@ var EchoPN = "";
 			}
 		});
 		return false;
-	}
-
-	function ReNameWinOpen(){
-			var url = '/Text/ReNameCertPop.asp?Mem_Type=GG&OEM_No=&ReNameCert=1';
-			var popupWindow = window.open( url, "ReNameWinOpen", "top=100, left=100, status=0, width=430, height=400" );
-			popupWindow.focus();
-			return;
 	}
 
 //-->

@@ -132,6 +132,10 @@
 		<action name="geInfo" class="edit.geInfoViewAction">
 			<result type="tiles">geInfo</result>
 		</action>
+		
+		<action name="updateGeInfo" class="edit.geInfoEditAction">
+			<result type="tiles">mypage</result>
+		</action>
 	</package>
 	
 	<package name="corpInfo" extends="struts-default, tiles-default">
