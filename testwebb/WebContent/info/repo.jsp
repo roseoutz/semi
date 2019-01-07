@@ -17,37 +17,6 @@ var EchoPN = "";
 
 <!-- DataStory Javascript Tracking  -->
 <script type="text/javascript" src="./info/resources/dslog.js" id="dslog_tag"></script>
-<script>
-	
-	function checkForm(){
-		var form = document.geInfoForm;
-		if(!form.member_phone.value){
-			alert("핸드폰 번호를 입력해 주세요.");
-			form.member_phone.focus();
-			return false;
-		}
-		if(!form.member_email.value){
-			alert("이메일을 입력해 주세요.");
-			form.member_email.focus();
-			return false;
-		}
-	}
-	
-	function checkForm2(){
-		var form = document.corpInfoForm;
-		if(!form.cmember_phone.value){
-			alert('핸드폰 번호를 입력해 주세요.');
-			form.cmember_phone.focus();
-			return false;
-		}
-		if(!form.cmember_email.value){
-			alert('이메일 주소를 입력해 주세요.');
-			form.cmember_email.focus();
-			return false;
-		}
-		if(!form.cmember_cname.value){}
-	}
-</script>
 
 <script type="text/javascript">
     //<!--

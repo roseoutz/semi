@@ -13,8 +13,9 @@ public class khCMemberVO {
 	private String cmember_cname; 
 	private String cmember_addr;
 	private String cmember_ceo;
+	private String cmember_pdate;
 	private Date cmember_date;
-
+	
 	public String getCmember_cno() {
 		return cmember_cno;
 	}
@@ -101,6 +102,14 @@ public class khCMemberVO {
 
 	public void setCmember_date(Date cmember_date) {
 		this.cmember_date = cmember_date;
+	}
+
+	public String getCmember_pdate() {
+		return cmember_pdate;
+	}
+
+	public void setCmember_pdate(String cmember_pdate) {
+		this.cmember_pdate = cmember_pdate;
 	}
 
 	

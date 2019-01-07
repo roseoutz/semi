@@ -57,7 +57,7 @@
 	<div id="container">
 		<div id="content">
 			<h1 class="skip">회원정보 수정</h1>
-			<form action="updateGeInfo.action" id="geInfoForm" name="geInfoForm" method="post" action="https://www.jobkorea.co.kr/Text_User/User_Info_Mng_Ok.asp" onsubmit="return checkForm();">
+			<form action="updateGeInfo.action" id="geInfoForm" name="geInfoForm" method="post" >
 				<input type="hidden" name="M_Hand_Phone" id="M_Hand_Phone" value="">
 				<input type="hidden" name="M_Home_Phone" id="M_Home_Phone" value="<s:property value='resultClass.member_phone'/>">
 				<input type="hidden" name="R_No" id="R_No" value="">
@@ -84,7 +84,7 @@
 								<th scope="row" colspan="2"><label for="lb_id"><span class="blank"></span> 아이디</label></th>
 								<td>
 									<div class="social_row"><strong>${session_id}</strong>
-									<input type="hidden" name="session_id" value="<%=session_id%><%=session_type%>"/> 
+									<input type="hidden" name="session_id" value="<%=session_id%>"/> 
 									</div>
 								</td>
 							</tr>
@@ -121,7 +121,6 @@
 								<th scope="row"><label for="Email_ID">이메일</label></th>
 								<td>
 									<div class="mbrHelpWrap">
-										<input type="hidden" name="M_Email" id="M_Email" value="">
 										<input type="text" name="member_email" id="member_email" maxlength="50" style="width:350px;" class="ipText" value="<s:property value='resultClass.member_email'/>">
 										<div style="left:455px; display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult2" name="CautionResult">
 											<div class="desc">

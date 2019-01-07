@@ -4,6 +4,8 @@ import java.io.Reader;
 import java.util.Date;
 import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
@@ -12,7 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import VO.khCMemberDetailVO;
 import VO.khCMemberVO;
 
-public class corpInfoEditAction extends ActionSupport {
+public class corpInfoEditAction extends ActionSupport implements SessionAware {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 
@@ -22,21 +24,21 @@ public class corpInfoEditAction extends ActionSupport {
 	private Map session;
 	private String session_id;
 
-	private String cmember_id;
 	private String cmember_phone;
 	private String cmember_email;
 	private String cmember_type;
 	private String cmember_cname;
 	private String cmember_addr;
 	private String cmember_ceo;
-	private Date cmember_date;
-
+	private String cmember_pdate;
+	
 	private String detail_em_num;
 	private String detail_capital;
 	private String detail_sales;
 	private String detail_pay;
 	private String detail_logo;
 	private String detail_url;
+	private String detail_dept;
 
 	public corpInfoEditAction() throws Exception {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -50,23 +52,26 @@ public class corpInfoEditAction extends ActionSupport {
 		
 		session_id = (String) session.get("session_id");
 		
+		paramClass.setCmember_id(session_id);
 		paramClass.setCmember_email(getCmember_email());
 		paramClass.setCmember_phone(getCmember_phone());
 		paramClass.setCmember_type(getCmember_type());
 		paramClass.setCmember_addr(getCmember_addr());
 		paramClass.setCmember_ceo(getCmember_ceo());
 		paramClass.setCmember_cname(getCmember_cname());
-		paramClass.setCmember_date(getCmember_date());
+		paramClass.setCmember_pdate(getCmember_pdate());
 		
+		dParamClass.setDetail_cmember_id(session_id);
 		dParamClass.setDetail_em_num(getDetail_em_num());
 		dParamClass.setDetail_pay(getDetail_pay());
 		dParamClass.setDetail_sales(getDetail_sales());
 		dParamClass.setDetail_url(getDetail_url());
 		dParamClass.setDetail_capital(getDetail_capital());
 		dParamClass.setDetail_logo(getDetail_logo());
+		dParamClass.setDetail_dept(getDetail_dept());
 		
-		sqlMapper.update("updateCorpInfo",session_id);
-		
+		sqlMapper.update("updateCorpInfo",paramClass);
+		sqlMapper.update("updateCorpDetailInfo",dParamClass);
 		return SUCCESS;
 	}
 
@@ -90,21 +95,6 @@ public class corpInfoEditAction extends ActionSupport {
 		this.session = session;
 	}
 
-	public String getSession_id() {
-		return session_id;
-	}
-
-	public void setSession_id(String session_id) {
-		this.session_id = session_id;
-	}
-
-	public String getCmember_id() {
-		return cmember_id;
-	}
-
-	public void setCmember_id(String cmember_id) {
-		this.cmember_id = cmember_id;
-	}
 
 	public String getCmember_phone() {
 		return cmember_phone;
@@ -154,14 +144,6 @@ public class corpInfoEditAction extends ActionSupport {
 		this.cmember_ceo = cmember_ceo;
 	}
 
-	public Date getCmember_date() {
-		return cmember_date;
-	}
-
-	public void setCmember_date(Date cmember_date) {
-		this.cmember_date = cmember_date;
-	}
-
 	public String getDetail_em_num() {
 		return detail_em_num;
 	}
@@ -208,6 +190,22 @@ public class corpInfoEditAction extends ActionSupport {
 
 	public void setDetail_url(String detail_url) {
 		this.detail_url = detail_url;
+	}
+
+	public String getDetail_dept() {
+		return detail_dept;
+	}
+
+	public void setDetail_dept(String detail_dept) {
+		this.detail_dept = detail_dept;
+	}
+
+	public String getCmember_pdate() {
+		return cmember_pdate;
+	}
+
+	public void setCmember_pdate(String cmember_pdate) {
+		this.cmember_pdate = cmember_pdate;
 	}
 
 }

@@ -8,6 +8,7 @@ public class khCMemberDetailVO {
 	private String detail_pay; 
 	private String detail_url; 
 	private String detail_logo;
+	private String detail_dept;
 
 	public String getDetail_cmember_id() {
 		return detail_cmember_id;
@@ -64,5 +65,14 @@ public class khCMemberDetailVO {
 	public void setDetail_logo(String detail_logo) {
 		this.detail_logo = detail_logo;
 	}
+
+	public String getDetail_dept() {
+		return detail_dept;
+	}
+
+	public void setDetail_dept(String detail_dept) {
+		this.detail_dept = detail_dept;
+	}
+
 	
 }

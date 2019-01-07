@@ -57,9 +57,9 @@
 	<div id="container">
 		<div id="content">
 			<h1 class="skip">회원정보 수정</h1>
-			<form name="form" method="post" action="https://www.jobkorea.co.kr/Text_User/User_Info_Mng_Ok.asp">
+			<form action="updateCorpInfo.action" id="corpInfoForm" name="corpInfoForm" method="post">
 				<input type="hidden" name="M_Hand_Phone" id="M_Hand_Phone" value="">
-				<input type="hidden" name="M_Home_Phone" id="M_Home_Phone" value="<s:property value='resultClass.member_phone'/>">
+				<input type="hidden" name="M_Home_Phone" id="M_Home_Phone" value="">
 				<input type="hidden" name="R_No" id="R_No" value="">
 				<input type="hidden" name="Alimy_Chk" id="Alimy_Chk" value="0">
 				<input type="hidden" name="GoodJob_Mailing_Stat" id="GoodJob_Mailing_Stat" value="">
@@ -96,7 +96,7 @@
 											<strong>
 												${session_id}
 											</strong>
-											<input type="hidden" name="session_id" value=""/> 
+											<input type="hidden" name="session_id" value="<%=session_id%>"/> 
 										</div>
 									</td>
 								</tr>
@@ -107,8 +107,8 @@
 										<img alt="필수입력사항" src="./info/resources/icon_b.gif">
 									</th>
 									<td colspan="3">
-										<input type="hidden" class="txtForm" id="M_Name" name="M_Name" size="12" maxlength="15" value="">
 										<s:property value="resultClass.cmember_cno"/>
+										<input type="hidden" class="txtForm" id="cmember_cno" name="cmember_cno" size="12" maxlength="15" value="<s:property value="resultClass.cmember_cno"/>">
 									</td>
 								</tr>
 								<tr>
@@ -118,8 +118,8 @@
 									<img alt="필수입력사항" src="./info/resources/icon_b.gif">
 								</th>
 								<td colspan="3">
-									<input type="hidden" class="txtForm" id="M_Name" name="M_Name" size="12" maxlength="15" value="">
 									<s:property value="resultClass.cmember_name"/>
+									<input type="hidden" class="txtForm" id="cmember_name" name="cmember_name" size="12" maxlength="15" value="<s:property value="resultClass.cmember_name"/>">
 								</td>
 							</tr>
 							<tr>
@@ -135,11 +135,10 @@
 											<label for="M_Hand_Phone1" class="blind">
 												휴대폰
 											</label>
-											<input type="text" name="member_phone" id="member_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext" onkeydown="handlerNum(this);" style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="resultClass.cmember_phone"/>">
-											
+											<input type="text" name="cmember_phone" id="cmember_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext"   style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="resultClass.cmember_phone"/>">
 											<div style="left:403px; top:0px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
 												<div class="desc">
-													<p>휴대폰 번호를 입력해 주세요</p>
+													<p>휴대폰 번호(***-****-****)를 입력해 주세요</p>
 												</div>
 												<span class="arrow"></span>
 											</div>
@@ -155,9 +154,7 @@
 								</th>
 								<td>
 									<div class="mbrHelpWrap">
-										<input type="hidden" name="M_Email" id="M_Email" value="">
-										<input type="text" name="member_email" id="member_email" maxlength="50" style="width:350px;" class="ipText" value="<s:property value="resultClass.cmember_email"/>">
-										
+										<input type="text" name="cmember_email" id="cmember_email" maxlength="50" style="width:350px;" class="ipText" value="<s:property value="resultClass.cmember_email"/>">
 										<div style="left:455px; display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult2" name="CautionResult">
 											<div class="desc">
 												<p>이메일을 입력해 주세요</p>
@@ -178,8 +175,8 @@
 								<td>
 									<div class="mbrHelpWrap">
 										<div class="mobile">
-											<label for="M_Hand_Phone1" class="blind">휴대폰</label>
-											<select>
+											<label for="M_Hand_Phone1" class="blind">기업구분</label>
+											<select name="cmember_type" id="cmember_type" >
 												<option value="대기업">대기업</option>
 												<option value="중견기업">중견기업</option>
 												<option value="중소기업">중소기업</option>
@@ -196,7 +193,7 @@
 									<div class="mbrHelpWrap">
 										<div class="mobile">
 											<label for="M_Hand_Phone1" class="blind">기업명</label>
-											<input type="text" name="member_phone" id="member_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext" onkeydown="handlerNum(this);" style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value='resultClass.cmember_cname'/>">
+											<input type="text" name="cmember_cname" id="cmember_cname" maxlength="40" title="기업명" class="ipText ipTel ipNum devNoPh moveNext"   style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value='resultClass.cmember_cname'/>">
 											<div style="left:403px; top:0px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
 												<div class="desc">
 													<p>기업명을 입력해 주세요</p>
@@ -215,7 +212,7 @@
 									<div class="mbrHelpWrap">
 										<div class="mobile">
 											<label for="M_Hand_Phone1" class="blind">주소</label>
-											<input type="text" name="member_phone" id="member_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext" onkeydown="handlerNum(this);" style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value='resultClass.cmember_addr'/>">
+											<input type="text" name="cmember_addr" id="cmember_addr" maxlength="100" title="주소" class="ipText ipTel ipNum devNoPh moveNext"   style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value='resultClass.cmember_addr'/>">
 											<div style="left:403px; top:0px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
 												<div class="desc">
 													<p>주소를 입력해 주세요</p>
@@ -234,8 +231,7 @@
 									<div class="mbrHelpWrap">
 										<div class="mobile">
 											<label for="M_Hand_Phone1" class="blind">CEO</label>
-											<input type="text" name="member_phone" id="member_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext" onkeydown="handlerNum(this);" style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="resultClass.cmember_ceo"/> ">
-											
+											<input type="text" name="cmember_ceo" id="cmember_ceo" maxlength="13" title="CEO" class="ipText ipTel ipNum devNoPh moveNext"   style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="resultClass.cmember_ceo"/> ">
 											<div style="left:403px; top:0px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
 												<div class="desc">
 													<p>기업 대표를 입력해 주세요</p>
@@ -254,11 +250,10 @@
 									<div class="mbrHelpWrap">
 										<div class="mobile">
 											<label for="M_Hand_Phone1" class="blind">설립일</label>
-											<input type="text" name="member_phone" id="member_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext" onkeydown="handlerNum(this);" style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="resultClass.cmember_date"/>">
-											 
+											<input type="text" name="cmember_pdate" id="cmember_pdate" maxlength="13" title="설립일" class="ipText ipTel ipNum devNoPh moveNext"   style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="resultClass.cmember_pdate"/>">
 											<div style="left:403px; top:0px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
 												<div class="desc">
-													<p>설립일을 입력해 주세요</p>
+													<p>설립일("YYYY/MM/DD")을 입력해 주세요</p>
 												</div>
 												<span class="arrow"></span>
 											</div>
@@ -270,22 +265,45 @@
 								<td colspan=4>
 							</tr>
 							<tr>
-								<th class="contectInfo" rowspan="5" style="border-right:1px solid #e5e5e5;">
+								<th class="contectInfo" rowspan="8" style="border-right:1px solid #e5e5e5;">
 									<span class="blank"></span>
 										추가 정보
 								</th>
+							</tr>
+							<tr>
+								<th scope="row">
+									사업 분야
+								</th>
+								<td>
+									<div class="mbrHelpWrap">
+										<div class="mobile">
+											<label for="M_Hand_Phone1" class="blind">사업 분야</label>
+											<input type="text" name="detail_dept" id="detail_dept" maxlength="13" title="사업분야" class="ipText ipTel ipNum devNoPh moveNext"   style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="dResultClass.detail_dept"/>">
+											<div style="left:403px; top:0px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
+												<div class="desc">
+													<p>사업 분야를 입력해 주세요</p>
+												</div>
+												<span class="arrow"></span>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
 								<th scope="row">
 									사원 수
 								</th>
 								<td>
 									<div class="mbrHelpWrap">
 										<div class="mobile">
-											<label for="M_Hand_Phone1" class="blind">휴대폰</label>
-											<select>
-												<option value="대기업">대기업</option>
-												<option value="중견기업">중견기업</option>
-												<option value="중소기업">중소기업</option>
-											</select>
+											<label for="M_Hand_Phone1" class="blind">사원 수</label>
+											<input type="text" name="detail_em_num" id="detail_em_num" maxlength="13" title="사원 수" class="ipText ipTel ipNum devNoPh moveNext"   style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value='dResultClass.detail_em_num'/>">
+											<div style="left:403px; top:0px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
+												<div class="desc">
+													<p>사원수 입력해 주세요</p>
+												</div>
+												<span class="arrow"></span>를
+											</div>
 										</div>
 									</div>
 								</td>
@@ -297,11 +315,11 @@
 								<td>
 									<div class="mbrHelpWrap">
 										<div class="mobile">
-											<label for="M_Hand_Phone1" class="blind">기업명</label>
-											<input type="text" name="member_phone" id="member_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext" onkeydown="handlerNum(this);" style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="dResultClass.detail_capital"/>">
+											<label for="M_Hand_Phone1" class="blind">자본</label>
+											<input type="text" name="detail_capital" id="detail_capital" maxlength="13" title="자본" class="ipText ipTel ipNum devNoPh moveNext"   style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="dResultClass.detail_capital"/>">
 											<div style="left:403px; top:0px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
 												<div class="desc">
-													<p>자본을 입력해 주세요</p>
+													<p>자본(단위 : 억)을 입력해 주세요</p>
 												</div>
 												<span class="arrow"></span>
 											</div>
@@ -316,11 +334,11 @@
 								<td>
 									<div class="mbrHelpWrap">
 										<div class="mobile">
-											<label for="M_Hand_Phone1" class="blind">매</label>
-											<input type="text" name="member_phone" id="member_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext" onkeydown="handlerNum(this);" style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="dResultClass.detail_sales"/>">
+											<label for="M_Hand_Phone1" class="blind">매출</label>
+											<input type="text" name="detail_sales" id="detail_sales" maxlength="13" title="매출" class="ipText ipTel ipNum devNoPh moveNext"   style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="dResultClass.detail_sales"/>">
 											<div style="left:403px; top:0px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
 												<div class="desc">
-													<p>매출을 입력해 주세요</p>
+													<p>매출(단위 : 억)을 입력해 주세요</p>
 												</div>
 												<span class="arrow"></span>
 											</div>
@@ -335,11 +353,31 @@
 								<td>
 									<div class="mbrHelpWrap">
 										<div class="mobile">
-											<label for="M_Hand_Phone1" class="blind">평균연</label>
-											<input type="text" name="membe출r_phone" id="member_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext" onkeydown="handlerNum(this);" style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="dResultClass.detail_pay"/>">
+											<label for="M_Hand_Phone1" class="blind">평균연봉</label>
+											<input type="text" name="detail_pay" id="detail_pay" maxlength="13" title="평균 연" class="ipText ipTel ipNum devNoPh moveNext"   style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="dResultClass.detail_pay"/>">
 											<div style="left:403px; top:0px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
 												<div class="desc">
 													<p>평균 연봉을 입력해 주세요</p>
+												</div>지
+												<span class="arrow"></span>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									기업 URL
+								</th>
+								<td>
+									<div class="mbrHelpWrap">
+										<div class="mobile">
+											<label for="M_Hand_Phone1" class="blind">URL</label>
+											<input type="text" name="detail_url" id="detail_url" maxlength="400" title="기업 홈페이" class="ipText ipTel ipNum devNoPh moveNext" style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="dResultClass.detail_url"/>">
+											 
+											<div style="left:403px; top:0px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
+												<div class="desc">
+													<p>기업 홈페이지 URL을 입력해 주세요</p>
 												</div>
 												<span class="arrow"></span>
 											</div>
@@ -349,17 +387,16 @@
 							</tr>
 							<tr>
 								<th scope="row">
-									기업 홈페이지
+									기업 로고
 								</th>
 								<td>
 									<div class="mbrHelpWrap">
 										<div class="mobile">
-											<label for="M_Hand_Phone1" class="blind">URL</label>
-											<input type="text" name="member_phone" id="member_phone" maxlength="13" title="휴대폰번호" class="ipText ipTel ipNum devNoPh moveNext" onkeydown="handlerNum(this);" style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="dResultClass.detail_url"/>">
-											 
+											<label for="M_Hand_Phone1" class="blind">Logo URL</label>
+											<input type="text" name="detail_logo" id="detail_logo" maxlength="400" title="기업 로고" class="ipText ipTel ipNum devNoPh moveNext" style="width:350px; ime-mode:disabled; float:left;"  value="<s:property value="dResultClass.detail_logo"/>">
 											<div style="left:403px; top:0px;display:none;" class="mbrTplLayer mbrTplLayer_1 mbrLayerHelp" id="CautionResult1" name="CautionResult">
 												<div class="desc">
-													<p>기업 홈페이지 URL을 입력해 주세요</p>
+													<p>기업 로고 URL을 입력해 주세요</p>
 												</div>
 												<span class="arrow"></span>
 											</div>
@@ -374,11 +411,11 @@
 				<hr>
 				<p class="mbrBtnFunc">
 					<span class="mbrBtn mbrBtnModify_1">
-						<a onclick="send();" style="cursor:pointer;">
+						<button type="submit">
 							<span>
 								수정하기
 							</span>
-						</a>
+						</button>
 					</span>
 					<span class="mbrBtn mbrBtnCancel_1">
 						<button type="button" onclick="location.href='http://localhost:8080/testwebb/corppostlist.action'">

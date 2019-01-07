@@ -142,5 +142,9 @@
 		<action name="corpInfo" class="edit.corpInfoViewAction">
 			<result type="tiles">corpInfo</result>
 		</action>
+		
+		<action name="updateCorpInfo" class="edit.corpInfoEditAction">
+			<result type="tiles">corppostlist</result>
+		</action>		
 	</package>
 </struts>

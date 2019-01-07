@@ -62,20 +62,32 @@
 		select * from kh_cmember_detail
 		where detail_cmember_id = #detail_cmember_id#
 	</select>
-	
-	<!-- 정보수정 쿼리 -->
-		<update id="updateGeInfo" parameterClass="member">
-			update kh_member
-			set	member_phone = #member_phone#, member_email = #member_email#
-			where member_id=#member_id#
-		</update>
 
-		<update id="updateCorpInfo" parameterClass="Cmember">
-			update kh_cmember
-			set
-			(cmember_phone=#cmember_phone#,cmember_email=#cmember_email#,cmember_type=#cmember_type#,
-			cmember_cname=#cmember_cname#,cmember_addr=#cmember_addr#,cmember_ceo=#cmember_ceo#,cmember_date=#cmember_date#)
-			<include refid="where-corp" />
-		</update>
+	<!-- 정보수정 쿼리 -->
+	<update id="updateGeInfo" parameterClass="member">
+		update kh_member
+		set member_phone = #member_phone#, member_email = #member_email#
+		where member_id=#member_id#
+	</update>
+
+	<update id="updateCorpInfo" parameterClass="Cmember">
+		update kh_cmember
+		set
+		cmember_phone = #cmember_phone#, cmember_email = #cmember_email#, cmember_type =
+		#cmember_type#,
+		cmember_cname = #cmember_cname#, cmember_addr = #cmember_addr#, cmember_ceo =
+		#cmember_ceo#, cmember_pdate = #cmember_pdate#
+		where cmember_id = #cmember_id#
+	</update>
+
+	<update id="updateCorpDetailInfo" parameterClass="CmemberDetail">
+		update kh_cmember_detail
+		set
+		detail_em_num = #detail_em_num#, detail_capital = #detail_capital#, detail_pay =
+		#detail_pay#,
+		detail_url = #detail_url#, detail_sales = #detail_sales#, detail_logo =
+		#detail_logo#, detail_dept = #detail_dept#
+		where detail_cmember_id = #detail_cmember_id#
+	</update>
 
 </sqlMap>
