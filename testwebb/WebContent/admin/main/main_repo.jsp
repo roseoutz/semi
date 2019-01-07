@@ -1,23 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <style>
-		.btn {
-			width:93px;
-			height:50px;
-			padding: 10x 10px;
-			margin: 1px;
-			border: none;
-			color: black;
-			text-align: center;
-			text-decoration: none;
-			font-size: 15px;
-			display: inline-block;
-			cursor: pointer;
-			-webkit-transition-duration: 0.4s;
-			transition-duration: 0.4s;
+
+<link rel="SHORTCUT ICON" href="http://www.jobkorea.co.kr/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="https://i.jobkorea.kr/content/css/ver_1/login/login.css?201811151000">
+<script type="text/javascript" src="admin/main/scripts/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="admin/main/scripts/JK_Login.js?v20190103"></script>
+
+<style>
+	.secLogin {
+		position : absolute;
+		top : 150px;
+		left : 150px;
+ 		text-align: center;
+	
+	}
+	.logWrap {
+		 display: inline-block;
+	}
+	.logo {
+		position : absolute;
+		top : 80px;
+		left : 150px;
+	}
+</style>
+<script>
+	function checkForm(){
+		var frm = document.form;
+		if(!frm.admin_id.value){
+			alert("아이디를 입력해주세요.");
+			frm.admin_id.focus();
+			return false;
 		}
-		.btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover {
-			background-color: #EAEAEA;
-			color: white;
+		if(!frm.admin_pass.value){
+			alert("비밀번호를 입력해주세요.");
+			frm.admin_pass.focus();
+			return false;
 		}
-	</style>
+	}
+</script>

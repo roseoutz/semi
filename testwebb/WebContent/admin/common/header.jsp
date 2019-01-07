@@ -12,7 +12,7 @@
 			<!-- // headInner -->
 			<div class="headInner">
 				<h1 class="404Logo">
-					<a href="admin_main.action"><img src="./image/404JOB.png" height="39" width="160" style="float: left;">
+					<a href="memberlistGen.action"><img src="./image/404JOB.png" height="39" width="160" style="float: left;">
 					</a>
 				</h1>
 				<!-- // search -->
