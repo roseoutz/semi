@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+	<typeAlias alias="resume" type="VO.khResumeVO"/>
+	<typeAlias alias="member" type="VO.khMemberVO"/>
+	<typeAlias alias="apply" type="VO.khApplyHrVO"/>
+	
+	<resultMap class="resume" id="resumeRes">
+		<result property="resume_no" column="resume_no"/>
+		<result property="resume_m_id" column="resume_m_id"/>
+		<result property="resume_subject" column="resume_subject"/>
+		<result property="resume_birth" column="resume_birth"/>
+		<result property="resume_sex" column="resume_sex"/>
+		<result property="resume_addr" column="resume_addr"/>
+	</resultMap>
+	
+	<resultMap class="member" id="memberRes">
+		<result property="member_id" column="member_id"/>
+		<result property="member_pass" column="member_pass"/>
+		<result property="member_phone" column="member_phone"/>
+		<result property="member_name" column="member_name"/>
+	</resultMap>
+	
+	<resultMap class="apply" id="applyRes">
+		<result property="apply_no" column="apply_no"/>
+		<result property="apply_c_id" column="apply_c_id"/>
+		<result property="apply_m_id" column="apply_m_id"/>
+	</resultMap>
+	
+	<!-- 
+		
+		select resume_subject, member_name
+		from kh_resume, kh_member
+		where resume_m_id = member_id AND resume_m_id = (select apply_m_id 
+																from kh_apply_hr
+																where apply_c_id = #session_id#)
+	 -->
+	 
+	 
+</sqlMap>

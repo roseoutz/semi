@@ -13,10 +13,8 @@
 							<li class="on"><a href="#">이력서 리스트</a></li>
 						</ul>
 					</div>
-
 					<!-- 스마트매치 -->
 					<h2 class="skip">이력서 리스트</h2>
-
 					<div class="mtuList boothList smartMatchList" id="smartMatch">
 						<ul>
 							<li>
@@ -28,21 +26,17 @@
 										<a href="#" target="_blank" class="giread"></dd>
 											<dl>
 												<dt>최종 수정일 :</dt>
-
 												<dd>2018-12-18 17:40</dd>
 											</dl> </a>
 									</div>
 								</div>
 								<div class="col btnCol">
-
-
-									<button type="button"
-										class="tplBtn tplBtn_1 tplBtnOrg mtuBtn_2 mtuBtnOrg devBtnPassDirect gireadNoMove">
+									<button type="button" class="tplBtn tplBtn_1 tplBtnOrg mtuBtn_2 mtuBtnOrg devBtnPassDirect gireadNoMove">
 										<span>수정하기</span>
 									</button>
 								</div>
 							</li>
-<li>
+							<li>
 								<div class="col infoCol">
 									<div class="company">
 										<a href="#" target="_blank"><h2>이력서이력서이력서</h2></a>
@@ -51,21 +45,16 @@
 										<a href="#" target="_blank" class="giread"></dd>
 											<dl>
 												<dt>최종 수정일 :</dt>
-
 												<dd>2018-12-18 17:40</dd>
 											</dl> </a>
 									</div>
 								</div>
 								<div class="col btnCol">
-
-
-									<button type="button"
-										class="tplBtn tplBtn_1 tplBtnOrg mtuBtn_2 mtuBtnOrg devBtnPassDirect gireadNoMove">
+									<button type="button" class="tplBtn tplBtn_1 tplBtnOrg mtuBtn_2 mtuBtnOrg devBtnPassDirect gireadNoMove">
 										<span>수정하기</span>
 									</button>
 								</div>
 							</li>
-
 						</ul>
 					</div>
 					<div class="active">
@@ -77,8 +66,7 @@
 						<h2 class="skip">주요활동내역</h2>
 						<div class="mtuList boothList smartMatchList" id="smartMatch">
 							<ul>
-								<li
-									data-source="{&quot;memberId&quot;:&quot;rocketdivez&quot;,&quot;gno&quot;:27096719,&quot;giNo&quot;:31265930,&quot;companyMemberType&quot;:&quot;C&quot;,&quot;headhunterId&quot;:null,&quot;oemCode&quot;:&quot;C1&quot;, &quot;sc&quot;:&quot;10&quot;}">
+								<li data-source="{&quot;memberId&quot;:&quot;rocketdivez&quot;,&quot;gno&quot;:27096719,&quot;giNo&quot;:31265930,&quot;companyMemberType&quot;:&quot;C&quot;,&quot;headhunterId&quot;:null,&quot;oemCode&quot;:&quot;C1&quot;, &quot;sc&quot;:&quot;10&quot;}">
 									<div class="col infoCol">
 										<div class="company">
 											<a href="#" target="_blank">㈜가연아이앤씨</a>
@@ -141,10 +129,8 @@
 				<div class="lnbGroup">
 					<h2 class="lnbTit">이력서 관리</h2>
 					<ul>
-						<li><a href="rswrite.action"
-							target="_blank">이력서 등록</a></li>
-						<li><a href="rslist.action">이력서
-								관리</a></li>
+						<li><a href="rswrite.action" target="_blank">이력서 등록</a></li>
+						<li><a href="rslist.action">이력서 관리</a></li>
 					</ul>
 				</div>
 				<div class="lnbGroup">
@@ -159,14 +145,18 @@
 						</s:else>
 						</li>
 						<s:if test="#session.session_type=='기업'">
-							<li><a
-								href="javascript:open_win_noresizable('checkForm.action?cmember_id=<s:property value="#session.session_id"/>&member_type=corp')"
-								class="">회원탈퇴</a></li>
+							<li>
+								<a href="javascript:open_win_noresizable('checkForm.action?cmember_id=<s:property value="#session.session_id"/>&member_type=corp')" 	class="">
+									회원탈퇴
+								</a>
+							</li>
 						</s:if>
 						<s:else>
-							<li><a
-								href="javascript:open_win_noresizable('checkForm.action?member_id=<s:property value="#session.session_id"/>&member_type=gen')"
-								class="">회원탈퇴</a></li>
+							<li>
+								<a href="javascript:open_win_noresizable('checkForm.action?member_id=<s:property value="#session.session_id"/>&member_type=gen')" class="">
+									회원탈퇴
+								</a>
+							</li>
 						</s:else>
 					</ul>
 				</div>
@@ -174,5 +164,4 @@
 			<hr>
 		</section>
 	</div>
-
 </body>
