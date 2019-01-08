@@ -208,4 +208,13 @@
  		<put-attribute name="footer" value="/info/footer.jsp"/>
  		<put-attribute name="body" value="/info/corpInfo.jsp"/>
  	</definition>
+ 	
+ 	<definition name="applyList" template="/layout.jsp">
+ 		<put-attribute name="repo" value="/hj/corppost_repo.jsp"/>
+		<put-attribute name="headerrepo" value="/common/header_repo.jsp"/>
+		<put-attribute name="header" value="/common/header.jsp"/>
+		<put-attribute name="footer" value="/common/footer.jsp"/> 
+ 		<put-attribute name="body" value="/applylist/apply_mgmt.jsp"/> 
+ 	</definition>
+ 	
 </tiles-definitions>

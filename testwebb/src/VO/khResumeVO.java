@@ -3,11 +3,13 @@ package VO;
 import java.util.Date;
 
 public class khResumeVO {
-	private int resume_no; // 식별자
-	private String resume_m_id; // 일반회원id
-	private String resume_addr; // 주소
-	private String resume_subject; // 제목
-	private Date resume_date; // 이력서 작성일
+	private int resume_no;
+	private String resume_m_id;
+	private String resume_addr;
+	private String resume_subject;
+	private Date resume_date;
+	private String resume_birth;
+	private String resume_sex;
 
 	public int getResume_no() {
 		return resume_no;
@@ -47,6 +49,22 @@ public class khResumeVO {
 
 	public void setResume_date(Date resume_date) {
 		this.resume_date = resume_date;
+	}
+
+	public String getResume_birth() {
+		return resume_birth;
+	}
+
+	public void setResume_birth(String resume_birth) {
+		this.resume_birth = resume_birth;
+	}
+
+	public String getResume_sex() {
+		return resume_sex;
+	}
+
+	public void setResume_sex(String resume_sex) {
+		this.resume_sex = resume_sex;
 	}
 
 }

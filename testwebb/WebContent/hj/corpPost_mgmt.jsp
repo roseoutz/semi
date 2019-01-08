@@ -17,7 +17,7 @@
 							<li class="hdTab"><a
 								href="corppostlist.action">공고 관리</a></li>
 							<li class="on"><a
-								href="corphr.action">지원자 관리</a></li>
+								href="applyList.action">지원자 관리</a></li>
 						</ul>
 					</div>
 

@@ -147,4 +147,14 @@
 			<result type="tiles">corppostlist</result>
 		</action>		
 	</package>
+	
+	<package name="applyList" extends="struts-default, tiles-default">
+		<action name="applyList" class="applyManage.applyManageViewAction">
+			<result type="tiles">applyList</result>
+		</action>
+		
+		<action name="deleteApplyList" class="applyManage.applyManageDeleteAction">
+			<result type="tiles">applyList</result>
+		</action>
+	</package>
 </struts>

@@ -132,11 +132,29 @@
 		<action name="geInfo" class="edit.geInfoViewAction">
 			<result type="tiles">geInfo</result>
 		</action>
+		
+		<action name="updateGeInfo" class="edit.geInfoEditAction">
+			<result type="tiles">mypage</result>
+		</action>
 	</package>
 	
 	<package name="corpInfo" extends="struts-default, tiles-default">
 		<action name="corpInfo" class="edit.corpInfoViewAction">
 			<result type="tiles">corpInfo</result>
+		</action>
+		
+		<action name="updateCorpInfo" class="edit.corpInfoEditAction">
+			<result type="tiles">corppostlist</result>
+		</action>		
+	</package>
+	
+	<package name="applyList" extends="struts-default, tiles-default">
+		<action name="applyList" class="applyManage.applyManageViewAction">
+			<result type="tiles">applyList</result>
+		</action>
+		
+		<action name="deleteApplyList" class="applyManage.applyManageDeleteAction">
+			<result type="tiles">applyList</result>
 		</action>
 	</package>
 </struts>

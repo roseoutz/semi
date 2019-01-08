@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+	<typeAlias alias="apply" type="VO.khApplyHrVO"/>
+	<typeAlias alias="applyList" type="VO.khApplyViewVO"/>
+	
+	<resultMap class="apply" id="applyRes">
+		<result property="apply_no" column="apply_no"/>
+		<result property="apply_c_id" column="apply_c_id"/>
+		<result property="apply_m_id" column="apply_m_id"/>
+	</resultMap>
+	 
+ 	<resultMap class="applyList" id="applyListRes">
+	 	<result property="resume_m_id" column="resume_m_id"/>
+	 	<result property="resume_subject" column="resume_subject"/>
+		<result property="apply_m_id" column="apply_m_id"/>
+		<result property="apply_c_id" column="apply_c_id"/>
+		<result property="cmember_id" column="cmember_id"/>
+	 </resultMap>
+	 
+	 <select id="selectApplyList" parameterClass="String" resultClass="applyList">
+		SELECT resume_subject,resume_m_id
+		FROM kh_resume 
+		inner join
+		(select * from kh_apply_hr inner join kh_cmember on cmember_id = apply_c_id and cmember_id = #cmember_id#)
+		on
+		apply_m_id = resume_m_id
+	 </select>
+	 
+	 
+	 <delete id="deleteApply" parameterClass="int">
+	 	delete from kh_apply_hr
+	 	where apply_no = #apply_no#
+	 </delete>
+</sqlMap>
