@@ -309,7 +309,7 @@ location.replace("main.action");
 								<input type="file" id="uploadBtn" class="uploadBtn" name="upload">
 								&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
 								<font size="3"><b>URL 첨부</b></font>
-								<input type="text" name="port_url" style="height:30px; width:300px;">
+								<input type="text" value = "<s:property value = "apply.port_url"/>" readonly = "readonly" name="port_url" style="height:30px; width:300px;">
 							</div>
 							<script>
 							var uploadFile = $('.fileBox .uploadBtn');

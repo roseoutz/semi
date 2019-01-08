@@ -300,7 +300,7 @@ location.replace("main.action");
 									<label for="UserResume_M_Career_Text"
 										class="lblCareerDescription">경력기술서 </label>
 									<textarea cols="30" id="UserResume_M_Career_Text"
-										name="carrer_content" rows="10"></textarea>
+										name="career_content" rows="10"></textarea>
 								</div>
 								<div class="buttons alignRight"></div>
 							</div>

@@ -8,12 +8,13 @@
 			<h1 class="skip">개인회원 서비스</h1>
 			<section class="content">
 				<div class="contWrap">
+				<br>
 					<div class="mtuTab devFixedTab">
 						<ul>
 							<li class="on"><a href="#">이력서 리스트</a></li>
 						</ul>
 					</div>
-
+					
 					<!-- 스마트매치 -->
 					<h2 class="skip">이력서 리스트</h2>
 
@@ -23,7 +24,7 @@
 							<s:if test = "resultClass != null">
 								<div class="col infoCol">
 									<div class="company">
-										<a href="resumeView.action" ><s:property value = "resultClass.resume_subject"/></a>
+										<a href="resumeView.action" target="_blank"><s:property value = "resultClass.resume_subject"/></a>
 									</div>
 									<div class="desc">
 										<a href="#" target="_blank" class="giread"></dd>

@@ -171,6 +171,15 @@
 		SELECT * FROM KH_RESUME WHERE RESUME_M_ID = #resume_m_id#
 	</select>
 	
+	<!-- 포트폴리오 뽑기 -->
+	<select id = "selectPort" parameterClass = "int" resultMap = "portRes">
+		SELECT * FROM KH_PORT WHERE PORT_RE_NO = #port_re_no#
+	</select>
+	<!-- 포트폴리오 파일이름뽑기 -->
+	<select id = "selectOrgname" parameterClass = "int" resultClass = "String">
+		SELECT PORT_ORGNAME FROM KH_PORT WHERE PORT_RE_NO = #port_re_no#
+	</select>
+	
 	<!-- 이력서 수정 -->
 	<update id = "updateResume" parameterClass = "resume" >
 		UPDATE KH_RESUME SET RESUME_ADDR = #resume_addr#, RESUME_SUBJECT = #resume_subject#, RESUME_DATE = #resume_date#, RESUME_SEX = #resume_sex#, 
@@ -198,13 +207,21 @@
 	<update id = "updateIntro" parameterClass = "intro">
 		UPDATE KH_INTRO SET INTRO_CONTENT = #intro_content# WHERE INTRO_NO = #intro_no#
 	</update>
+	<!-- 포트폴리오 수정 -->
+	<update id = "updatePort" parameterClass = "port">
+		UPDATE KH_PORT SET PORT_ORGNAME = #port_orgname#, PORT_SAVNAME = #port_savname#, PORT_URL = #port_url# WHERE PORT_NO = #port_no#
+	</update>
 	
 	<!-- 이력서한번에뽑기 -->
 	<select id = "selectApply" parameterClass = "int" resultMap = "applyRes" >
 		select * from kh_resume, kh_edu, kh_career, kh_award, kh_port, kh_intro WHERE (resume_no = edu_resume_no and resume_no = career_re_no and resume_no = award_re_no and resume_no = port_re_no and resume_no = intro_re_no) AND RESUME_NO = #resume_no# 
 	</select>
 	<!-- 이력서 삭제 -->
-	<delete id = "deleteApply">
-		DELETE FROM KH_RESUME
+	<delete id = "deleteApply" parameterClass = "int">
+		DELETE FROM KH_RESUME WHERE RESUME_NO = #resume_no#
+	</delete>
+	<!-- 포트폴리오 -->
+	<delete id = "deletePort" parameterClass = "int">
+		DELETE FROM KH_PORT WHERE PORT_RE_NO = #port_re_no#
 	</delete>
 </sqlMap>

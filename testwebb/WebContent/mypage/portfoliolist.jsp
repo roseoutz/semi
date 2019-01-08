@@ -21,8 +21,6 @@
 						<div class="listSortArea">
 							<div class="col col01">구분</div>
 							<div class="col col02">파일 제목</div>
-							<div class="col col03">용량</div>
-							<div class="col col04">등록일</div>
 							<div class="col col05">삭제</div>
 							<!-- [개발] 리스트 레이블 : 삭제로 변경 -->
 						</div>
@@ -30,22 +28,28 @@
 						<div class="mtuList">
 							<ul>
 								<li>
+									<s:if test = "portClass != null">
 									<div class="col col01">포트폴리오</div>
 									<div class="col col02">
-										<a
-											href="http://file2.jobkorea.co.kr/User/JK_File_View_utf8.asp?md=rocketdivez&amp;mn=rocketdivez_%ed%8f%ac%ed%86%a0%ed%8f%b4%eb%a6%ac%ec%98%a4.pdf&amp;idx=3073290">포토폴리오.pdf</a>
+										<a href = "fileDownload.action?fileDownloadName=<s:property value = "portClass.port_orgname"/>"><s:property value = "portClass.port_orgname"/></a>
 									</div>
-									<div class="col col03">4.65M</div>
-									<div class="col col04">2015.05.30</div>
 									<div class="col col05">
 										<div class="btnCell">
-											<button type="button" class="btn dev-btn-del"
+											<button type="button" class="btn dev-btn-del" onClick = "delete_port();"
 												data-re-url="http://www.jobkorea.co.kr/User/ResumeMng/File"
 												data-idx="3073290">
 												<span>삭제</span>
 											</button>
 										</div>
 									</div>
+									</s:if>
+									<s:else>
+									<div class="col col01">포트폴리오</div>
+									<div class="col col02">
+										저장된 포트폴리오가 없습니다.
+									</div>
+									
+									</s:else>
 								</li>
 							</ul>
 						</div>

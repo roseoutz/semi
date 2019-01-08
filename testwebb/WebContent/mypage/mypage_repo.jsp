@@ -24,11 +24,20 @@ function open_win_noresizable(url, name) {
 
 <script type="text/javascript">
 function delete_event(){
-	if (confirm("정말 삭제하시겠습니까?") == true){    //확인
+	if (confirm("이력서를 삭제 하시겠습니까?") == true){    //확인
   	  location.href='resumeDelete.action';
 	}else{   //취소
  	   return;
 	}
 }
+</script>
+<script>
+	function delete_port(){
+		if(confirm("포트폴리오를 삭제 하시겠습니까?") == true){
+			location.href='portDelete.action'
+		}else{
+			return;
+		}
+	}
 </script>
 

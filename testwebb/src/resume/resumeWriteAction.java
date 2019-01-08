@@ -81,6 +81,8 @@ public class resumeWriteAction extends ActionSupport implements SessionAware {
 	private String fileUploadPath="C:\\Java\\upload\\";
 	
 	private String port_url;
+	private String port_savname;
+	private String port_orgname;
 	
 	//자기소개서
 	private String intro_content;
@@ -150,7 +152,8 @@ public class resumeWriteAction extends ActionSupport implements SessionAware {
 				File destFile = new File(fileUploadPath + getUploadFileName()); // 새로운파일
 				FileUtils.copyFile(getUpload(), destFile);
 			}
-			portClass.setPort_savname(getUploadFileName());
+			portClass.setPort_orgname(getUploadFileName());
+			portClass.setPort_savname(getUploadFileName() + "_" + System.currentTimeMillis());
 			portClass.setPort_url(getPort_url());
 			portClass.setPort_re_no(resume_no);
 			sqlMapper.insert("insertPort", portClass);
@@ -208,7 +211,30 @@ public class resumeWriteAction extends ActionSupport implements SessionAware {
 			awardClass.setAward_name(getAward_name());
 			awardClass.setAward_publisher(getAward_publisher());
 			awardClass.setAward_date(getAward_date());
+			awardClass.setAward_no(award_no);
 			sqlMapper.update("updateAward", awardClass);
+			
+			//포트폴리오 수정
+			portClass = new khPortVO();
+			port_no = (int)sqlMapper.queryForObject("selectPort_no", resume_no);
+			
+			port_savname = (String)sqlMapper.queryForObject("selectOrgname", resume_no); // 저장되어있는 파일의 이름
+			
+			if(!port_savname.equals(getUploadFileName())) { // 저장되어있는 파일과 업로드하려는 파일의 이름이 같지않으면 삭제
+				File file = new File(fileUploadPath + port_savname); // 파일객체 생성
+				file.delete(); //저장되어있는 파일 삭제
+				if(getUpload() != null && getUploadFileName() != null) { // 재업로드
+					File destFile = new File(fileUploadPath + getUploadFileName()); // 새로운파일
+					FileUtils.copyFile(getUpload(), destFile);
+				}
+				portClass.setPort_orgname(getUploadFileName());
+				portClass.setPort_savname(getUploadFileName() + "_" + System.currentTimeMillis());
+				portClass.setPort_url(getPort_url());
+				portClass.setPort_no(port_no);
+				sqlMapper.update("updatePort", portClass);
+			}
+			// 같으면 그냥 냅둠
+			
 			
 			//경력 수정
 			careerClass = new khCareerVO();
@@ -222,12 +248,14 @@ public class resumeWriteAction extends ActionSupport implements SessionAware {
 			careerClass.setCareer_pay(getCareer_pay());
 			careerClass.setCareer_explain(getCareer_explain());
 			careerClass.setCareer_content(getCareer_content());
+			careerClass.setCareer_no(career_no);
 			sqlMapper.update("updateCareer", careerClass);
 			
 			//자소서 수정
 			introClass = new khIntroVO();
 			intro_no = (int)sqlMapper.queryForObject("selectIntro_no", resume_no);
 			introClass.setIntro_content(getIntro_content());
+			introClass.setIntro_no(intro_no);
 			
 			sqlMapper.update("updateIntro", introClass);
 			
@@ -243,7 +271,16 @@ public class resumeWriteAction extends ActionSupport implements SessionAware {
 	}
 	
 	public String delete() throws Exception{ //이력서 삭제
-		sqlMapper.delete("deleteApply");
+		session_id = (String)session.get("session_id");
+		resume_no = (int)sqlMapper.queryForObject("selectResume_no", session_id);
+		sqlMapper.delete("deleteApply", resume_no);
+		return SUCCESS;
+	}
+	
+	public String deletePort() throws Exception{
+		session_id = (String)session.get("session_id");
+		resume_no = (int)sqlMapper.queryForObject("selectResume_no", session_id);
+		sqlMapper.delete("deletePort", resume_no);
 		return SUCCESS;
 	}
 

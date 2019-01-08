@@ -19,6 +19,10 @@
 		<action name = "resumeDelete" class = "resume.resumeWriteAction" method = "delete">
 			<result>/resumewrite/resumedeleteOK.jsp</result>
 		</action>
+		<!-- 포트폴리오 삭제  -->
+		<action name = "portDelete" class = "resume.resumeWriteAction" method = "deletePort">
+			<result>/resumewrite/portdeleteOK.jsp</result>
+		</action>
 		<!-- 파일다운로드 -->
 		<action name = "fileDownload" class = "resume.fileDownloadAction">
 			<result name = "success" type = "stream">

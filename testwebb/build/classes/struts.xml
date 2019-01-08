@@ -88,7 +88,7 @@
 	</package>
 	
 	<package name="pflist" extends="struts-default, tiles-default">
-		<action name="pflist">
+		<action name="pflist" class = "resume.rslistAction" method = "portfolio"> 
 			<result type="tiles">pflist</result>
 		</action>	
 	</package>
