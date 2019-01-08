@@ -9,6 +9,8 @@
 	<typeAlias alias="award" type="VO.khAwardVO"/>
 	<typeAlias alias="port" type="VO.khPortVO"/>
 	<typeAlias alias="intro" type="VO.khIntroVO"/>
+	<typeAlias alias="apply" type="VO.khApplyVO"/>
+
 	
 	<resultMap class="resume" id="resumeRes">
 		<result property="resume_no" column="resume_no"/>
@@ -62,6 +64,50 @@
 		<result property="intro_re_no" column="intro_re_no"/>
 		<result property="intro_content" column="intro_content"/>
 	</resultMap>
+	<!-- 합친이력서 리절트맵 -->
+	<resultMap class="apply" id="applyRes">
+		<result property="resume_no" column="resume_no"/>
+		<result property="resume_m_id" column="resume_m_id"/>
+		<result property="resume_subject" column="resume_subject"/>
+		<result property="resume_date" column="resume_date"/>
+		<result property="resume_addr" column="resume_addr"/>
+		<result property="resume_birth" column="resume_birth"/>
+		<result property="resume_sex" column="resume_sex"/>		
+		<result property="edu_no" column="edu_no"/>
+		<result property="edu_resume_no" column="edu_resume_no"/>
+		<result property="edu_school_type" column="edu_school_type"/>
+		<result property="edu_school" column="edu_school"/>
+		<result property="edu_major" column="edu_major"/>
+		<result property="edu_grade" column="edu_grade"/>
+		<result property="edu_enter_date" column="edu_enter_date"/>
+		<result property="edu_graduate_date" column="edu_graduate_date"/>
+		<result property="edu_graduate_status" column="edu_graduate_status"/>		
+		<result property="career_no" column="career_no"/>
+		<result property="career_re_no" column="career_re_no"/>
+		<result property="career_cname" column="career_cname"/>
+		<result property="career_dept" column="career_dept"/>
+		<result property="career_enter_date" column="career_enter_date"/>
+		<result property="career_leave_date" column="career_leave_date"/>
+		<result property="career_position" column="career_position"/>
+		<result property="career_job" column="career_job"/>
+		<result property="career_pay" column="career_pay"/>
+		<result property="career_content" column="career_content"/>
+		<result property="career_explain" column="career_explain"/>		
+		<result property="port_no" column="port_no"/>
+		<result property="port_re_no" column="port_re_no"/>
+		<result property="port_url" column="port_url"/>
+		<result property="port_orgname" column="port_orgname"/>
+		<result property="port_savname" column="port_savname"/>	
+		<result property="award_no" column="award_no"/>
+		<result property="award_re_no" column="award_re_no"/>
+		<result property="award_name" column="award_name"/>
+		<result property="award_publisher" column="award_publisher"/>
+		<result property="award_date" column="award_date"/>
+		<result property="intro_no" column="intro_no"/>
+		<result property="intro_re_no" column="intro_re_no"/>
+		<result property="intro_content" column="intro_content"/>
+	</resultMap>
+	
 	
 	<!-- 이력서 insert -->
 	<insert id="insertResume" parameterClass="resume">
@@ -70,8 +116,24 @@
 	</insert>
 	
 	<!-- resume_no뽑기 -->
-	<select id = "selectSeq" resultClass = "int">
-		SELECT KH_RESUME_SEQ.CURRVAL FROM DUAL
+	<select id = "selectResume_no" resultClass = "int" parameterClass = "String">
+		SELECT RESUME_NO FROM KH_RESUME WHERE RESUME_M_ID = #resume_m_id#
+	</select>
+	<!-- 이력서 no뽑기 -->
+	<select id = "selectEdu_no" resultClass = "int" parameterClass = "int">
+		SELECT EDU_NO FROM KH_EDU WHERE EDU_RESUME_NO = #edu_resume_no#
+	</select>
+	<select id = "selectCareer_no" resultClass = "int" parameterClass = "int">
+		SELECT CAREER_NO FROM KH_CAREER WHERE CAREER_RE_NO = #career_re_no#
+	</select>
+	<select id = "selectAward_no" resultClass = "int" parameterClass = "int">
+		SELECT AWARD_NO FROM KH_AWARD WHERE AWARD_RE_NO = #award_re_no#
+	</select>
+	<select id = "selectPort_no" resultClass = "int" parameterClass = "int">
+		SELECT PORT_NO FROM KH_PORT WHERE PORT_RE_NO = #port_re_no#
+	</select>
+	<select id = "selectIntro_no" resultClass = "int" parameterClass = "int">
+		SELECT INTRO_NO FROM KH_INTRO WHERE INTRO_RE_NO = #intro_re_no#
 	</select>
 
 	<!-- 학력 insert -->
@@ -108,4 +170,41 @@
 	<select id = "selectResume" parameterClass = "String" resultMap = "resumeRes">
 		SELECT * FROM KH_RESUME WHERE RESUME_M_ID = #resume_m_id#
 	</select>
+	
+	<!-- 이력서 수정 -->
+	<update id = "updateResume" parameterClass = "resume" >
+		UPDATE KH_RESUME SET RESUME_ADDR = #resume_addr#, RESUME_SUBJECT = #resume_subject#, RESUME_DATE = #resume_date#, RESUME_SEX = #resume_sex#, 
+		RESUME_BIRTH = #resume_birth# WHERE RESUME_NO = #resume_no#
+	</update>
+	
+	<!-- 학력 수정 -->
+	<update id = "updateEdu" parameterClass = "edu">
+		UPDATE KH_EDU SET EDU_SCHOOL_TYPE = #edu_school_type#, EDU_SCHOOL = #edu_school#, EDU_MAJOR = #edu_major#, EDU_GRADE = #edu_grade#, 
+		EDU_ENTER_DATE = #edu_enter_date#, EDU_GRADUATE_DATE = #edu_graduate_date#, EDU_GRADUATE_STATUS = #edu_graduate_status# WHERE EDU_NO = #edu_no#
+	</update>
+	
+	<!-- 경력 수정 -->
+	<update id = "updateCareer" parameterClass = "career">
+		UPDATE KH_CAREER SET CAREER_CNAME = #career_cname#, CAREER_DEPT = #career_dept#, CAREER_ENTER_DATE = #career_enter_date#, CAREER_LEAVE_DATE = #career_leave_date#, 
+		CAREER_POSITION = #career_position#, CAREER_JOB = #career_job#, CAREER_PAY = #career_pay#, CAREER_CONTENT = #career_content#, CAREER_EXPLAIN = #career_explain# WHERE CAREER_NO = #career_no#
+	</update>
+	
+	<!-- 수상 수정 -->
+	<update id = "updateAward" parameterClass = "award">
+		UPDATE KH_AWARD SET AWARD_NAME = #award_name#, AWARD_PUBLISHER = #award_publisher#, AWARD_DATE = #award_date# WHERE AWARD_NO = #award_no#
+	</update>
+	
+	<!-- 자기소개서 수정 -->
+	<update id = "updateIntro" parameterClass = "intro">
+		UPDATE KH_INTRO SET INTRO_CONTENT = #intro_content# WHERE INTRO_NO = #intro_no#
+	</update>
+	
+	<!-- 이력서한번에뽑기 -->
+	<select id = "selectApply" parameterClass = "int" resultMap = "applyRes" >
+		select * from kh_resume, kh_edu, kh_career, kh_award, kh_port, kh_intro WHERE (resume_no = edu_resume_no and resume_no = career_re_no and resume_no = award_re_no and resume_no = port_re_no and resume_no = intro_re_no) AND RESUME_NO = #resume_no# 
+	</select>
+	<!-- 이력서 삭제 -->
+	<delete id = "deleteApply">
+		DELETE FROM KH_RESUME
+	</delete>
 </sqlMap>

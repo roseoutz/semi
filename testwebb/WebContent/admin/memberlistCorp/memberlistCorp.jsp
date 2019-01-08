@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>404JOB | 관리자 - 기업회원 관리</title>
 </head>
 <body>
 	<div id="container">
@@ -39,7 +38,7 @@
 								<td style = "border : 2px solid;"><s:property value = "cmember_addr"/></td>
 								<td style = "border : 2px solid;"><s:property value = "cmember_email"/></td>
 								<td style = "border : 2px solid;"><s:property value = "cmember_date"/></td>
-								<td style = "border : 2px solid;"><input type = "button" value = "탈  퇴" onclick = "return open_win('admin/memberlistCorp/deleteCorpMember.jsp?id=<s:property value = "cmember_id"/>', '회원탈퇴');"/></td>
+								<td style = "border : 2px solid;"><input type = "button" value = "삭 제" onclick = "return open_win('deleteCorpMember.action?id=<s:property value = "cmember_id"/>');"/></td>
 							</tr>
 						</s:iterator>
 						<s:if test = "totalCount == 0">

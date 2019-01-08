@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>404JOB | 관리자 - 일반회원 관리</title>
 </head>
 <body>
 	<div id="container">
@@ -35,7 +35,7 @@
 								<td style = "border : 2px solid;"><s:property value = "member_phone"/></td>
 								<td style = "border : 2px solid;"><s:property value = "member_email"/></td>
 								<td style = "border : 2px solid;"><s:property value = "member_date"/></td>
-								<td style = "border : 2px solid;"><input type = "button" value = "탈  퇴" onclick = "return open_win('admin/memberlist/deleteMember.jsp?id=<s:property value = "member_id"/>', '회원탈퇴');"/></td>
+								<td style = "border : 2px solid;"><input type = "button" value = "탈  퇴" onclick = "return open_win('deleteMember.action?id=<s:property value = "member_id"/>');"/></td>
 							</tr>
 						</s:iterator>
 						<s:if test = "totalCount == 0">

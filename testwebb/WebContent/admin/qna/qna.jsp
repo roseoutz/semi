@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>404JOB | 관리자-Q&A</title>
 </head>
 <body>
 <div id="container">

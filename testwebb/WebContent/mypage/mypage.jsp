@@ -20,50 +20,38 @@
 					<div class="mtuList boothList smartMatchList" id="smartMatch">
 						<ul>
 							<li>
+							<s:if test = "resultClass != null">
 								<div class="col infoCol">
 									<div class="company">
-										<a href="#" target="_blank"><h2>이력서이력서이력서</h2></a>
+										<a href="resumeView.action" ><s:property value = "resultClass.resume_subject"/></a>
 									</div>
 									<div class="desc">
 										<a href="#" target="_blank" class="giread"></dd>
 											<dl>
 												<dt>최종 수정일 :</dt>
 
-												<dd>2018-12-18 17:40</dd>
+												<dd><s:property value = "resultClass.resume_date"/></dd>
 											</dl> </a>
 									</div>
 								</div>
 								<div class="col btnCol">
 
 
-									<button type="button"
+									<button type="button" onclick = "javascript:location.href='resumeModifyList.action'"
 										class="tplBtn tplBtn_1 tplBtnOrg mtuBtn_2 mtuBtnOrg devBtnPassDirect gireadNoMove">
 										<span>수정하기</span>
 									</button>
 								</div>
-							</li>
-<li>
+							</s:if>
+							<s:else>
 								<div class="col infoCol">
 									<div class="company">
-										<a href="#" target="_blank"><h2>이력서이력서이력서</h2></a>
+										<b>등록된 이력서가 없습니다.</b>
 									</div>
-									<div class="desc">
-										<a href="#" target="_blank" class="giread"></dd>
-											<dl>
-												<dt>최종 수정일 :</dt>
-
-												<dd>2018-12-18 17:40</dd>
-											</dl> </a>
-									</div>
+									
 								</div>
-								<div class="col btnCol">
-
-
-									<button type="button"
-										class="tplBtn tplBtn_1 tplBtnOrg mtuBtn_2 mtuBtnOrg devBtnPassDirect gireadNoMove">
-										<span>수정하기</span>
-									</button>
-								</div>
+								
+							</s:else>
 							</li>
 
 						</ul>

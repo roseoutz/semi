@@ -1,9 +1,9 @@
 package VO;
 
 public class khIntroVO {
-	private int intro_no;			// 식별자
-	private int intro_re_no;			// 이력서 번호(참조용)
-	private String intro_content;	// 자소설 내용
+	private int intro_no;		
+	private int intro_re_no;		
+	private String intro_content;	
 
 	public int getIntro_no() {
 		return intro_no;

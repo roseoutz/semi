@@ -1,12 +1,12 @@
 package VO;
 
 public class khPortVO {
-	// 포트폴리오
-	private int port_no; 			// 식별자
-	private int port_re_no; 			// 이력서 번호(참조용)
-	private String port_url; 		// URL
-	private String port_orgname; 	// 첨부파일 원본 이름
-	private String port_savname; 	// 첨부파일 저장될 이름.
+	
+	private int port_no; 			
+	private int port_re_no; 		
+	private String port_url; 		
+	private String port_orgname; 	
+	private String port_savname; 	
 
 	public int getPort_no() {
 		return port_no;

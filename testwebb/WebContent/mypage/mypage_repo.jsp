@@ -21,3 +21,14 @@ function open_win_noresizable(url, name) {
 	var oWin = window.open(url, name, "scrollbars=no,status=no, resizable=no, width=300, height=150");	
 }
 </script>
+
+<script type="text/javascript">
+function delete_event(){
+	if (confirm("정말 삭제하시겠습니까?") == true){    //확인
+  	  location.href='resumeDelete.action';
+	}else{   //취소
+ 	   return;
+	}
+}
+</script>
+

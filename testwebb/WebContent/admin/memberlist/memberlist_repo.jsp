@@ -12,7 +12,11 @@ location.replace("admin_main.action");
 </script>
 </s:if>
 <script>
-function open_win(url, name) {
-	var oWin = window.open(url, name, "scrollbars=no,status=no, resizable=no, width=300, height=150");	
+function open_win(url) {
+	if(confirm("정말 탈퇴시키시겠습니까?") == true){
+		location.href=url;
+	}else{
+		return;
+	}
 }
 </script>

@@ -35,6 +35,11 @@ public class resumeWriteAction extends ActionSupport implements SessionAware {
 	private Map session;
 	private String session_id;
 	private int resume_no;
+	private int edu_no;
+	private int award_no;
+	private int career_no;
+	private int port_no;
+	private int intro_no;
 	
 	// 인적사항
 	private String resume_m_id;
@@ -88,14 +93,13 @@ public class resumeWriteAction extends ActionSupport implements SessionAware {
 		reader.close();
 	}
 	
-	public String execute() throws Exception{
-		// 인적사항 입력
+	public String execute() throws Exception{ // 이력서 작성
+		
 		try {
-			sqlMapper.startTransaction();
-			
+			sqlMapper.startTransaction(); // 트랜잭션 스타트
+			// 인적사항 입력
 			resumeClass = new khResumeVO();
 			session_id = (String)session.get("session_id");
-			System.out.println(session_id);
 			resumeClass.setResume_addr(getResume_addr());
 			resumeClass.setResume_date(today.getTime());
 			resumeClass.setResume_subject(getResume_subject());
@@ -103,8 +107,7 @@ public class resumeWriteAction extends ActionSupport implements SessionAware {
 			resumeClass.setResume_sex(getResume_sex());
 			resumeClass.setResume_m_id(session_id);
 			sqlMapper.insert("insertResume", resumeClass);
-			resume_no = (int)sqlMapper.queryForObject("selectSeq", session_id); // 인적사항 테이블번호
-			System.out.println(resume_no);
+			resume_no = (int)sqlMapper.queryForObject("selectResume_no", session_id); // 인적사항 테이블번호
 			
 			//학력 입력
 			eduClass = new khEduVO();
@@ -143,8 +146,10 @@ public class resumeWriteAction extends ActionSupport implements SessionAware {
 			//포트폴리오(파일)
 			portClass = new khPortVO();
 			
-			File destFile = new File(fileUploadPath + getUploadFileName()); // 새로운파일
-			FileUtils.copyFile(getUpload(), destFile);
+			if(getUpload() != null && getUploadFileName() != null) {
+				File destFile = new File(fileUploadPath + getUploadFileName()); // 새로운파일
+				FileUtils.copyFile(getUpload(), destFile);
+			}
 			portClass.setPort_savname(getUploadFileName());
 			portClass.setPort_url(getPort_url());
 			portClass.setPort_re_no(resume_no);
@@ -157,6 +162,74 @@ public class resumeWriteAction extends ActionSupport implements SessionAware {
 			introClass.setIntro_re_no(resume_no);
 			sqlMapper.insert("insertIntro", introClass);
 			
+			sqlMapper.commitTransaction(); // 트랜잭션 마무리
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			sqlMapper.endTransaction(); // 에러가나면 트랜잭션 종료(롤백)
+		}
+		
+		return SUCCESS;
+	}
+	
+	public String modify() throws Exception{ // 이력서 수정
+		try {
+			sqlMapper.startTransaction();
+			//인적사항 수정
+			resumeClass = new khResumeVO();
+			session_id = (String)session.get("session_id");
+			resume_no = (int)sqlMapper.queryForObject("selectResume_no", session_id);	
+			resumeClass.setResume_addr(getResume_addr());
+			resumeClass.setResume_date(today.getTime());
+			resumeClass.setResume_subject(getResume_subject());
+			resumeClass.setResume_birth(getResume_birth());
+			resumeClass.setResume_sex(getResume_sex());
+			resumeClass.setResume_date(today.getTime()); // 최종 수정날짜
+			resumeClass.setResume_no(resume_no);
+			
+			sqlMapper.update("updateResume", resumeClass);
+			
+			//학력 수정
+			eduClass = new khEduVO();
+			edu_no = (int)sqlMapper.queryForObject("selectEdu_no", resume_no);
+			eduClass.setEdu_school_type(getEdu_school_type());
+			eduClass.setEdu_school(getEdu_school());
+			eduClass.setEdu_enter_date(getEdu_enter_date());
+			eduClass.setEdu_graduate_date(getEdu_graduate_date());
+			eduClass.setEdu_major(getEdu_major());
+			eduClass.setEdu_grade(getEdu_grade());
+			eduClass.setEdu_graduate_status(getEdu_graduate_status());
+			eduClass.setEdu_no(edu_no);
+			sqlMapper.update("updateEdu", eduClass);
+			
+			//수상 수정
+			awardClass = new khAwardVO();
+			award_no = (int)sqlMapper.queryForObject("selectAward_no", resume_no);
+			awardClass.setAward_name(getAward_name());
+			awardClass.setAward_publisher(getAward_publisher());
+			awardClass.setAward_date(getAward_date());
+			sqlMapper.update("updateAward", awardClass);
+			
+			//경력 수정
+			careerClass = new khCareerVO();
+			career_no = (int)sqlMapper.queryForObject("selectCareer_no", resume_no);
+			careerClass.setCareer_cname(getCareer_cname());
+			careerClass.setCareer_dept(getCareer_dept());
+			careerClass.setCareer_enter_date(getCareer_enter_date());
+			careerClass.setCareer_leave_date(getCareer_leave_date());
+			careerClass.setCareer_position(getCareer_position());
+			careerClass.setCareer_job(getCareer_job());
+			careerClass.setCareer_pay(getCareer_pay());
+			careerClass.setCareer_explain(getCareer_explain());
+			careerClass.setCareer_content(getCareer_content());
+			sqlMapper.update("updateCareer", careerClass);
+			
+			//자소서 수정
+			introClass = new khIntroVO();
+			intro_no = (int)sqlMapper.queryForObject("selectIntro_no", resume_no);
+			introClass.setIntro_content(getIntro_content());
+			
+			sqlMapper.update("updateIntro", introClass);
 			
 			
 			sqlMapper.commitTransaction();
@@ -166,6 +239,11 @@ public class resumeWriteAction extends ActionSupport implements SessionAware {
 			sqlMapper.endTransaction();
 		}
 		
+		return SUCCESS;
+	}
+	
+	public String delete() throws Exception{ //이력서 삭제
+		sqlMapper.delete("deleteApply");
 		return SUCCESS;
 	}
 
@@ -499,6 +577,46 @@ public class resumeWriteAction extends ActionSupport implements SessionAware {
 
 	public void setUploadFileName(String uploadFileName) {
 		this.uploadFileName = uploadFileName;
+	}
+
+	public int getEdu_no() {
+		return edu_no;
+	}
+
+	public void setEdu_no(int edu_no) {
+		this.edu_no = edu_no;
+	}
+
+	public int getAward_no() {
+		return award_no;
+	}
+
+	public void setAward_no(int award_no) {
+		this.award_no = award_no;
+	}
+
+	public int getCareer_no() {
+		return career_no;
+	}
+
+	public void setCareer_no(int career_no) {
+		this.career_no = career_no;
+	}
+
+	public int getPort_no() {
+		return port_no;
+	}
+
+	public void setPort_no(int port_no) {
+		this.port_no = port_no;
+	}
+
+	public int getIntro_no() {
+		return intro_no;
+	}
+
+	public void setIntro_no(int intro_no) {
+		this.intro_no = intro_no;
 	}
 }
 	

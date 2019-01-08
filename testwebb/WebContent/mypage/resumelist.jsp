@@ -3,6 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE html>
+
 <body id="secMtu">
 
 	<div id="wrap">
@@ -23,68 +24,12 @@
 
 					<h2 class="skip">이력서 관리</h2>
 					<div class="btnBx">
-						<a href="../resumewrite/resumewrite.jsp"
+						<a href="resumewrite/resumewrite.jsp"
 							class="btn btnBl mtuSpImgBefore" target="_blank"><span>이력서
 								등록</span></a>
 					</div>
 
-					<div class="hopeWorking">
-						<h3 class="header">희망근무조건</h3>
-						<div class="summary">정보보안, 네트워크·서버·보안, 정보보안, Linux, 보안기술,
-							보안관리, 네트워크보안, 정보보안, 해킹, 보안컨설팅, 시스템운영, 정규직, 경기 성남시 분당구, 서울전지역,
-							2,800 만원 이상</div>
-						<div class="buttons">
-							<button type="button" class="button buttonSetting">
-								<span>설정하기</span>
-							</button>
-							<button type="button" class="button buttonDetail">
-								<span>상세보기</span>
-							</button>
-						</div>
-						<div class="popup">
-							<div class="list">
-								<div class="item">
-									<div class="label">고용형태</div>
-									<div class="value">정규직</div>
-								</div>
-								<div class="item">
-									<div class="label">희망연봉</div>
-									<div class="value">2,800 만원 이상</div>
-								</div>
-								<div class="item">
-									<div class="label">근무지역</div>
-									<div class="value">경기 성남시 분당구, 서울전지역</div>
-								</div>
-								<div class="item">
-									<div class="label">직무</div>
-									<div class="value">
-										<div class="list">
-											<div class="item">
-												<div class="category">네트워크&#183;서버&#183;보안</div>
-												Linux, 보안관리, 시스템운영, 보안기술, 정보보안
-											</div>
-										</div>
-									</div>
-
-								</div>
-								<div class="item">
-									<div class="label">산업</div>
-									<div class="value">
-										<div class="list">
-											<div class="item">
-												<div class="category">정보보안</div>
-												보안컨설팅, 해킹, 네트워크보안, 정보보안
-											</div>
-										</div>
-									</div>
-
-								</div>
-
-
-
-							</div>
-						</div>
-					</div>
+					
 					<div class="tableList  ">
 						<div class="">
 							<div class="listSortArea">
@@ -99,19 +44,17 @@
 										<div class="col col01">
 											<div class="tit">
 												<em class="badge"><s:property value = "resultClass.resume_date"/></em><a
-													href="/User/Resume/Write" target="_blank"><s:property value = "resultClass.resume_subject"/></a>
+													href="resumeView.action" target="_blank"><s:property value = "resultClass.resume_subject"/></a>
 											</div>
 											<div class="date"></div>
 										</div>
 										<div class="col col02">
 											<!-- checkbox -->
 											<div class="btnCell">
-												<a class="btn" href="" target="_blank">수정</a>
-											</div>
+												<a class="btn" href="resumeModifyList.action" target="_blank">수정</a>
+											</div>										
 											<div class="btnCell">
-												<button class="btn" type="button" onclick="">
-													<span>삭제</span>
-												</button>
+												<button class="btn" type="button" onClick="delete_event();"><span>삭제</span></button>
 											</div>
 										</div>
 									</li>

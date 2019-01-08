@@ -2,6 +2,6 @@
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <script>
-	self.opener.location.reload(); //새로고침
-	self.close();
+	alert("회원 탈퇴 되었습니다.");
+	location.replace('memberlistGen.action');
 </script>
