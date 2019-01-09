@@ -14,10 +14,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import VO.khApplyViewVO;
 
 public class applyManageViewAction extends ActionSupport implements SessionAware {
-	//현재 세션에 담겨있는 cmember id를 가져와서 로그인한 apply_hr 테이블과 조인(apply_c_id = session_id)하여	
-	//현재 로그인한 기업에 지원한 id 리스트를 출력.
-	//그 id리스트(테이블)과 이력서 테이블을 조인 (apply_m_id = resume_m_id)
-	//한 결과 => 현재 로그인한 기업회원에게 지원한 모든 이력서,지원자.
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	

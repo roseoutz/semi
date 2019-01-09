@@ -4,6 +4,8 @@
 <%
 	String session_id = (String)session.getAttribute("session_id");
 %>
+
+
 <!DOCTYPE html>
 <body id="secMtu">
 
@@ -31,6 +33,7 @@
 							</div>
 							<div class="mtuList">
 								<s:iterator value="applyList" status="stat">
+									<input type="hidden" name="apply_no" value="<s:property value="apply_no"/>"/>
 									<ul>
 										<li class="ing">
 											<div class="col col01">
@@ -47,39 +50,23 @@
 													<s:property value="resume_m_id"/>
 												</div>
 												<div class="btnCell">
-													<button class="btn" type="button" onclick="">
+													<button class="btn" type="button" onclick="open_chk();">
 														삭제
 													</button>
+													<script>
+function open_chk(){
+	if(confirm('정말 삭제하시겠습니까?') == true){
+		location.href='deleteApplyList.action?apply_no=<s:property value="apply_no"/>';
+	}else{
+		return;
+	}
+}
+</script>
 												</div>
 											</div>
 										</li>
 									</ul>
 								</s:iterator>
-								<!--  
-								<ul>
-									<li class="ing">
-										<div class="col col01">
-											<div class="tit">
-												<em class="badge">2018.12.19</em>
-												<a href="#" target="_blank">
-													apply_subject
-												</a>
-											</div>
-											<div class="date"></div>
-										</div>
-										<div class="col col02">
-											<div class="btnCell">
-												<a class="btn" href="#" target="_blank">apply_m_id</a>
-											</div>
-											<div class="btnCell">
-												<button class="btn" type="button" onclick="javascript:location.href='applyListDelete.action?apply_no=<s:property value="apply_no"/>'">
-													<span>삭제</span>
-												</button>
-											</div>
-										</div>
-									</li>
-								</ul>
-								-->
 							</div>
 						</div>
 

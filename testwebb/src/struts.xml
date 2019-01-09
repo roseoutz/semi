@@ -154,7 +154,7 @@
 		</action>
 		
 		<action name="deleteApplyList" class="applyManage.applyManageDeleteAction">
-			<result type="tiles">applyList</result>
+			<result>/applylist/deleteSuccess.jsp</result>
 		</action>
 	</package>
 </struts>

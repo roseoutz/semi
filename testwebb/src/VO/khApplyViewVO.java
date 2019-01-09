@@ -6,7 +6,8 @@ public class khApplyViewVO {
 	private String cmember_id;
 	private String apply_m_id;
 	private String apply_c_id;
-
+	private String apply_no;
+	
 	public String getResume_subject() {
 		return resume_subject;
 	}
@@ -45,6 +46,14 @@ public class khApplyViewVO {
 
 	public void setApply_c_id(String apply_c_id) {
 		this.apply_c_id = apply_c_id;
+	}
+
+	public String getApply_no() {
+		return apply_no;
+	}
+
+	public void setApply_no(String apply_no) {
+		this.apply_no = apply_no;
 	}
 
 }

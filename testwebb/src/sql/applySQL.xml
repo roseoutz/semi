@@ -17,10 +17,11 @@
 		<result property="apply_m_id" column="apply_m_id"/>
 		<result property="apply_c_id" column="apply_c_id"/>
 		<result property="cmember_id" column="cmember_id"/>
+		<result property="apply_no" column="apply_no"/>
 	 </resultMap>
 	 
 	 <select id="selectApplyList" parameterClass="String" resultClass="applyList">
-		SELECT resume_subject,resume_m_id
+		SELECT resume_subject,resume_m_id, apply_no
 		FROM kh_resume 
 		inner join
 		(select * from kh_apply_hr inner join kh_cmember on cmember_id = apply_c_id and cmember_id = #cmember_id#)
