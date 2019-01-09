@@ -219,10 +219,11 @@ public class resumeWriteAction extends ActionSupport implements SessionAware {
 			port_no = (int)sqlMapper.queryForObject("selectPort_no", resume_no);
 			
 			port_savname = (String)sqlMapper.queryForObject("selectOrgname", resume_no); // 저장되어있는 파일의 이름
+			System.out.println(port_savname);
+			System.out.println(getUploadFileName());
 			
-			if(!port_savname.equals(getUploadFileName())) { // 저장되어있는 파일과 업로드하려는 파일의 이름이 같지않으면 삭제
-				File file = new File(fileUploadPath + port_savname); // 파일객체 생성
-				file.delete(); //저장되어있는 파일 삭제
+			// 수정시 포트폴리오 파일이 없으면 업로드
+			if(port_savname == null) {
 				if(getUpload() != null && getUploadFileName() != null) { // 재업로드
 					File destFile = new File(fileUploadPath + getUploadFileName()); // 새로운파일
 					FileUtils.copyFile(getUpload(), destFile);
@@ -232,9 +233,23 @@ public class resumeWriteAction extends ActionSupport implements SessionAware {
 				portClass.setPort_url(getPort_url());
 				portClass.setPort_no(port_no);
 				sqlMapper.update("updatePort", portClass);
+			}else { // 저장된 포트폴리오 파일이 있으면
+				if(!port_savname.equals(getUploadFileName())) { // 저장되어있는 파일과 업로드하려는 파일의 이름이 같지않으면 삭제
+					File file = new File(fileUploadPath + port_savname); // 파일객체 생성
+					file.delete(); //저장되어있는 파일 삭제
+					if(getUpload() != null && getUploadFileName() != null) { // 재업로드
+						File destFile = new File(fileUploadPath + getUploadFileName()); // 새로운파일
+						FileUtils.copyFile(getUpload(), destFile);
+						portClass.setPort_orgname(getUploadFileName());
+						portClass.setPort_savname(getUploadFileName() + "_" + System.currentTimeMillis());
+						portClass.setPort_url(getPort_url());
+						portClass.setPort_no(port_no);
+						sqlMapper.update("updatePort", portClass);
+					}
+			
+				}
 			}
 			// 같으면 그냥 냅둠
-			
 			
 			//경력 수정
 			careerClass = new khCareerVO();
@@ -273,6 +288,9 @@ public class resumeWriteAction extends ActionSupport implements SessionAware {
 	public String delete() throws Exception{ //이력서 삭제
 		session_id = (String)session.get("session_id");
 		resume_no = (int)sqlMapper.queryForObject("selectResume_no", session_id);
+		port_savname = (String)sqlMapper.queryForObject("selectOrgname", resume_no);
+		File file = new File(fileUploadPath + port_savname); // 저장되어있는 파일객체 생성
+		file.delete(); // 업로드된 포트폴리오 삭제
 		sqlMapper.delete("deleteApply", resume_no);
 		return SUCCESS;
 	}

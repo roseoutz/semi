@@ -1,5 +1,6 @@
 package resume;
 import java.io.IOException;
+
 import java.io.Reader;
 import java.util.Map;
 
@@ -31,7 +32,9 @@ public class resumeModifyListAction extends ActionSupport implements SessionAwar
 		
 		apply = new khApplyVO();
 		resume_no = (int)sqlMapper.queryForObject("selectResume_no", session_id);
+		
 		apply = (khApplyVO)sqlMapper.queryForObject("selectApply", resume_no);
+	
 		return SUCCESS;
 		
 	}
@@ -67,6 +70,7 @@ public class resumeModifyListAction extends ActionSupport implements SessionAwar
 	public void setApply(khApplyVO apply) {
 		this.apply = apply;
 	}
+
 	
 	
 	

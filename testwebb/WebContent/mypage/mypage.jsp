@@ -38,7 +38,7 @@
 								<div class="col btnCol">
 
 
-									<button type="button" onclick = "javascript:location.href='resumeModifyList.action'"
+									<button type="button" onclick = "window.open('resumeModifyList.action')"
 										class="tplBtn tplBtn_1 tplBtnOrg mtuBtn_2 mtuBtnOrg devBtnPassDirect gireadNoMove">
 										<span>수정하기</span>
 									</button>

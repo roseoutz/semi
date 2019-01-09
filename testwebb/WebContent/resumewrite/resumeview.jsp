@@ -97,9 +97,9 @@ location.replace("main.action");
 			<div class="container">
 				<a href="main.action" class="logo"><img src="resumewrite/images/404job.png" alt="404JOB"></a>
 				<div class="links">
-					<a href="../main.action"
+					<a href="main.action"
 						class="link linkHome">개인회원 홈</a> <a
-						href="#"
+						href="rslist.action"
 						class="link linkManage">이력서 관리</a>
 				</div>
 			</div>
@@ -303,12 +303,10 @@ location.replace("main.action");
 						<h2 class="header">포트폴리오</h2>
 						<div class="form formPortfolio">
 							<div class="fileBox">
-								<font size="3"><b>파일 첨부</b></font>
-								<input type="text" class="fileName" readonly="readonly">
-								<label for="uploadBtn" class="btn_file">찾아보기</label>
-								<input type="file" id="uploadBtn" class="uploadBtn" name="upload">
+								<font size="3"><b>포트폴리오 파일</b>&ensp;</font>
+								<input type="text" class="fileName" readonly="readonly" value = "<s:property value = "apply.port_orgname"/>">
 								&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-								<font size="3"><b>URL 첨부</b></font>
+								<font size="3"><b>URL</b>&ensp;</font>
 								<input type="text" value = "<s:property value = "apply.port_url"/>" readonly = "readonly" name="port_url" style="height:30px; width:300px;">
 							</div>
 							<script>

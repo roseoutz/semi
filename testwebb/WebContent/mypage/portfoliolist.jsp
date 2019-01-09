@@ -21,30 +21,22 @@
 						<div class="listSortArea">
 							<div class="col col01">구분</div>
 							<div class="col col02">파일 제목</div>
-							<div class="col col05">삭제</div>
+							
 							<!-- [개발] 리스트 레이블 : 삭제로 변경 -->
 						</div>
 
 						<div class="mtuList">
 							<ul>
 								<li>
-									<s:if test = "portClass != null">
+									<s:if test = "portClass.port_orgname != null">
 									<div class="col col01">포트폴리오</div>
 									<div class="col col02">
 										<a href = "fileDownload.action?fileDownloadName=<s:property value = "portClass.port_orgname"/>"><s:property value = "portClass.port_orgname"/></a>
 									</div>
-									<div class="col col05">
-										<div class="btnCell">
-											<button type="button" class="btn dev-btn-del" onClick = "delete_port();"
-												data-re-url="http://www.jobkorea.co.kr/User/ResumeMng/File"
-												data-idx="3073290">
-												<span>삭제</span>
-											</button>
-										</div>
-									</div>
+									
 									</s:if>
 									<s:else>
-									<div class="col col01">포트폴리오</div>
+									<div class="col col01"><b>포트폴리오</b></div>
 									<div class="col col02">
 										저장된 포트폴리오가 없습니다.
 									</div>
@@ -61,33 +53,7 @@
 								frameborder="no" scrolling="no" title="첨부파일 등록수정 레이어"></iframe>
 						</div>
 
-						<div class="listBtmArea">
-							<div class="fileSize">
-								<strong>95.35MB</strong> 사용가능 (<em>4.65MB</em> / 100MB)
-							</div>
-							<div class="noti">
-								<button type="button" class="btnMore">
-									<span class="mtuSpImgBefore">등록 가능한 파일형식</span>
-								</button>
-								<div class="mtuLyWrap lyMoreMenu devMtuLyWrap">
-									<div class="lyCnt">
-										<ul>
-											<li>문서파일 : hwp, doc, docx, ppt, pptx, xls, xlsx, pdf,
-												txt, rtf, gul</li>
-											<li>이미지파일 : jpg, jpeg, gif, png, psd, ai, swf</li>
-											<li>압축파일: zip, alz</li>
-
-										</ul>
-									</div>
-									<p class="lyBtn">
-										<button type="button"
-											class="tplBtnTy tplLyBtnClose devLyBtnClose">
-											<span class="blind">서비스 더보기 닫기</span>
-										</button>
-									</p>
-								</div>
-							</div>
-						</div>
+						
 						<div class="tplPagination">
 
 
@@ -104,6 +70,7 @@
 					<div class="mtuTip">
 						<strong class="skip">이용 TIP</strong>
 						<ul class="tipList">
+							<li><b><font color = "blue">포트폴리오 등록은 이력서 수정페이지에서 하실 수 있습니다.</font></b></li>
 							<li>등록한 첨부파일은 온라인 입사지원 시 첨부하여 지원하실 수 있습니다.</li>
 							<li>포트폴리오란? 이력서에 담기 힘든 나만의 재능을 모은 포트폴리오, 기획서 파일을 등록하여
 								인사담당자에게 공개하거나 입사지원시 활용하실 수 있습니다.</li>
@@ -126,7 +93,7 @@
 				<div class="lnbGroup">
 					<h2 class="lnbTit">이력서 관리</h2>
 					<ul>
-						<li><a href="rswrite.action" target="_blank">이력서 등록</a></li>
+						<li><a href="resumewrite/resumewrite.jsp" target="_blank">이력서 등록</a></li>
 						<li><a href="rslist.action">이력서 관리</a></li>
 					</ul>
 				</div>

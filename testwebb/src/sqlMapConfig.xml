@@ -3,15 +3,7 @@
 	"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
 <sqlMapConfig>
 	<properties resource="/dbconnect.properties"/>
-	<!-- 
-	<setting cahceModelsEnable="true"
-		enhancementEnable="true"
-		lazyLoadingEnable="true"
-		maxRequest="32"
-		maxSession="10"
-		maxTransactions="5"
-		useStatementNamespaces="false"
-	 -->
+	
 	<settings useStatementNamespaces="true"/>
 		<transactionManager type="JDBC" commitRequired="false">
 			<dataSource type="SIMPLE">

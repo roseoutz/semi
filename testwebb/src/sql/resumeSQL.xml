@@ -108,6 +108,46 @@
 		<result property="intro_content" column="intro_content"/>
 	</resultMap>
 	
+	<!-- 포트폴리오 없는 이력서 -->
+	<resultMap class="apply" id="applyRes">
+		<result property="resume_no" column="resume_no"/>
+		<result property="resume_m_id" column="resume_m_id"/>
+		<result property="resume_subject" column="resume_subject"/>
+		<result property="resume_date" column="resume_date"/>
+		<result property="resume_addr" column="resume_addr"/>
+		<result property="resume_birth" column="resume_birth"/>
+		<result property="resume_sex" column="resume_sex"/>		
+		<result property="edu_no" column="edu_no"/>
+		<result property="edu_resume_no" column="edu_resume_no"/>
+		<result property="edu_school_type" column="edu_school_type"/>
+		<result property="edu_school" column="edu_school"/>
+		<result property="edu_major" column="edu_major"/>
+		<result property="edu_grade" column="edu_grade"/>
+		<result property="edu_enter_date" column="edu_enter_date"/>
+		<result property="edu_graduate_date" column="edu_graduate_date"/>
+		<result property="edu_graduate_status" column="edu_graduate_status"/>		
+		<result property="career_no" column="career_no"/>
+		<result property="career_re_no" column="career_re_no"/>
+		<result property="career_cname" column="career_cname"/>
+		<result property="career_dept" column="career_dept"/>
+		<result property="career_enter_date" column="career_enter_date"/>
+		<result property="career_leave_date" column="career_leave_date"/>
+		<result property="career_position" column="career_position"/>
+		<result property="career_job" column="career_job"/>
+		<result property="career_pay" column="career_pay"/>
+		<result property="career_content" column="career_content"/>
+		<result property="career_explain" column="career_explain"/>		
+		<result property="award_no" column="award_no"/>
+		<result property="award_re_no" column="award_re_no"/>
+		<result property="award_name" column="award_name"/>
+		<result property="award_publisher" column="award_publisher"/>
+		<result property="award_date" column="award_date"/>
+		<result property="intro_no" column="intro_no"/>
+		<result property="intro_re_no" column="intro_re_no"/>
+		<result property="intro_content" column="intro_content"/>
+	</resultMap>
+	
+	
 	
 	<!-- 이력서 insert -->
 	<insert id="insertResume" parameterClass="resume">
@@ -213,9 +253,11 @@
 	</update>
 	
 	<!-- 이력서한번에뽑기 -->
-	<select id = "selectApply" parameterClass = "int" resultMap = "applyRes" >
-		select * from kh_resume, kh_edu, kh_career, kh_award, kh_port, kh_intro WHERE (resume_no = edu_resume_no and resume_no = career_re_no and resume_no = award_re_no and resume_no = port_re_no and resume_no = intro_re_no) AND RESUME_NO = #resume_no# 
+	<select id = "selectApply" parameterClass = "int" resultClass = "apply" >
+		select * from kh_resume, kh_edu, kh_career, kh_award, kh_port, kh_intro WHERE 
+		(resume_no = edu_resume_no and resume_no = career_re_no and resume_no = award_re_no and resume_no = port_re_no and resume_no = intro_re_no) AND RESUME_NO = #resume_no# 
 	</select>
+	
 	<!-- 이력서 삭제 -->
 	<delete id = "deleteApply" parameterClass = "int">
 		DELETE FROM KH_RESUME WHERE RESUME_NO = #resume_no#
